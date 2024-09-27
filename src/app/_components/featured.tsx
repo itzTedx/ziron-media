@@ -1,20 +1,11 @@
-import dynamic from "next/dynamic";
-
 import { AnimatedBeamSocial } from "@/components/bento/animated-beam";
 import { AnimatedListDemo } from "@/components/bento/animated-list";
 import { BentoCard, BentoGrid } from "@/components/bento/bento-grid";
-import { globeConfig, sampleArcs } from "@/components/bento/earth";
+import GridGlobe from "@/components/bento/grid-globe";
 import Marquee from "@/components/bento/marquee";
 import { Badge } from "@/components/ui/badge";
 import { services } from "@/constants/services";
 import { cn } from "@/lib/utils";
-
-const World = dynamic(
-  () => import("@/components/ui/globe").then((m) => m.World),
-  {
-    ssr: false,
-  }
-);
 
 export function Featured() {
   return (
@@ -178,7 +169,7 @@ const features = [
     cta: "Learn more",
     background: (
       <div className="absolute -bottom-20 z-10 h-72 w-full translate-x-1/3 md:h-full">
-        <World data={sampleArcs} globeConfig={globeConfig} />
+        <GridGlobe />
       </div>
     ),
   },
