@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 export default function Hero() {
   return (
-    <section className="text-center">
+    <section className="container text-center">
       <h1 className="mt-20 text-3xl font-bold tracking-tight text-primary md:text-6xl md:leading-[4rem]">
         We’re great at Digital <br />
         Marketing Solutions

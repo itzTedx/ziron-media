@@ -12,11 +12,14 @@ export function Works() {
 
   return (
     <div className="py-24">
-      <Badge>✦ Happy Customers</Badge>
-      <h2 className="title-2 max-w-xl">
-        Here are some <span className="text-secondary">cases</span> we’re pretty
-        proud of
-      </h2>
+      <div className="container">
+        <Badge>✦ Happy Customers</Badge>
+        <h2 className="title-2 mt-5 max-w-xl">
+          Here are some <span className="text-secondary">cases</span> we’re
+          pretty proud of
+        </h2>
+      </div>
+
       <Carousel items={cards} />
     </div>
   );
@@ -33,12 +36,13 @@ const DummyContent = () => {
           >
             <p className="mx-auto max-w-3xl font-sans text-base text-neutral-600 dark:text-neutral-400 md:text-2xl">
               <span className="font-bold text-neutral-700 dark:text-neutral-200">
-                The first rule of Apple club is that you boast about Apple club.
+                Search Engine Optimazation
               </span>{" "}
-              Keep a journal, quickly jot down a grocery list, and take amazing
-              class notes. Want to convert those notes to text? No problem.
-              Langotiya jeetu ka mara hua yaar is ready to capture every
-              thought.
+              Keyword optimization improves search relevance through strategic
+              keyword integration in content and metadata. Technical SEO
+              enhances site structure and speed for better user experience and
+              crawlability. Content optimization creates engaging, high-ranking
+              material to boost organic traffic.
             </p>
             <Image
               src="https://assets.aceternity.com/macbook.png"

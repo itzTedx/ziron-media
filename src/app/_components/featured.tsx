@@ -5,7 +5,7 @@ import { services } from "@/constants/services";
 
 export function Featured() {
   return (
-    <section className="flex flex-col items-center gap-6 py-24">
+    <section className="container flex flex-col items-center gap-6 py-24">
       <Badge variant={"secondary"}>✦ What we are great at</Badge>
       <h2 className="text-center font-medium">
         We design, build and elevate <br />

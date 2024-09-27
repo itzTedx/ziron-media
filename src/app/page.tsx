@@ -5,7 +5,7 @@ import { Works } from "./_components/works";
 
 export default function Home() {
   return (
-    <main className="container">
+    <main>
       <Hero />
       <Featured />
       <HowWeWorks />
