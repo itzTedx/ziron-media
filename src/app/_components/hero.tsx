@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { IconArrowRight } from "@tabler/icons-react";
+
 import HeroVideoDialog from "@/components/magicui/hero-video-dialog";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -7,11 +9,11 @@ import { cn } from "@/lib/utils";
 export default function Hero() {
   return (
     <section className="text-center">
-      <h1 className="mt-20 text-6xl font-bold leading-[4rem] tracking-tight text-primary">
+      <h1 className="mt-20 text-3xl font-bold tracking-tight text-primary md:text-6xl md:leading-[4rem]">
         We’re great at Digital <br />
         Marketing Solutions
       </h1>
-      <p className="mt-3">
+      <p className="mt-3 text-balance">
         We specialize in brand identities, scalable websites, and expert social
         media management
       </p>
@@ -20,10 +22,10 @@ export default function Hero() {
         href="/contact"
         className={cn(
           buttonVariants({ variant: "outline" }),
-          "mt-12 font-bold text-primary"
+          "mt-12 font-bold uppercase text-primary"
         )}
       >
-        Let&apos;s get started!
+        Let&apos;s get started <IconArrowRight className="ml-2 size-5" />
       </Link>
 
       <HeroVideoDialog

@@ -20,10 +20,22 @@
     --accent-foreground: 280 60% 5%;
     --destructive: 0 85% 60%;
     --destructive-foreground: 280 60% 5%;
-    --border: 270 20% 20%;
+    --border: 270 20% 86%;
     --input: 270 20% 20%;
     --ring: 0 0% 40%;
     --radius: 0.5rem;
+
+    --gray-50: 240 33% 98%;
+    --gray-100: 231 28% 90%;
+    --gray-200: 233 27% 82%;
+    --gray-300: 234 16% 70%;
+    --gray-400: 245 20% 66%;
+    --gray-500: 240 23% 60%;
+    --gray-600: 238 26% 52%;
+    --gray-700: 233 36% 40%;
+    --gray-800: 233 42% 30%;
+    --gray-900: 248 60% 17%;
+    --gray-950: 250 70% 8%;
   }
 
   .dark {
@@ -56,4 +68,12 @@
   body {
     @apply bg-background text-foreground;
   }
+  h2 {
+    @apply text-balance text-5xl leading-[4rem] tracking-tight;
+  }
 }
+/* 
+//Debugging CSS
+* {
+  outline: 1px solid red;
+} */

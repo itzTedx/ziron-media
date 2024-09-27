@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 
 import BreakpointIndicator from "@/components/dev/breakpoint-indicator";
+import Footer from "@/components/layout/footer";
 import Navbar from "@/components/layout/navbar";
 import { plusJakarta } from "@/fonts";
 
 import "../styles/globals.css";
+import "../styles/ui.css";
 
 export const metadata: Metadata = {
   title: "Ziron Media - Digital Marketing Agency",
@@ -19,9 +21,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${plusJakarta.className} antialiased`}>
-        <Navbar />
-        {children}
-        <BreakpointIndicator />
+        <div vaul-drawer-wrapper="">
+          <Navbar />
+          {children}
+          <Footer />
+          <BreakpointIndicator />
+        </div>
       </body>
     </html>
   );

@@ -61,14 +61,30 @@ const config: Config = {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
+        gray: {
+          50: "hsl(var(--gray-50))",
+          100: "hsl(var(--gray-100))",
+          200: "hsl(var(--gray-200))",
+          300: "hsl(var(--gray-300))",
+          400: "hsl(var(--gray-400))",
+          500: "hsl(var(--gray-500))",
+          600: "hsl(var(--gray-600))",
+          700: "hsl(var(--gray-700))",
+          800: "hsl(var(--gray-800))",
+          900: "hsl(var(--gray-900))",
+          950: "hsl(var(--gray-950))",
+        },
       },
       boxShadow: {
-        glow: "inset 0 0 30px 0 rgba(255, 255, 255, 0.8)", // white color with 80% opacity
+        glow: "inset 0 0 5s0px 0 rgba(255, 255, 255, 0.5)",
+        "primary-md": "0 6px 16px 0 hsla(var(--primary)/ 0.2)",
+        "muted-md": "0 3px 9px 0 hsla(var(--gray-950), 0.06)",
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        card: "0px 20px 12px 12px",
       },
       animation: {
         marquee: "marquee var(--duration) linear infinite",
