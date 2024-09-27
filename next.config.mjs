@@ -7,6 +7,19 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
 
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "assets.aceternity.com",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+    ],
+  },
+
   logging: {
     fetches: {
       fullUrl: true,
