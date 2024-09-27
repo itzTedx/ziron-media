@@ -12,8 +12,8 @@ import { HOW_WE_WORKS } from "@/constants/how-we-works";
 
 export default function HowWeWorks() {
   return (
-    <section className="grid grid-cols-2 gap-10 py-24">
-      <div className="sticky top-28 flex h-fit flex-col gap-5">
+    <section className="grid gap-10 py-24 md:grid-cols-2">
+      <div className="flex h-fit flex-col gap-5 md:sticky md:top-28">
         <Badge>✦ How we works</Badge>
         <h2 className="title-2">
           Here’s how your <span className="text-secondary">our process</span>{" "}
