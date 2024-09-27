@@ -52,8 +52,9 @@ export default function Iphone15Pro({
       />
       <path
         d="M21.25 75C21.25 44.2101 46.2101 19.25 77 19.25H355C385.79 19.25 410.75 44.2101 410.75 75V807C410.75 837.79 385.79 862.75 355 862.75H77C46.2101 862.75 21.25 837.79 21.25 807V75Z"
-        className="fill-[#E5E5E5] stroke-[#E5E5E5] stroke-[0.5] dark:fill-[#404040] dark:stroke-[#404040]"
+        className="fill-[#ffffff] stroke-[#ffffff] stroke-[0.5]"
       />
+
       {src && (
         <image
           href={src}
@@ -65,7 +66,6 @@ export default function Iphone15Pro({
           clipPath="url(#roundedCorners)"
         />
       )}
-
       <path
         d="M154 48.5C154 38.2827 162.283 30 172.5 30H259.5C269.717 30 278 38.2827 278 48.5C278 58.7173 269.717 67 259.5 67H172.5C162.283 67 154 58.7173 154 48.5Z"
         className="fill-[#F5F5F5] dark:fill-[#262626]"

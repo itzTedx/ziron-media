@@ -11,7 +11,7 @@ export default function Feedback() {
   const OPTIONS: EmblaOptionsType = { loop: true };
   return (
     <>
-      <div className="py-10">
+      <div className="py-36">
         <div className="mx-auto w-fit scale-150 pb-9 text-center brightness-[3.5] saturate-0">
           <Logo />
         </div>

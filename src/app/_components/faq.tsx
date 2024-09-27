@@ -11,15 +11,14 @@ export default function Faq() {
   return (
     <section className="container grid gap-10 py-24 md:grid-cols-2">
       <div className="flex h-fit flex-col gap-5 md:sticky md:top-28">
-        <Badge>✦ How we works</Badge>
+        <Badge>✦ FAQs</Badge>
         <h2 className="title-2">
-          Here’s how your <span className="text-secondary">our process</span>{" "}
-          works
+          Still have <br />
+          <span className="text-secondary">questions?</span>
         </h2>
         <p>
-          From initial consultation to final execution, we keep you informed
-          every step of the way, ensuring your digital marketing strategy is
-          developed and implemented seamlessly.
+          Everything you need to know about our services and the costs. Can’t
+          find the answer you’re looking for? Please chat to our team.
         </p>
       </div>
       <aside>
@@ -27,6 +26,7 @@ export default function Faq() {
           type="single"
           collapsible
           className="flex w-full flex-col gap-8"
+          defaultValue="item-0"
         >
           {FAQ.map((item, i) => (
             <AccordionItem
