@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 import { AnimatedList } from "@/components/magicui/animated-list";
 import { cn } from "@/lib/utils";
@@ -10,9 +11,10 @@ interface Item {
   description: string;
   icon: string;
   time: string;
+  index: number;
 }
 
-let notifications = [
+let baseNotifications = [
   {
     name: "New Message",
     description: "Can i get more info on this",
@@ -39,16 +41,29 @@ let notifications = [
   },
 ];
 
-notifications = Array.from({ length: 10 }, () => notifications).flat();
+baseNotifications = Array.from({ length: 10 }, () => baseNotifications).flat();
 
-const Notification = ({ name, description, icon, time }: Item) => {
+const calculateTimeAgo = (index: number) => {
+  if (index === 0) return "just now";
+  const secondsAgo = 10 + (index - 1) * 20; // First notification is "just now", next ones increment by 20s
+  return secondsAgo < 60
+    ? `${secondsAgo}s ago`
+    : `${Math.floor(secondsAgo / 60)}m ago`;
+};
+
+const Notification = ({ name, description, icon, index }: Item) => {
+  const [timeAgo, setTimeAgo] = useState("");
+
+  useEffect(() => {
+    const time = calculateTimeAgo(index);
+    setTimeAgo(time);
+  }, [index]);
+
   return (
     <figure
       className={cn(
         "relative mx-auto min-h-fit w-full max-w-[300px] cursor-pointer overflow-hidden rounded-2xl px-3 py-2",
-        // animation styles
         "transition-all duration-200 ease-in-out hover:scale-[103%]",
-        // light styles
         "bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]"
       )}
     >
@@ -67,7 +82,7 @@ const Notification = ({ name, description, icon, time }: Item) => {
           <figcaption className="flex flex-row items-center whitespace-pre text-lg font-medium">
             <span className="text-sm">{name}</span>
             <span className="mx-1">·</span>
-            <span className="text-xs text-gray-500">{time}</span>
+            <span className="text-xs text-gray-500">{timeAgo}</span>
           </figcaption>
           <p className="truncate text-xs font-normal">{description}</p>
         </div>
@@ -85,8 +100,8 @@ export function AnimatedListDemo({ className }: { className?: string }) {
       )}
     >
       <AnimatedList>
-        {notifications.map((item, idx) => (
-          <Notification {...item} key={idx} />
+        {baseNotifications.map((item, idx) => (
+          <Notification {...item} key={idx} index={idx} />
         ))}
       </AnimatedList>
     </div>

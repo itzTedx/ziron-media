@@ -1,7 +1,20 @@
+import dynamic from "next/dynamic";
+
+import { AnimatedBeamSocial } from "@/components/bento/animated-beam";
+import { AnimatedListDemo } from "@/components/bento/animated-list";
 import { BentoCard, BentoGrid } from "@/components/bento/bento-grid";
-import Services from "@/components/bento/scroll-velocity-marquee";
+import { globeConfig, sampleArcs } from "@/components/bento/earth";
+import Marquee from "@/components/bento/marquee";
 import { Badge } from "@/components/ui/badge";
 import { services } from "@/constants/services";
+import { cn } from "@/lib/utils";
+
+const World = dynamic(
+  () => import("@/components/ui/globe").then((m) => m.World),
+  {
+    ssr: false,
+  }
+);
 
 export function Featured() {
   return (
@@ -32,8 +45,9 @@ const features = [
       "col-span-3 lg:col-span-2 row-span-2 border border-primary shadow-primary-md",
     background: (
       <div>
-        <Services left={services.flatMap((item) => item.label)} />
-        {/* <Marquee
+        {/* <Services left={services.flatMap((item) => item.label)} /> */}
+        <div className="absolute z-10 h-full w-full bg-gradient-to-r from-background via-transparent to-background" />
+        <Marquee
           repeat={2}
           pauseOnHover
           className="absolute top-10 [--duration:25000ms]"
@@ -53,32 +67,76 @@ const features = [
               </div>
             </figure>
           ))}
-        </Marquee> */}
-        {/* <Marquee
+        </Marquee>
+        <Marquee
           reverse
           pauseOnHover
-          className="absolute top-24 [--duration:25000ms] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)]"
+          className="absolute top-24 [--duration:25000ms]"
         >
-          {services.map((f, idx) => (
+          {services.slice(6, 10).map((f, idx) => (
             <figure
               key={idx}
               className={cn(
-                "relative w-32 cursor-pointer overflow-hidden rounded-xl border p-4",
-                "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
-                "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
+                "relative cursor-pointer rounded-xl border px-4 py-2",
+                "bg-gray-50 text-gray-900 hover:bg-gray-600 hover:text-gray-50",
+
                 "transform-gpu transition-all duration-300 ease-out"
               )}
             >
               <div className="flex flex-row items-center gap-2">
                 <div className="flex flex-col">
-                  <figcaption className="text-sm font-medium dark:text-white">
+                  <figcaption className="font-medium">{f.label}</figcaption>
+                </div>
+              </div>
+            </figure>
+          ))}
+        </Marquee>
+        <Marquee
+          repeat={2}
+          pauseOnHover
+          className="absolute top-40 [--duration:25000ms]"
+        >
+          {services.slice(11, 15).map((f, idx) => (
+            <figure
+              key={idx}
+              className={cn(
+                "relative cursor-pointer rounded-xl border px-4 py-2",
+                "bg-gray-50 text-gray-900 hover:bg-gray-600 hover:text-gray-50",
+
+                "transform-gpu transition-all duration-300 ease-out"
+              )}
+            >
+              <div className="flex flex-row items-center gap-2">
+                <figcaption className="font-medium">{f.label}</figcaption>
+              </div>
+            </figure>
+          ))}
+        </Marquee>
+        <Marquee
+          reverse
+          pauseOnHover
+          className="absolute top-56 [--duration:25000ms]"
+        >
+          {services.slice(16, 20).map((f, idx) => (
+            <figure
+              key={idx}
+              className={cn(
+                "relative cursor-pointer rounded-xl border px-4 py-2",
+                "bg-gray-50 text-gray-900 hover:bg-gray-600 hover:text-gray-50",
+
+                "transform-gpu transition-all duration-300 ease-out"
+              )}
+            >
+              <div className="flex flex-row items-center gap-2">
+                <div className="flex flex-col">
+                  <figcaption className="text-sm font-medium">
                     {f.label}
                   </figcaption>
                 </div>
               </div>
             </figure>
           ))}
-        </Marquee> */}
+        </Marquee>
       </div>
     ),
   },
@@ -89,8 +147,9 @@ const features = [
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-1 lg:row-span-2",
-    background: "",
-    // <AnimatedListDemo className="absolute right-2 top-4 h-[300px] w-full border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
+    background: (
+      <AnimatedListDemo className="absolute right-2 top-4 h-[300px] w-full border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
+    ),
   },
   {
     name: "Data-Driven Strategies",
@@ -117,7 +176,11 @@ const features = [
     className: "col-span-3 lg:col-span-2 lg:row-start-3",
     href: "#",
     cta: "Learn more",
-    background: "",
+    background: (
+      <div className="absolute -bottom-20 z-10 h-72 w-full translate-x-1/3 md:h-full">
+        <World data={sampleArcs} globeConfig={globeConfig} />
+      </div>
+    ),
   },
   {
     name: "Dedicated Support",
@@ -144,7 +207,8 @@ const features = [
     href: "#",
     cta: "Learn more",
     className: "lg:col-span-2 lg:row-span-2 lg:col-start-3 lg:row-start-3",
-    background: "",
-    // <AnimatedBeamSocial className="absolute right-2 top-4 h-[300px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
+    background: (
+      <AnimatedBeamSocial className="absolute right-2 top-4 h-[300px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_0%,#000_70%)] group-hover:scale-105" />
+    ),
   },
 ];

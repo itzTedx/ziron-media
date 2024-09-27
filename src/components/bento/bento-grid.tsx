@@ -52,21 +52,20 @@ const BentoCard = ({
     )}
   >
     <div>{background}</div>
-    <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
+    <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-9 transition-all duration-300 group-hover:-translate-y-10">
       <h3 className={cn("text-xl font-semibold", titleClass)}>{name}</h3>
       <p className="max-w-lg">{description}</p>
     </div>
 
     <div
       className={cn(
-        "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
+        "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-6 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
       )}
     >
       <Button
         variant="ghost"
         asChild
-        size={"sm"}
-        className="pointer-events-auto text-base text-gray-500"
+        className="pointer-events-auto text-base text-gray-600"
       >
         <Link href={href}>
           {cta}

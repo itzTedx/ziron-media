@@ -10,10 +10,16 @@ export const services = [
   { label: "Website Development" },
   { label: "SEO" },
   { label: "Social Media Management" },
+
   { label: "Performance Marketing" },
   { label: "UI/UX Design" },
   { label: "Video Production" },
   { label: "Content Creation" },
   { label: "Website Design" },
+
   { label: "Lead Generation" },
+  { label: "Branding" },
+  { label: "UI/UX Design" },
+  { label: "Digital Marketing" },
+  { label: "SEO" },
 ];
