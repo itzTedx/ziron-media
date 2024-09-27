@@ -31,7 +31,7 @@ export default function Hero() {
       <HeroVideoDialog
         className="mx-auto mt-16 max-w-5xl"
         animationStyle="from-center"
-        videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
+        videoSrc="https://www.youtube.com/embed/LDU_Txk06tM?si=I2jLBKfxTPB0i127"
         thumbnailSrc="https://startup-template-sage.vercel.app/hero-light.png"
         thumbnailAlt="Hero Video"
       />
