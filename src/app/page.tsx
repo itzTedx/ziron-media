@@ -1,4 +1,6 @@
+import Faq from "./_components/faq";
 import { Featured } from "./_components/featured";
+import Feedback from "./_components/feedback";
 import Hero from "./_components/hero";
 import HowWeWorks from "./_components/how-we-works";
 import { Works } from "./_components/works";
@@ -10,6 +12,8 @@ export default function Home() {
       <Featured />
       <HowWeWorks />
       <Works />
+      <Feedback />
+      <Faq />
     </main>
   );
 }
