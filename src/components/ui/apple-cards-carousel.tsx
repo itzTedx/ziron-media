@@ -94,18 +94,11 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
       value={{ onCardClose: handleCardClose, currentIndex }}
     >
       <div className="relative w-full">
-        <span className="absolute z-20 h-full w-24 bg-gradient-to-r from-background to-background/0" />
         <div
-          className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-10 [scrollbar-width:none] md:py-20"
+          className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-10 [scrollbar-width:none] md:pt-20"
           ref={carouselRef}
           onScroll={checkScrollability}
         >
-          <div
-            className={cn(
-              "absolute right-0 z-[1000] h-auto w-[5%] overflow-hidden bg-gradient-to-l"
-            )}
-          ></div>
-
           <div
             className={cn(
               "flex flex-row justify-start gap-4"
@@ -129,7 +122,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
                   },
                 }}
                 key={`card_${index}`}
-                className="rounded-3xl first:pl-24 last:pr-[5%] md:last:pr-[15%]"
+                className="rounded-3xl first:pl-[4%] last:pr-[5%] md:last:pr-[15%]"
               >
                 {item}
               </motion.div>

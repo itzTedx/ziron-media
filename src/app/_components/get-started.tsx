@@ -6,7 +6,7 @@ export default function GetStated() {
     <section className="mx-auto max-w-7xl px-6 py-24">
       <div className="grid grid-cols-12 rounded-2xl bg-primary py-20">
         <div className="col-span-6 col-start-2">
-          <h3 className="text-balance text-5xl font-bold leading-[3.25rem] text-violet-200">
+          <h3 className="text-balance text-5xl font-bold leading-[3.25rem] text-violet-100">
             Guaranteed Target Audience Delivery - Your Success, Our Promise!
           </h3>
           <p className="mt-6 text-balance text-xl text-violet-200">

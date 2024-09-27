@@ -15,10 +15,10 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="container sticky top-3 z-30 mx-auto max-sm:px-5 max-sm:pt-2">
+      <header className="container sticky top-3 z-50 mx-auto max-sm:px-5 max-sm:pt-2">
         <nav
           className={cn(
-            "shadow-glow hidden w-full items-center justify-between rounded-full border-background px-5 py-3 transition-all duration-500 ease-in-out max-lg:text-sm md:flex",
+            "hidden w-full items-center justify-between rounded-full border-background px-5 py-3 shadow-glow transition-all duration-500 ease-in-out max-lg:text-sm md:flex",
             isScrolled
               ? "border bg-[#FAF9FB]/50 backdrop-blur-md"
               : "bg-transparent backdrop-blur-0"

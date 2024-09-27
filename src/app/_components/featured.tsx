@@ -9,9 +9,9 @@ import { cn } from "@/lib/utils";
 
 export function Featured() {
   return (
-    <section className="container flex flex-col items-center gap-6 py-24">
+    <section className="container flex flex-col items-center gap-6 px-3 py-24 md:px-9">
       <Badge variant={"secondary"}>✦ What we are great at</Badge>
-      <h2 className="text-center font-medium">
+      <h2 className="mb-12 text-center font-medium">
         We design, build and elevate <br />
         your <span className="text-secondary">online presence</span>
       </h2>
@@ -35,14 +35,10 @@ const features = [
     className:
       "col-span-3 lg:col-span-2 row-span-2 border border-primary shadow-primary-md",
     background: (
-      <div>
+      <div className="mt-9">
         {/* <Services left={services.flatMap((item) => item.label)} /> */}
-        <div className="absolute z-10 h-full w-full bg-gradient-to-r from-background via-transparent to-background" />
-        <Marquee
-          repeat={2}
-          pauseOnHover
-          className="absolute top-10 [--duration:25000ms]"
-        >
+        <div className="absolute z-10 h-full w-full bg-gradient-to-r from-background/90 via-transparent to-background/90" />
+        <Marquee repeat={2} pauseOnHover className="[--duration:25000ms]">
           {services.slice(0, 5).map((f, idx) => (
             <figure
               key={idx}
@@ -59,11 +55,7 @@ const features = [
             </figure>
           ))}
         </Marquee>
-        <Marquee
-          reverse
-          pauseOnHover
-          className="absolute top-24 [--duration:25000ms]"
-        >
+        <Marquee reverse pauseOnHover className="[--duration:25000ms]">
           {services.slice(6, 10).map((f, idx) => (
             <figure
               key={idx}
@@ -82,11 +74,7 @@ const features = [
             </figure>
           ))}
         </Marquee>
-        <Marquee
-          repeat={2}
-          pauseOnHover
-          className="absolute top-40 [--duration:25000ms]"
-        >
+        <Marquee repeat={2} pauseOnHover className="[--duration:25000ms]">
           {services.slice(11, 15).map((f, idx) => (
             <figure
               key={idx}
@@ -103,11 +91,7 @@ const features = [
             </figure>
           ))}
         </Marquee>
-        <Marquee
-          reverse
-          pauseOnHover
-          className="absolute top-56 [--duration:25000ms]"
-        >
+        <Marquee reverse pauseOnHover className="[--duration:25000ms]">
           {services.slice(16, 20).map((f, idx) => (
             <figure
               key={idx}
@@ -119,11 +103,7 @@ const features = [
               )}
             >
               <div className="flex flex-row items-center gap-2">
-                <div className="flex flex-col">
-                  <figcaption className="text-sm font-medium">
-                    {f.label}
-                  </figcaption>
-                </div>
+                <figcaption className="font-medium">{f.label}</figcaption>
               </div>
             </figure>
           ))}
@@ -167,11 +147,7 @@ const features = [
     className: "col-span-3 lg:col-span-2 lg:row-start-3",
     href: "#",
     cta: "Learn more",
-    background: (
-      <div className="absolute -bottom-20 z-10 h-72 w-full translate-x-1/3 md:h-full">
-        <GridGlobe />
-      </div>
-    ),
+    background: <GridGlobe />,
   },
   {
     name: "Dedicated Support",
@@ -183,12 +159,13 @@ const features = [
     background: "",
   },
   {
-    name: "Conversion\nOptimization",
+    name: "Conversion Optimization",
     description:
       "We focus on turning visitors into customers, optimizing every touchpoint to maximize your ROI.",
     className: "col-span-3 lg:col-start-2 lg:row-start-4 lg:col-span-1",
     href: "#",
     cta: "Learn more",
+    titleClass: "text-balance",
     background: "",
   },
   {
@@ -199,7 +176,7 @@ const features = [
     cta: "Learn more",
     className: "lg:col-span-2 lg:row-span-2 lg:col-start-3 lg:row-start-3",
     background: (
-      <AnimatedBeamSocial className="absolute right-2 top-4 h-[300px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_0%,#000_70%)] group-hover:scale-105" />
+      <AnimatedBeamSocial className="absolute right-2 top-4 h-[350px] border-none transition-all duration-300 ease-out group-hover:scale-105" />
     ),
   },
 ];

@@ -9,9 +9,9 @@ const World = dynamic(() => import("./globe").then((m) => m.World), {
 const GridGlobe = () => {
   const globeConfig = {
     pointSize: 4,
-    globeColor: "#062056",
+    globeColor: "#656184",
     showAtmosphere: true,
-    atmosphereColor: "#FFFFFF",
+    atmosphereColor: "#C4B5FD",
     atmosphereAltitude: 0.1,
     emissive: "#062056",
     emissiveIntensity: 0.1,
@@ -29,7 +29,7 @@ const GridGlobe = () => {
     autoRotate: true,
     autoRotateSpeed: 0.5,
   };
-  const colors = ["#06b6d4", "#3b82f6", "#6366f1"];
+  const colors = ["#4A3AFF", "#962DFF", "#4A3AFF"];
   const sampleArcs = [
     {
       order: 1,
@@ -394,9 +394,9 @@ const GridGlobe = () => {
   ];
 
   return (
-    <div className="absolute -left-5 top-36 flex h-full w-full items-center justify-center md:top-40">
-      <div className="relative mx-auto h-96 w-full max-w-7xl overflow-hidden px-4">
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-40 h-40 w-full select-none bg-gradient-to-b from-transparent to-white dark:to-black" />
+    <div className="absolute left-44 top-20 flex h-full w-full items-center justify-center md:top-36">
+      <div className="relative mx-auto h-[25rem] w-full max-w-7xl overflow-hidden px-4">
+        <div className="pointer-events-none absolute inset-x-0 bottom-32 z-20 h-64 w-full select-none bg-gradient-to-b from-transparent via-background/20 to-background" />
 
         <div className="absolute z-10 h-72 w-full md:h-full">
           <World data={sampleArcs} globeConfig={globeConfig} />
