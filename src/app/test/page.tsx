@@ -5,7 +5,7 @@ export default function TestingPage() {
     <div className="mx-auto mt-20 max-w-7xl">
       {/* <BentoDemo /> */}
       {/* <ClipImage /> */}
-      <Iphone15Pro className="size-96" />
+     
     </div>
   );
 }
