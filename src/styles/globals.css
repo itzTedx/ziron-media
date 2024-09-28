@@ -72,8 +72,8 @@
     @apply text-balance text-5xl leading-[4rem] tracking-tight;
   }
 }
-/* 
-//Debugging CSS
-* {
+
+/* //Debugging CSS */
+/* * {
   outline: 1px solid red;
 } */

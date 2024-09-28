@@ -124,7 +124,7 @@ export default function HeroVideoDialog({
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
               className="relative mx-4 aspect-video w-full max-w-4xl md:mx-0"
             >
-              <motion.button className="absolute -right-4 -top-4 z-50 rounded-full bg-foreground p-2 text-xl text-white ring-1 ring-primary backdrop-blur-lg transition hover:bg-destructive">
+              <motion.button className="pointer-events-none absolute -right-4 -top-4 z-50 select-none rounded-full bg-foreground p-2 text-xl text-white ring-1 ring-primary backdrop-blur-lg transition hover:bg-destructive">
                 <XIcon className="size-5" />
               </motion.button>
               <div className="relative isolate z-[1] size-full overflow-hidden rounded-2xl border-2 border-white">

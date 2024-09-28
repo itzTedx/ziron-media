@@ -1,4 +1,3 @@
-import { Blob } from "@/components/assets/blob";
 import { AnimatedListDemo } from "@/components/bento/animated-list";
 import Iphone15Pro from "@/components/ui/iphone-15-pro";
 
@@ -24,8 +23,8 @@ export default function GetStated() {
             <AnimatedListDemo className="absolute top-1/2 h-[400px] w-full -translate-y-1/2 border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_70%)] group-hover:scale-105" />
           </div>
         </div>
-        <Blob className="absolute right-0 top-1/2 -z-40 -translate-y-1/2 scale-125" />
-        <Blob className="absolute -left-1/4 top-1/2 -z-40 -translate-y-1/2 rotate-45" />
+        {/* <Blob className="absolute right-0 top-1/2 -z-40 -translate-y-1/2 scale-125" />
+        <Blob className="absolute -left-1/4 top-1/2 -z-40 -translate-y-1/2 rotate-45" /> */}
       </section>
     </>
   );

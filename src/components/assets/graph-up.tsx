@@ -135,7 +135,7 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
         y2="-211.979"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#C4B5FD" stop-opacity="0" />
+        <stop stop-color="#C4B5FD" stopOpacity="0" />
         <stop offset="1" stop-color="#4A3AFF" />
       </linearGradient>
       <linearGradient
@@ -158,7 +158,7 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
         y2="35.681"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#D8B4FE" stop-opacity="0" />
+        <stop stop-color="#D8B4FE" stopOpacity="0" />
         <stop offset="1" stop-color="#962DFF" />
       </linearGradient>
       <linearGradient

@@ -1,4 +1,5 @@
-import Cta from "./_components/cta";
+import Cta from "@/components/cta";
+
 import Faq from "./_components/faq";
 import { Featured } from "./_components/featured";
 import Feedback from "./_components/feedback";
@@ -9,7 +10,7 @@ import { Works } from "./_components/works";
 
 export default function Home() {
   return (
-    <main className="w-screen overflow-x-hidden">
+    <main>
       <Hero />
       <Featured />
       <HowWeWorks />

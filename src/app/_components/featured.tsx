@@ -20,7 +20,7 @@ export function Featured() {
         {features.map((feature, idx) => (
           <BentoCard key={idx} {...feature} />
         ))}
-        <Blob className="absolute top-0 -z-40 scale-150" />
+        <Blob className="pointer-events-none absolute top-0 -z-40 scale-150 select-none" />
       </BentoGrid>
     </section>
   );

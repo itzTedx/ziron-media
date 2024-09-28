@@ -29,4 +29,14 @@ export const FAQ = [
     answer:
       "We use data-driven strategies, audience research, and targeted ads to reach the most relevant audience for your business, ensuring the best results.",
   },
+  {
+    question: "How long will it take to see results?",
+    answer:
+      "The timeline varies depending on the service and strategy, but most clients start seeing significant improvements in traffic and leads within 3 to 6 months.",
+  },
+  {
+    question: "Can you handle both organic and paid marketing?",
+    answer:
+      "Yes, we offer both SEO (organic marketing) and PPC (paid marketing) to ensure a comprehensive approach for maximum reach and impact.",
+  },
 ];

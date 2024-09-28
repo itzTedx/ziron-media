@@ -23,11 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn(
-          plusJakarta.className,
-          monaSans.variable,
-          "scroll-smooth antialiased"
-        )}
+        className={cn(plusJakarta.className, monaSans.variable, "antialiased")}
       >
         <div vaul-drawer-wrapper="">
           <LenisProvider />
