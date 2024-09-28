@@ -2,7 +2,6 @@ import Image from "next/image";
 
 import { Blob } from "@/components/assets/blob";
 import { GraphUp } from "@/components/assets/graph-up";
-import { Button } from "@/components/ui/button";
 
 export default function Cta() {
   return (
@@ -14,9 +13,15 @@ export default function Cta() {
             <br />
             to the next level
           </h4>
-          <Button className="h-12 rounded-full bg-background px-6 text-lg font-bold text-foreground hover:bg-primary hover:text-background">
-            Get a quote
-          </Button>
+
+          <div className="group relative w-36 cursor-pointer overflow-hidden rounded-full border bg-background p-3 text-center font-semibold text-foreground">
+            <span className="inline-block translate-y-0 transition-all duration-300 group-hover:-translate-y-12 group-hover:opacity-0">
+              Get a quote
+            </span>
+            <div className="absolute left-0 top-0 z-10 flex h-full w-full translate-y-12 items-center justify-center gap-2 rounded-full bg-primary text-background opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:rounded-none group-hover:opacity-100">
+              <span>Get a quote</span>
+            </div>
+          </div>
         </div>
         <div className="absolute -left-12 size-[30rem] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] opacity-50 mix-blend-overlay [background-size:30px_30px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
         <GraphUp className="pointer-events-none absolute right-9 select-none" />

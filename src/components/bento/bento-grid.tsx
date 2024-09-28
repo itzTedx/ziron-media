@@ -51,7 +51,7 @@ const BentoCard = ({
       className
     )}
   >
-    <div className="relative h-full w-full">{background}</div>
+    <div className="h-full w-full">{background}</div>
     <div className="pointer-events-none z-50 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
       <h3 className={cn("text-xl font-semibold", titleClass)}>{name}</h3>
       <p className="max-w-lg">{description}</p>
