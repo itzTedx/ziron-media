@@ -13,7 +13,7 @@ export default function Hero() {
         We’re great at Digital <br />
         Marketing Solutions
       </h1>
-      <p className="mt-6 text-balance text-lg">
+      <p className="mt-6 text-balance text-xl">
         We specialize in brand identities, scalable websites, and expert social
         media management
       </p>
@@ -22,7 +22,7 @@ export default function Hero() {
         href="/contact"
         className={cn(
           buttonVariants({ variant: "outline", size: "lg" }),
-          "mt-12 h-12 font-bold uppercase text-primary"
+          "mt-12 h-12 text-lg font-bold uppercase text-primary"
         )}
       >
         Let&apos;s get started <IconArrowRight className="ml-2 size-5" />
