@@ -1,12 +1,15 @@
-import { Bricolage_Grotesque, Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
+import localFont from "next/font/local";
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
 });
 
-const bricolage = Bricolage_Grotesque({
-  variable: "--font-bricolage",
-  subsets: ["latin"],
+const monaSans = localFont({
+  src: "./MonaSans-Bold.woff2",
+  variable: "--font-monaSans",
+  weight: "700",
+  display: "swap",
 });
 
-export { bricolage, plusJakarta };
+export { monaSans, plusJakarta };
