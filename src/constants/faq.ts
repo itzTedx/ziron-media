@@ -25,8 +25,7 @@ export const FAQ = [
       "Yes, we offer both SEO (organic marketing) and PPC (paid marketing) to ensure a comprehensive approach for maximum reach and impact.",
   },
   {
-    question:
-      "How do you ensure my marketing efforts reach the right audience?",
+    question: "How do you ensure my marketing targets the right audience?",
     answer:
       "We use data-driven strategies, audience research, and targeted ads to reach the most relevant audience for your business, ensuring the best results.",
   },

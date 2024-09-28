@@ -16,7 +16,7 @@ export default function Faq() {
           Still have <br />
           <span className="text-secondary">questions?</span>
         </h2>
-        <p>
+        <p className="text-balance">
           Everything you need to know about our services and the costs. Can’t
           find the answer you’re looking for? Please chat to our team.
         </p>
@@ -32,7 +32,7 @@ export default function Faq() {
             <AccordionItem
               value={`item-${i}`}
               key={i}
-              className="data-[state=closed]:shadow-muted-md rounded-xl border px-9 py-4 transition-all data-[state=open]:border-primary data-[state=open]:shadow-primary-md"
+              className="rounded-xl border px-9 py-4 transition-all data-[state=open]:border-primary data-[state=closed]:shadow-muted-md data-[state=open]:shadow-primary-md"
             >
               <AccordionTrigger>{item.question}</AccordionTrigger>
               <AccordionContent>{item.answer}</AccordionContent>

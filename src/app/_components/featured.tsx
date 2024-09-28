@@ -1,7 +1,6 @@
 import { AnimatedBeamSocial } from "@/components/bento/animated-beam";
 import { AnimatedListDemo } from "@/components/bento/animated-list";
 import { BentoCard, BentoGrid } from "@/components/bento/bento-grid";
-import GridGlobe from "@/components/bento/grid-globe";
 import Marquee from "@/components/bento/marquee";
 import { Badge } from "@/components/ui/badge";
 import { services } from "@/constants/services";
@@ -147,7 +146,7 @@ const features = [
     className: "col-span-3 lg:col-span-2 lg:row-start-3",
     href: "#",
     cta: "Learn more",
-    background: <GridGlobe />,
+    background: "<GridGlobe />",
   },
   {
     name: "Dedicated Support",
