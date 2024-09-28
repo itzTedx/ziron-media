@@ -63,13 +63,13 @@ const BentoCard = ({
       )}
     >
       <Button
-        variant="ghost"
+        variant="link"
         asChild
-        className="pointer-events-auto text-base text-gray-600"
+        className="pointer-events-auto px-0 text-base text-gray-600"
       >
         <Link href={href}>
           {cta}
-          <IconArrowUpRight className="ml-2 size-6" />
+          <IconArrowUpRight className="ml-2 size-5" />
         </Link>
       </Button>
     </div>

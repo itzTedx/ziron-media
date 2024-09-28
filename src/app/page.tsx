@@ -9,7 +9,7 @@ import { Works } from "./_components/works";
 
 export default function Home() {
   return (
-    <main>
+    <main className="w-screen overflow-x-hidden">
       <Hero />
       <Featured />
       <HowWeWorks />
