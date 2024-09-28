@@ -17,8 +17,8 @@ export default function Feedback() {
         </div>
         <Carousel options={OPTIONS} isAutoPlay={true}>
           <SliderContainer className="gap-2">
-            <Slider className="w-full">
-              <figure className="mx-auto h-[200px] max-w-4xl cursor-move text-center">
+            <Slider className="w-full cursor-pointer">
+              <figure className="pointer-events-none mx-auto h-[200px] max-w-4xl cursor-move select-none text-center">
                 <p className="text-2xl">
                   “Ziron Media is exceptional! Their expertise in logo design
                   and digital marketing exceeded my expectations. They truly
@@ -30,8 +30,8 @@ export default function Feedback() {
                 </figcaption>
               </figure>
             </Slider>
-            <Slider className="w-full">
-              <figure className="mx-auto h-[200px] max-w-4xl cursor-move text-center">
+            <Slider className="w-full cursor-pointer">
+              <figure className="pointer-events-none mx-auto h-[200px] max-w-4xl cursor-move select-none text-center">
                 <p className="text-2xl">
                   “Ziron Media is exceptional! Their expertise in logo design
                   and digital marketing exceeded my expectations. They truly
@@ -43,8 +43,8 @@ export default function Feedback() {
                 </figcaption>
               </figure>
             </Slider>
-            <Slider className="w-full">
-              <figure className="mx-auto h-[200px] max-w-4xl cursor-move text-center">
+            <Slider className="w-full cursor-pointer">
+              <figure className="pointer-events-none mx-auto h-[200px] max-w-4xl cursor-move select-none text-center">
                 <p className="text-2xl">
                   “Ziron Media is exceptional! Their expertise in logo design
                   and digital marketing exceeded my expectations. They truly

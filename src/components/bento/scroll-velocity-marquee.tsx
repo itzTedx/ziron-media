@@ -20,7 +20,7 @@ interface PhraseProps {
   item: string[];
 }
 
-export default function Services({ left, right }: TechStackProps) {
+export default function Services({ left }: TechStackProps) {
   const container = useRef<HTMLDivElement | null>(null);
 
   const { scrollYProgress } = useScroll({

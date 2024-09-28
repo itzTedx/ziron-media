@@ -106,6 +106,30 @@ import { cn } from "@/lib/utils";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 
@@ -345,7 +369,7 @@ const Carousel: React.FC<CarouselProps> = ({
         .on("reInit", tweenScale)
         .on("scroll", tweenScale);
     }
-  }, [emblaApi, tweenScale, isScale]);
+  }, [emblaApi, tweenScale, isScale, setTweenNodes, setTweenFactor]);
 
   return (
     <CarouselContext.Provider
@@ -400,20 +424,15 @@ export const SliderContainer = ({
     </div>
   );
 };
-export const Slider: React.FC<SliderProps> = ({
-  children,
-  className,
-  thumnailSrc,
-}) => {
+export const Slider: React.FC<SliderProps> = ({ children, className }) => {
   const { isScale, setSlidesArr } = useCarouselContext();
-  console.log(thumnailSrc);
 
   const addImgToSlider = useCallback(() => {
-    setSlidesArr((prev) => [...prev, thumnailSrc]);
-  }, []);
+    setSlidesArr((prev) => [...prev]);
+  }, [setSlidesArr]);
   useEffect(() => {
     addImgToSlider();
-  }, []);
+  }, [addImgToSlider]);
   return (
     <div className={cn("min-w-0 flex-shrink-0 flex-grow-0", className)}>
       {isScale ? (

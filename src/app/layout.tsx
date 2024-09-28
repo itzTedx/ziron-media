@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import BreakpointIndicator from "@/components/dev/breakpoint-indicator";
+import LenisProvider from "@/components/dev/lenis";
 import Footer from "@/components/layout/footer";
 import Navbar from "@/components/layout/navbar";
 import { plusJakarta } from "@/fonts";
@@ -22,6 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${plusJakarta.className} antialiased`}>
         <div vaul-drawer-wrapper="">
+          <LenisProvider />
           <Navbar />
           {children}
           <Footer />
