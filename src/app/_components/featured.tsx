@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { Blob } from "@/components/assets/blob";
 import { AnimatedBeamSocial } from "@/components/bento/animated-beam";
 import { AnimatedListDemo } from "@/components/bento/animated-list";
@@ -148,7 +150,17 @@ const features = [
     className: "col-span-3 lg:col-span-2 lg:row-start-3",
     href: "#",
     cta: "Learn more",
-    background: "<GridGlobe />",
+    background: (
+      <Image
+        src="/images/globe.jpg"
+        width={272}
+        height={210}
+        alt=""
+        className="absolute right-0 top-3 scale-110 [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)]"
+      />
+
+      // <GridGlobe />
+    ),
   },
   {
     name: "Dedicated Support",
