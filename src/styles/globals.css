@@ -69,11 +69,11 @@
     @apply bg-background text-foreground;
   }
   h2 {
-    @apply text-balance text-5xl leading-[4rem] tracking-tight;
+    @apply text-balance text-3xl tracking-tight md:text-5xl md:leading-[4rem];
   }
 }
 
 /* //Debugging CSS */
-/* * {
-  outline: 1px solid red;
-} */
+* {
+  outline: 1px solid hsla(0, 100%, 50%, 0.5);
+}

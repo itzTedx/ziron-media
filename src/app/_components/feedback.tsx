@@ -11,7 +11,7 @@ export default function Feedback() {
   const OPTIONS: EmblaOptionsType = { loop: true };
   return (
     <>
-      <div className="py-40">
+      <div className="py-40 max-md:px-4">
         <div className="mx-auto w-fit scale-150 pb-9 text-center brightness-[3.5] saturate-0">
           <Logo />
         </div>
@@ -19,7 +19,7 @@ export default function Feedback() {
           <SliderContainer className="gap-2">
             <Slider className="w-full cursor-pointer">
               <figure className="pointer-events-none mx-auto h-[200px] max-w-4xl cursor-move select-none text-center">
-                <p className="text-2xl">
+                <p className="text-xl md:text-2xl">
                   “Ziron Media is exceptional! Their expertise in logo design
                   and digital marketing exceeded my expectations. They truly
                   understand my brand&apos;s needs. My go-to for all things
@@ -32,7 +32,7 @@ export default function Feedback() {
             </Slider>
             <Slider className="w-full cursor-pointer">
               <figure className="pointer-events-none mx-auto h-[200px] max-w-4xl cursor-move select-none text-center">
-                <p className="text-2xl">
+                <p className="text-xl md:text-2xl">
                   “Ziron Media is exceptional! Their expertise in logo design
                   and digital marketing exceeded my expectations. They truly
                   understand my brand&apos;s needs. My go-to for all things
@@ -45,7 +45,7 @@ export default function Feedback() {
             </Slider>
             <Slider className="w-full cursor-pointer">
               <figure className="pointer-events-none mx-auto h-[200px] max-w-4xl cursor-move select-none text-center">
-                <p className="text-2xl">
+                <p className="text-xl md:text-2xl">
                   “Ziron Media is exceptional! Their expertise in logo design
                   and digital marketing exceeded my expectations. They truly
                   understand my brand&apos;s needs. My go-to for all things

@@ -118,7 +118,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
                   },
                 }}
                 key={`card_${index}`}
-                className="rounded-3xl first:pl-[4%] last:pr-[5%] md:first:pl-[7%] md:last:pr-[15%]"
+                className="rounded-3xl first:pl-[2%] last:pr-[5%] md:first:pl-[7%] md:last:pr-[15%]"
               >
                 {item}
               </motion.div>
@@ -205,7 +205,7 @@ export const Card = ({
           </motion.p>
           <motion.p
             layoutId={layout ? `title-${card.title}` : undefined}
-            className="mt-2 max-w-xs text-left font-sans text-xl font-semibold text-white [text-wrap:balance] md:text-3xl"
+            className="mt-1 max-w-xs text-left font-sans text-xl font-semibold text-white [text-wrap:balance] md:mt-2 md:text-3xl"
           >
             {card.title}
           </motion.p>

@@ -10,7 +10,7 @@ import { Badge } from "@/components/ui/badge";
 
 export function Featured() {
   return (
-    <section className="container flex flex-col items-center gap-6 px-3 py-24 md:px-9">
+    <section className="container flex flex-col items-center gap-6 px-3 py-12 pt-24 max-sm:overflow-hidden md:px-9 md:py-24">
       <Badge variant={"secondary"}>✦ What we are great at</Badge>
       <h2 className="mb-12 text-center font-medium">
         We design, build and elevate <br />
@@ -44,7 +44,7 @@ const features = [
       "Our targeted strategies are designed to quickly connect you with your ideal audience, helping you build strong relationships and drive engagement in no time.",
     href: "#",
     cta: "Learn more",
-    className: "col-span-3 lg:col-span-1 lg:row-span-2",
+    className: "col-span-3 lg:col-span-1 row-span-2",
     background: (
       <AnimatedListDemo className="absolute right-2 top-4 h-[300px] w-full border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
     ),
@@ -55,7 +55,7 @@ const features = [
       "Unlock growth with tailored marketing strategies based on in-depth analytics and industry insights. We make every decision count, using data to fuel your success.",
     href: "#",
     cta: "Learn more",
-    className: "col-span-3 lg:col-span-1",
+    className: "lg:col-span-1 row-span-1",
     background: <div></div>,
   },
   {
@@ -99,7 +99,8 @@ const features = [
     name: "Conversion Optimization",
     description:
       "We focus on turning visitors into customers, optimizing every touchpoint to maximize your ROI.",
-    className: "col-span-3 lg:col-start-2 lg:row-start-4 lg:col-span-1",
+    className:
+      "col-span-3 row-span-1 lg:col-start-2 lg:row-start-4 lg:col-span-1",
     href: "#",
     cta: "Learn more",
     titleClass: "text-balance",
@@ -111,9 +112,9 @@ const features = [
       "From website design to social media presence, we manage your brand’s entire online identity, ensuring it looks professional, cohesive, and impactful across all platforms.",
     href: "#",
     cta: "Learn more",
-    className: "lg:col-span-2 lg:row-span-2 lg:col-start-3 lg:row-start-3",
+    className: "lg:col-span-2 row-span-1 lg:col-start-3 lg:row-start-3",
     background: (
-      <AnimatedBeamSocial className="absolute right-2 top-4 h-[350px] border-none transition-all duration-300 ease-out group-hover:scale-105" />
+      <AnimatedBeamSocial className="absolute -top-8 right-2 border-none transition-all duration-300 ease-out group-hover:scale-105 md:top-4 md:h-[350px]" />
     ),
   },
 ];

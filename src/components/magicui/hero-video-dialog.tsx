@@ -108,7 +108,7 @@ export default function HeroVideoDialog({
             </div>
           </div>
         </div>
-        <Blob className="absolute top-1/2 -z-40 -translate-y-1/2 scale-125" />
+        <Blob className="absolute top-1/2 -z-40 -translate-y-1/2 scale-75 max-sm:right-1/2 max-sm:translate-x-1/2 max-sm:opacity-50 md:scale-125" />
       </div>
       <AnimatePresence>
         {isVideoOpen && (

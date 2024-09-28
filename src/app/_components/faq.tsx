@@ -10,7 +10,7 @@ import { FAQ } from "@/constants/faq";
 
 export default function Faq() {
   return (
-    <section className="overflow-hidden py-24">
+    <section className="overflow-hidden pb-12 md:py-24">
       <div className="container grid gap-10 md:grid-cols-2">
         <div className="flex h-fit flex-col gap-5 md:sticky md:top-28">
           <Badge>✦ FAQs</Badge>
@@ -27,14 +27,14 @@ export default function Faq() {
           <Accordion
             type="single"
             collapsible
-            className="relative flex w-full flex-col gap-8"
+            className="relative flex w-full flex-col gap-6 md:gap-8"
             defaultValue="item-0"
           >
             {FAQ.map((item, i) => (
               <AccordionItem
                 value={`item-${i}`}
                 key={i}
-                className="rounded-xl border bg-background px-9 py-4 transition-all data-[state=open]:border-primary data-[state=closed]:shadow-lg data-[state=open]:shadow-primary-md data-[state=closed]:shadow-gray-900/5"
+                className="rounded-xl border bg-background px-4 py-4 transition-all data-[state=open]:border-primary data-[state=closed]:shadow-lg data-[state=open]:shadow-primary-md data-[state=closed]:shadow-gray-900/5 md:px-9"
               >
                 <AccordionTrigger>{item.question}</AccordionTrigger>
                 <AccordionContent>{item.answer}</AccordionContent>

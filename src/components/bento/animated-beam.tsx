@@ -37,7 +37,7 @@ export function AnimatedBeamSocial({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "relative flex h-[500px] w-full items-center justify-center overflow-hidden rounded-lg border p-10",
+        "relative flex w-full items-center justify-center overflow-hidden rounded-lg border p-10 md:h-[500px]",
         className
       )}
       ref={containerRef}

@@ -64,6 +64,7 @@ export default function Iphone15Pro({
           height="843.5"
           preserveAspectRatio="xMidYMid slice"
           clipPath="url(#roundedCorners)"
+          className="overflow-hidden rounded-lg"
         />
       )}
       <path

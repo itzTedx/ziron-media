@@ -9,7 +9,7 @@ export function Works() {
   ));
 
   return (
-    <div className="py-24">
+    <div className="py-12 md:py-24">
       <div className="container">
         <Badge>✦ Happy Customers</Badge>
         <h2 className="title-2 mt-5 max-w-xl">

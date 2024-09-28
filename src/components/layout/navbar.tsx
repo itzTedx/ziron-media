@@ -47,7 +47,7 @@ export default function Navbar() {
           </div>
         </nav>
 
-        <div className="flex justify-between md:hidden">
+        <div className="flex items-center justify-between md:hidden">
           <Link href="/">
             <Logo />
           </Link>

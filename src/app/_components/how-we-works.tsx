@@ -12,14 +12,14 @@ import { HOW_WE_WORKS } from "@/constants/how-we-works";
 
 export default function HowWeWorks() {
   return (
-    <section className="container grid gap-10 py-24 md:grid-cols-2">
+    <section className="container grid gap-10 py-12 md:grid-cols-2 md:py-24">
       <div className="top-28 flex h-fit flex-col gap-5 md:sticky">
         <Badge>✦ How we works</Badge>
         <h2 className="title-2">
           Here’s how your <span className="text-secondary">our process</span>{" "}
           works
         </h2>
-        <p>
+        <p className="text-balance">
           From initial consultation to final execution, we keep you informed
           every step of the way, ensuring your digital marketing strategy is
           developed and implemented seamlessly.

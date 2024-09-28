@@ -19,7 +19,7 @@ import { RevealText } from "../ui/reveal-text";
 export default function MobileDrawer() {
   return (
     <Drawer setBackgroundColorOnScale={false}>
-      <DrawerTrigger>
+      <DrawerTrigger className="grid size-10 place-content-center rounded-md border bg-background/50 backdrop-blur-xl">
         <IconMenu4 className="" />
       </DrawerTrigger>
       <DrawerContent>

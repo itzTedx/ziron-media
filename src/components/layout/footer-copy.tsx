@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function FooterCopy() {
   return (
     <section className="border-t px-9 py-3 text-violet-200">
-      <div className="container flex justify-between">
+      <div className="container flex justify-between max-sm:flex-col max-sm:gap-3">
         <p className="text-sm">
           © {new Date().getFullYear()}, Ziron Media. All rights reserved.
         </p>
