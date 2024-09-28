@@ -7,6 +7,8 @@ import { Play, XIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
+import { Blob } from "../assets/blob";
+
 type AnimationStyle =
   | "from-bottom"
   | "from-center"
@@ -106,6 +108,7 @@ export default function HeroVideoDialog({
             </div>
           </div>
         </div>
+        <Blob className="absolute top-1/2 -z-40 -translate-y-1/2 scale-125" />
       </div>
       <AnimatePresence>
         {isVideoOpen && (

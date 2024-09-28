@@ -1,3 +1,4 @@
+import { Blob } from "@/components/assets/blob";
 import {
   Accordion,
   AccordionContent,
@@ -25,19 +26,20 @@ export default function Faq() {
         <Accordion
           type="single"
           collapsible
-          className="flex w-full flex-col gap-8"
+          className="relative flex w-full flex-col gap-8"
           defaultValue="item-0"
         >
           {FAQ.map((item, i) => (
             <AccordionItem
               value={`item-${i}`}
               key={i}
-              className="rounded-xl border px-9 py-4 transition-all data-[state=open]:border-primary data-[state=closed]:shadow-muted-md data-[state=open]:shadow-primary-md"
+              className="rounded-xl border bg-background px-9 py-4 transition-all data-[state=open]:border-primary data-[state=closed]:shadow-lg data-[state=open]:shadow-primary-md data-[state=closed]:shadow-gray-900/5"
             >
               <AccordionTrigger>{item.question}</AccordionTrigger>
               <AccordionContent>{item.answer}</AccordionContent>
             </AccordionItem>
           ))}
+          <Blob className="absolute left-1/2 top-0 -z-40 scale-125" />
         </Accordion>
       </aside>
     </section>

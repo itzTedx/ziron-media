@@ -1,3 +1,4 @@
+import { Blob } from "@/components/assets/blob";
 import { AnimatedBeamSocial } from "@/components/bento/animated-beam";
 import { AnimatedListDemo } from "@/components/bento/animated-list";
 import { BentoCard, BentoGrid } from "@/components/bento/bento-grid";
@@ -18,6 +19,7 @@ export function Featured() {
         {features.map((feature, idx) => (
           <BentoCard key={idx} {...feature} />
         ))}
+        <Blob className="absolute top-0 -z-40 scale-150" />
       </BentoGrid>
     </section>
   );
