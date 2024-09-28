@@ -4,7 +4,8 @@ import BreakpointIndicator from "@/components/dev/breakpoint-indicator";
 import LenisProvider from "@/components/dev/lenis";
 import Footer from "@/components/layout/footer";
 import Navbar from "@/components/layout/navbar";
-import { plusJakarta } from "@/fonts";
+import { monaSans, plusJakarta } from "@/fonts";
+import { cn } from "@/lib/utils";
 
 import "../styles/globals.css";
 import "../styles/ui.css";
@@ -21,7 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${plusJakarta.className} antialiased`}>
+      <body
+        className={cn(plusJakarta.className, monaSans.variable, "antialiased")}
+      >
         <div vaul-drawer-wrapper="">
           <LenisProvider />
           <Navbar />
