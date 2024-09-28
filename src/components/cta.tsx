@@ -5,8 +5,8 @@ import { GraphUp } from "@/components/assets/graph-up";
 
 export default function Cta() {
   return (
-    <section className="relative mx-auto max-w-6xl pb-24 pt-40">
-      <div className="relative flex h-96 w-full items-center justify-between gap-12 rounded-[1.875rem] border border-secondary bg-gradient-to-bl from-gray-900 to-violet-900 shadow-primary-md">
+    <section className="relative mx-auto max-w-6xl pb-24 pt-40 max-md:px-4">
+      <div className="relative flex h-72 w-full items-center justify-between gap-12 rounded-[1.875rem] border border-secondary bg-gradient-to-bl from-gray-900 to-violet-900 shadow-primary-md md:h-96">
         <div className="relative z-40 space-y-9 px-12">
           <h4 className="drop-shadow-2xls text-[2.375rem] font-medium text-purple-50 md:text-purple-200">
             Take your marketing
@@ -30,11 +30,11 @@ export default function Cta() {
           height={522}
           width={459}
           alt=""
-          className="absolute -bottom-px left-9 z-10 -translate-x-1/3 md:left-1/2"
+          className="absolute -bottom-20 left-9 z-10 -translate-x-1/3 max-md:scale-75 md:-bottom-px md:left-1/2"
         />
-        <Blob className="absolute -bottom-12 left-1/2 -translate-x-1/2 -rotate-90 scale-50" />
+        <Blob className="absolute -bottom-12 left-1/2 -translate-x-1/2 -rotate-90 scale-50 max-sm:hidden" />
       </div>
-      <Blob className="absolute right-0 top-1/2 -z-40 -translate-y-1/2 scale-125" />
+      <Blob className="absolute right-0 top-1/2 -z-40 -translate-y-1/2 max-md:opacity-50 md:scale-125" />
     </section>
   );
 }
