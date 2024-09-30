@@ -3,57 +3,72 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import "@/styles/ui.css";
 
+import { RevealText } from "../ui/reveal-text";
+
 interface CtaButtonProps {
   href: string;
   className?: string;
   label: string;
-  icon?: boolean;
 }
 
-export default function CtaButton({
-  href,
-  className,
-  label,
-  icon = false,
-}: CtaButtonProps) {
+export default function CtaButton({ href, className, label }: CtaButtonProps) {
   return (
     <Link
-      className={cn("btn-outline", className)}
-      role="button"
-      target="_blank"
       href={href}
-      prefetch={false}
-    >
-      <div className="dots_border" />
-      {icon && (
-        <svg fill="none" viewBox="0 0 24 24" className="sparkle">
-          <path
-            className="path"
-            strokeLinejoin="round"
-            strokeLinecap="round"
-            stroke="black"
-            fill="black"
-            d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
-          ></path>
-          <path
-            className="path"
-            strokeLinejoin="round"
-            strokeLinecap="round"
-            stroke="black"
-            fill="black"
-            d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
-          ></path>
-          <path
-            className="path"
-            strokeLinejoin="round"
-            strokeLinecap="round"
-            stroke="black"
-            fill="black"
-            d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
-          ></path>
-        </svg>
+      className={cn(
+        "group relative isolation-auto z-10 flex items-center justify-center gap-2 overflow-hidden rounded-full border-2 bg-foreground px-4 py-2 text-gray-50 backdrop-blur-md before:absolute before:-left-full before:-z-10 before:aspect-square before:w-full before:rounded-full before:bg-secondary before:transition-all before:duration-700 hover:text-gray-50 before:hover:left-0 before:hover:w-full before:hover:scale-150 before:hover:duration-700",
+        className
       )}
-      <span>{label}</span>
+    >
+      <RevealText>{label.replace(/ /g, "\xa0")}</RevealText>
+      <svg
+        viewBox="0 0 16 19"
+        className="size-8 rotate-45 justify-end rounded-full border border-gray-700 bg-gray-50 p-2 text-gray-50 duration-300 ease-linear group-hover:rotate-90 group-hover:border-none group-hover:bg-gray-50"
+      >
+        <path
+          className="fill-gray-800 group-hover:fill-gray-800"
+          d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+        ></path>
+      </svg>
     </Link>
+
+    // <Link
+    //   className={cn("btn-outline", className)}
+    //   role="button"
+    //   target="_blank"
+    //   href={href}
+    //   prefetch={false}
+    // >
+    //   <div className="dots_border" />
+    //   {icon && (
+    //     <svg fill="none" viewBox="0 0 24 24" className="sparkle">
+    //       <path
+    //         className="path"
+    //         strokeLinejoin="round"
+    //         strokeLinecap="round"
+    //         stroke="black"
+    //         fill="black"
+    //         d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
+    //       ></path>
+    //       <path
+    //         className="path"
+    //         strokeLinejoin="round"
+    //         strokeLinecap="round"
+    //         stroke="black"
+    //         fill="black"
+    //         d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
+    //       ></path>
+    //       <path
+    //         className="path"
+    //         strokeLinejoin="round"
+    //         strokeLinecap="round"
+    //         stroke="black"
+    //         fill="black"
+    //         d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
+    //       ></path>
+    //     </svg>
+    //   )}
+    //   <span>{label}</span>
+    // </Link>
   );
 }

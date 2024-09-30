@@ -4,8 +4,8 @@ import HeroVideoDialog from "@/components/magicui/hero-video-dialog";
 
 export default function Hero() {
   return (
-    <section className="container text-center">
-      <h1 className="mt-24 font-monaSans text-4xl font-bold tracking-tight text-primary md:mt-32 md:text-7xl md:leading-[5rem]">
+    <section className="container overflow-hidden py-12 text-center md:py-32 md:pb-40">
+      <h1 className="font-monaSans text-4xl font-bold tracking-tight text-primary md:text-7xl md:leading-[5rem]">
         We’re great at Digital <br />
         Marketing Solutions
       </h1>
@@ -14,7 +14,7 @@ export default function Hero() {
         media management
       </p>
 
-      <Link href="/contact">
+      <Link href="/what-we-do">
         <div className="group relative mx-auto mt-12 w-56 cursor-pointer overflow-hidden rounded-full border border-primary bg-background p-3 text-center font-semibold uppercase text-primary">
           <span className="inline-block translate-y-0 space-x-3 transition-all duration-300 group-hover:-translate-y-12 group-hover:opacity-0">
             <span>✦ </span>

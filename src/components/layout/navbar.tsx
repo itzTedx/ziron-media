@@ -38,7 +38,7 @@ export default function Navbar() {
           />
           <div
             className={cn(
-              "absolute bottom-0 z-40 flex w-full justify-center transition-opacity duration-500 ease-in-out",
+              "absolute bottom-0 z-10 flex w-full justify-center transition-opacity duration-500 ease-in-out",
               isScrolled ? "opacity-100" : "opacity-0"
             )}
           >

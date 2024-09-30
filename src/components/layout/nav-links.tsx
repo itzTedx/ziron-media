@@ -21,13 +21,19 @@ export function NavLinks() {
   const services = NAV_LINKS.filter((item) => item.services);
   const otherLinks = NAV_LINKS.filter((item) => !item.services);
   return (
-    <NavigationMenu>
+    <NavigationMenu className="z-50">
       <NavigationMenuList>
         {services.map((service, i) => (
           <NavigationMenuItem key={`Services_${i}`}>
-            <NavigationMenuTrigger>{service.title}</NavigationMenuTrigger>
+            <NavigationMenuTrigger>
+              <Link href={service.href} legacyBehavior passHref>
+                <NavigationMenuLink className="uppercase">
+                  <RevealText>{service.title.replace(/ /g, "\xa0")}</RevealText>
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuTrigger>
 
-            <NavigationMenuContent key={`ServicesNav_${i}`}>
+            <NavigationMenuContent key={`ServicesNav_${i}`} className="z-50">
               <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                 <li className="row-span-3">
                   <NavigationMenuLink asChild>
@@ -36,12 +42,11 @@ export function NavLinks() {
                       href="/"
                     >
                       <div className="mb-2 mt-4 text-lg font-medium">
-                        shadcn/ui
+                        Ziron Media
                       </div>
                       <p className="text-sm leading-tight text-muted-foreground">
-                        Beautifully designed components that you can copy and
-                        paste into your apps. Accessible. Customizable. Open
-                        Source.
+                        We specialize in brand identities, scalable websites,
+                        and expert social media management
                       </p>
                     </a>
                   </NavigationMenuLink>
@@ -58,7 +63,9 @@ export function NavLinks() {
         {otherLinks.map((nav, i) => (
           <NavigationMenuItem key={i}>
             <Link href={nav.href} legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <NavigationMenuLink
+                className={cn(navigationMenuTriggerStyle(), "uppercase")}
+              >
                 <RevealText>{nav.title.replace(/ /g, "\xa0")}</RevealText>
               </NavigationMenuLink>
             </Link>
@@ -128,7 +135,7 @@ const ListItem = React.forwardRef<
 >(({ className, title, children, ...props }, ref) => {
   return (
     <li>
-      <Link {...props}>
+      <a {...props}>
         <NavigationMenuLink
           ref={ref}
           className={cn(
@@ -141,7 +148,7 @@ const ListItem = React.forwardRef<
             {children}
           </p>
         </NavigationMenuLink>
-      </Link>
+      </a>
     </li>
   );
 });

@@ -10,11 +10,8 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { NAV_LINKS } from "@/constants";
-import { cn } from "@/lib/utils";
 
 import Logo from "../logo";
-import { buttonVariants } from "../ui/button";
-import { RevealText } from "../ui/reveal-text";
 
 export default function MobileDrawer() {
   return (
@@ -38,12 +35,12 @@ export default function MobileDrawer() {
                   <DrawerClose asChild>
                     <Link
                       href={link.href}
-                      className={"relative flex items-center py-4 text-xl"}
+                      className={
+                        "relative flex items-center py-4 text-xl uppercase"
+                      }
                       aria-label={`Visit ${link.title} page`}
                     >
-                      <RevealText>
-                        {link.title.replace(/ /g, "\xa0")}
-                      </RevealText>
+                      {link.title.replace(/ /g, "\xa0")}
                     </Link>
                   </DrawerClose>
                 </li>
@@ -52,12 +49,10 @@ export default function MobileDrawer() {
             <li>
               <Link
                 href="/contact"
-                className={cn(
-                  buttonVariants({ variant: "outline" }),
-                  "ml-3 bg-transparent text-xl"
-                )}
+                className={"relative flex items-center py-4 text-xl uppercase"}
+                aria-label={`Visit Contact page`}
               >
-                <RevealText>{`Contact\xa0us!`}</RevealText>
+                {`Contact\xa0us!`}
               </Link>
             </li>
           </menu>

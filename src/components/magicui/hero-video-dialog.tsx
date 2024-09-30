@@ -13,6 +13,26 @@ import { Blob } from "../assets/blob";
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 type AnimationStyle =
   | "from-bottom"
   | "from-center"
@@ -85,7 +105,7 @@ export default function HeroVideoDialog({
   return (
     <div className={cn("relative", className)}>
       <div
-        className="group relative cursor-pointer overflow-hidden"
+        className="group relative cursor-pointer"
         onClick={() => setIsVideoOpen(true)}
       >
         <div className="aspect-[16/8] w-full rounded-2xl bg-secondary shadow-lg transition-all duration-200 ease-out group-hover:brightness-[0.8]" />
@@ -112,7 +132,7 @@ export default function HeroVideoDialog({
             </div>
           </div>
         </div>
-        <Blob className="absolute top-1/2 -z-40 -translate-y-1/2 scale-75 max-sm:right-1/2 max-sm:translate-x-1/2 max-sm:opacity-50 md:scale-125" />
+        <Blob className="absolute left-0 top-1/2 -z-40 -translate-y-1/2 scale-75 md:scale-125" />
       </div>
       {/* <AnimatePresence>
         {isVideoOpen && (
