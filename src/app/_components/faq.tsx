@@ -12,7 +12,7 @@ export default function Faq() {
   return (
     <section className="overflow-hidden pb-12 md:py-24">
       <div className="container grid gap-10 md:grid-cols-2">
-        <div className="flex h-fit flex-col gap-5 md:sticky md:top-28">
+        <div className="sticky top-0 h-max">
           <Badge>✦ FAQs</Badge>
           <h2 className="title-2">
             Still have <br />

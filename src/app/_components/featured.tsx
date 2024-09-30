@@ -112,7 +112,8 @@ const features = [
       "From website design to social media presence, we manage your brand’s entire online identity, ensuring it looks professional, cohesive, and impactful across all platforms.",
     href: "#",
     cta: "Learn more",
-    className: "lg:col-span-2 row-span-1 lg:col-start-3 lg:row-start-3",
+    className:
+      "lg:col-span-2 row-span-1 md:row-span-2 lg:col-start-3 lg:row-start-3",
     background: (
       <AnimatedBeamSocial className="absolute -top-8 right-2 border-none transition-all duration-300 ease-out group-hover:scale-105 md:top-4 md:h-[350px]" />
     ),

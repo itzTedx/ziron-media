@@ -7,11 +7,15 @@ export const NAV_LINKS: NavItems[] = [
     services: [
       {
         title: "Digital Marketing",
-        href: "digital-marketing",
+        href: "/digital-marketing",
       },
       {
         title: "Branding",
-        href: "branding",
+        href: "/branding",
+      },
+      {
+        title: "Branding",
+        href: "/branding",
       },
     ],
   },

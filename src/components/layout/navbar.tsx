@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import Logo from "../logo";
 import CtaButton from "./cta-button";
 import MobileDrawer from "./mobile-drawer";
-import NavLinks from "./nav-links";
+import { NavLinks } from "./nav-links";
 
 export default function Navbar() {
   const isScrolled = useScroll(100);
