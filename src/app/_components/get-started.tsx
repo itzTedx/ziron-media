@@ -4,10 +4,10 @@ import Iphone15Pro from "@/components/ui/iphone-15-pro";
 export default function GetStated() {
   return (
     <>
-      <section className="relative mx-auto max-w-7xl px-6 py-24 max-sm:overflow-hidden">
+      <section className="relative mx-auto max-w-7xl px-6 py-40 max-sm:overflow-hidden">
         <div className="rounded-2xl border border-primary bg-background/30 py-9 shadow-primary-md backdrop-blur-md max-sm:text-center md:grid md:grid-cols-12 md:bg-primary md:py-20">
           <div className="col-span-6 col-start-2 px-6">
-            <h3 className="text-balance text-2xl font-bold text-gray-900 md:text-5xl md:leading-[3.25rem] md:text-violet-100">
+            <h3 className="text-balance text-2xl font-bold text-primary md:text-5xl md:leading-[3.25rem] md:text-violet-100">
               Guaranteed Target Audience Delivery - Your Success, Our Promise!
             </h3>
             <p className="mt-3 text-balance text-xl text-gray-800 md:mt-6 md:text-violet-200">

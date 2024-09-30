@@ -1,13 +1,17 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { useState } from "react";
 
-import { AnimatePresence, motion } from "framer-motion";
-import { Play, XIcon } from "lucide-react";
+import { Play } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
 import { Blob } from "../assets/blob";
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
 type AnimationStyle =
   | "from-bottom"
@@ -81,7 +85,7 @@ export default function HeroVideoDialog({
   return (
     <div className={cn("relative", className)}>
       <div
-        className="group relative cursor-pointer"
+        className="group relative cursor-pointer overflow-hidden"
         onClick={() => setIsVideoOpen(true)}
       >
         <div className="aspect-[16/8] w-full rounded-2xl bg-secondary shadow-lg transition-all duration-200 ease-out group-hover:brightness-[0.8]" />
@@ -110,7 +114,7 @@ export default function HeroVideoDialog({
         </div>
         <Blob className="absolute top-1/2 -z-40 -translate-y-1/2 scale-75 max-sm:right-1/2 max-sm:translate-x-1/2 max-sm:opacity-50 md:scale-125" />
       </div>
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {isVideoOpen && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -138,7 +142,7 @@ export default function HeroVideoDialog({
             </motion.div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
     </div>
   );
 }

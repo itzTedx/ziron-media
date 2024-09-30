@@ -1,5 +1,3 @@
-import Cta from "@/components/cta";
-
 import Faq from "./_components/faq";
 import { Featured } from "./_components/featured";
 import Feedback from "./_components/feedback";
@@ -21,7 +19,7 @@ export default function Home() {
 
       <Feedback />
       <Faq />
-      <Cta />
+      {/* <Cta /> */}
     </main>
   );
 }
