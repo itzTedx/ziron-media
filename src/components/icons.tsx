@@ -3,7 +3,7 @@ import { LucideProps } from "lucide-react";
 export const Icons = {
   heart: (props: LucideProps) => (
     <svg {...props} width="18" height="18" viewBox="0 0 18 18">
-      <g clip-path="url(#clip0_83_218)">
+      <g clipPath="url(#clip0_83_218)">
         <mask
           id="mask0_83_218"
           style={{ maskType: "luminance" }}
