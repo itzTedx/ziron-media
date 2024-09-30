@@ -7,14 +7,14 @@ export default function Cta() {
   return (
     <section className="relative mx-auto max-w-6xl pb-24 pt-40 max-md:px-4">
       <div className="relative flex h-72 w-full items-center justify-between gap-12 rounded-[1.875rem] border border-secondary bg-gradient-to-bl from-gray-900 to-violet-900 shadow-primary-md md:h-96">
-        <div className="relative z-40 space-y-9 px-12">
-          <h4 className="drop-shadow-2xls text-[2.375rem] font-medium text-purple-50 md:text-purple-200">
+        <div className="relative z-40 w-full space-y-9 px-12">
+          <h4 className="text-2xl font-medium text-purple-50 drop-shadow-2xl max-md:text-end md:text-[2.375rem] md:text-purple-200">
             Take your marketing
             <br />
             to the next level
           </h4>
 
-          <div className="group relative w-36 cursor-pointer overflow-hidden rounded-full border bg-background p-3 text-center font-semibold text-foreground">
+          <div className="group relative w-36 cursor-pointer overflow-hidden rounded-full border border-white bg-background/50 p-3 text-center font-semibold text-background backdrop-blur-md max-md:ml-auto">
             <span className="inline-block translate-y-0 transition-all duration-300 group-hover:-translate-y-12 group-hover:opacity-0">
               Get a quote
             </span>
@@ -23,14 +23,14 @@ export default function Cta() {
             </div>
           </div>
         </div>
-        <div className="absolute -left-12 size-[30rem] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] opacity-50 mix-blend-overlay [background-size:30px_30px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
-        <GraphUp className="absolute right-9" />
+        <div className="absolute -left-12 size-[25rem] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] opacity-50 mix-blend-overlay [background-size:30px_30px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] md:size-[30rem]" />
+        <GraphUp className="absolute right-4 md:right-9" />
         <Image
           src="/images/guy-holding-tab.png"
           height={522}
           width={459}
           alt=""
-          className="absolute -bottom-20 left-9 z-10 -translate-x-1/3 max-md:scale-75 md:-bottom-px md:left-1/2"
+          className="absolute -bottom-14 left-9 z-10 -translate-x-1/3 max-md:scale-75 md:-bottom-px md:left-1/2"
         />
         <Blob className="absolute -bottom-12 left-1/2 -translate-x-1/2 -rotate-90 scale-50 max-sm:hidden" />
       </div>
