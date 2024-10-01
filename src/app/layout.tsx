@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 
-import { ClerkProvider } from "@clerk/nextjs";
-
 import BreakpointIndicator from "@/components/dev/breakpoint-indicator";
 import LenisProvider from "@/components/dev/lenis";
 import Footer from "@/components/layout/footer";
@@ -27,15 +25,13 @@ export default function RootLayout({
       <body
         className={cn(plusJakarta.className, monaSans.variable, "antialiased")}
       >
-        <ClerkProvider>
-          <div vaul-drawer-wrapper="">
-            <LenisProvider />
-            <Navbar />
-            {children}
-            <Footer />
-            <BreakpointIndicator />
-          </div>
-        </ClerkProvider>
+        <div vaul-drawer-wrapper="">
+          <LenisProvider />
+          <Navbar />
+          {children}
+          <Footer />
+          <BreakpointIndicator />
+        </div>
       </body>
     </html>
   );
