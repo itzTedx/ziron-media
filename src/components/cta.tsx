@@ -6,7 +6,7 @@ import { GraphUp } from "@/components/assets/graph-up";
 export default function Cta() {
   return (
     <section className="relative mx-auto max-w-6xl pb-24 pt-40 max-md:px-4">
-      <div className="relative flex h-72 w-full items-center justify-between gap-12 rounded-[1.875rem] border border-secondary bg-gradient-to-bl from-gray-900 to-violet-900 shadow-primary-md md:h-96">
+      <div className="relative flex h-72 w-full items-center justify-between gap-12 rounded-[1.875rem] border border-secondary bg-gradient-to-bl from-gray-900 to-violet-900 shadow-primary-md max-md:overflow-hidden md:h-96">
         <div className="relative z-40 w-full space-y-9 px-12">
           <h4 className="text-2xl font-medium text-purple-50 drop-shadow-2xl max-md:text-end md:text-[2.375rem] md:text-purple-200">
             Take your marketing

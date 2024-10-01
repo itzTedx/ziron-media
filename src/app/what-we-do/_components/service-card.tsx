@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { IconArrowRight } from "@tabler/icons-react";
 
-import CtaButton from "@/components/layout/cta-button";
+import Button from "@/components/primary-button";
 
 export default function ServiceCard({ data }: { data: { label: string } }) {
   return (
@@ -13,7 +13,7 @@ export default function ServiceCard({ data }: { data: { label: string } }) {
       <div className="flex flex-col justify-between py-6 md:group-even:items-end">
         <div>
           <h3>{data.label}</h3>
-          <p className="text-xl">
+          <p className="mt-3 md:text-xl">
             Strategic Social Media Campaigns: Crafting and executing tailored
             social media strategies to enhance brand visibility, engagement, and
             audience growth across platforms.
@@ -27,7 +27,7 @@ export default function ServiceCard({ data }: { data: { label: string } }) {
           <Link href="/" className="inline-flex items-center gap-2">
             Let&apos;s Talk <IconArrowRight />
           </Link>
-          <CtaButton href="/" label="View Works" />
+          <Button href="/" label="View Works" />
         </div>
       </div>
     </div>

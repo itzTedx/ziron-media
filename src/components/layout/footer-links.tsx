@@ -7,13 +7,13 @@ import { RevealText } from "../ui/reveal-text";
 export default function FooterLinks() {
   return (
     <nav className="self-end">
-      <ul className="flex flex-col gap-4 text-lg text-violet-200">
+      <ul className="flex flex-col gap-4 text-violet-200 md:text-lg">
         <h6>Quick Links</h6>
         <li>
           <Link
             href="/"
             className={
-              "relative flex items-center px-4 py-2 font-medium uppercase"
+              "relative flex items-center py-2 font-medium uppercase md:px-4"
             }
             aria-label={`Visit Home page`}
           >
@@ -25,7 +25,7 @@ export default function FooterLinks() {
             <Link
               href={link.href}
               className={
-                "relative flex items-center px-4 py-2 font-medium uppercase"
+                "relative flex items-center py-2 font-medium uppercase md:px-4"
               }
               aria-label={`Visit ${link.title} page`}
             >
@@ -37,7 +37,7 @@ export default function FooterLinks() {
           <Link
             href="/contact"
             className={
-              "relative flex items-center px-4 py-2 font-medium uppercase"
+              "relative flex items-center py-2 font-medium uppercase md:px-4"
             }
             aria-label={`Visit Home page`}
           >

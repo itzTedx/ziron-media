@@ -28,7 +28,7 @@ export default function MobileDrawer() {
           </DrawerClose>
         </DrawerHeader>
         <nav className="py-9">
-          <menu className="flex w-full flex-col items-center gap-6 bg-transparent">
+          <menu className="flex w-full flex-col gap-3 divide-y bg-transparent px-6">
             {NAV_LINKS.map((link, i) => {
               return (
                 <li key={i}>
@@ -36,7 +36,7 @@ export default function MobileDrawer() {
                     <Link
                       href={link.href}
                       className={
-                        "relative flex items-center py-4 text-xl uppercase"
+                        "relative flex items-center py-4 text-lg font-semibold uppercase"
                       }
                       aria-label={`Visit ${link.title} page`}
                     >
@@ -47,13 +47,17 @@ export default function MobileDrawer() {
               );
             })}
             <li>
-              <Link
-                href="/contact"
-                className={"relative flex items-center py-4 text-xl uppercase"}
-                aria-label={`Visit Contact page`}
-              >
-                {`Contact\xa0us!`}
-              </Link>
+              <DrawerClose asChild>
+                <Link
+                  href="/contact"
+                  className={
+                    "relative flex items-center py-4 text-lg font-semibold uppercase"
+                  }
+                  aria-label={`Visit Contact page`}
+                >
+                  {`Contact\xa0us!`}
+                </Link>
+              </DrawerClose>
             </li>
           </menu>
         </nav>

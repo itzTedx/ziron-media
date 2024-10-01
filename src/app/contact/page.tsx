@@ -1,20 +1,23 @@
 import { Badge } from "@/components/ui/badge";
 
+import ContactForm from "./_components/contact-form";
+
 export default function ContactPage() {
   return (
-    <main className="container grid min-h-svh grid-cols-2 py-32">
-      <section>
+    <main className="relative mx-auto max-w-6xl px-4 py-12 md:grid md:grid-cols-2 md:py-32">
+      <section className="space-y-3">
         <Badge>✦ FAQs</Badge>
         <h2 className="title-2">
           Dont be shy,
           <span className="text-secondary"> say hi!</span>
         </h2>
-        <p className="mt-3 text-balance">
-          Everything you need to know about our services and the costs. Can’t
-          find the answer you’re looking for? Please chat to our team.
+        <p className="text-balance">
+          We’d love to hear from you: Drop us a line using this form or pay us a
+          visit at our beautiful office in the bustling heart of Dubai.
         </p>
       </section>
-      <section></section>
+
+      <ContactForm />
     </main>
   );
 }

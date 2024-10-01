@@ -6,7 +6,7 @@ import useScroll from "@/hooks/use-scroll";
 import { cn } from "@/lib/utils";
 
 import Logo from "../logo";
-import CtaButton from "./cta-button";
+import Button from "../primary-button";
 import MobileDrawer from "./mobile-drawer";
 import { NavLinks } from "./nav-links";
 
@@ -31,7 +31,7 @@ export default function Navbar() {
             <Logo />
           </Link>
           <NavLinks />
-          <CtaButton
+          <Button
             label="Contact"
             href="/contact"
             className="font-medium uppercase"

@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function FooterCopy() {
   return (
-    <section className="border-t px-9 py-3 text-violet-200">
-      <div className="container flex justify-between max-sm:flex-col max-sm:gap-3">
+    <section className="border-t px-4 py-3 text-violet-200 md:px-9">
+      <div className="container flex justify-center max-md:flex-col max-md:items-center max-md:gap-3 md:justify-between">
         <p className="text-sm">
           © {new Date().getFullYear()}, Ziron Media. All rights reserved.
         </p>

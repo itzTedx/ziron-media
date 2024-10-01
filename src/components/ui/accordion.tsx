@@ -25,12 +25,12 @@ const AccordionTrigger = React.forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "flex flex-1 items-center justify-between text-start font-medium transition-all md:py-4 md:text-lg [&[data-state=open]>svg]:rotate-180 [&[data-state=open]>svg]:bg-primary [&[data-state=open]>svg]:text-background",
+        "flex flex-1 items-center justify-between text-start text-base font-medium transition-all md:py-4 md:text-lg [&[data-state=open]>svg]:rotate-180 [&[data-state=open]>svg]:bg-primary [&[data-state=open]>svg]:text-background",
         className
       )}
       {...props}
     >
-      <span className="after:ease-[cubic-bezier(0.65_0.05_0.36_1)] relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 after:bg-muted-foreground after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100">
+      <span className="relative after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 after:bg-muted-foreground after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100 md:after:absolute">
         {children}
       </span>
       <ChevronDownIcon className="size-6 shrink-0 rounded-full bg-gray-50 p-1 text-muted-foreground transition-all duration-300 ease-in-out md:size-10 md:p-2" />

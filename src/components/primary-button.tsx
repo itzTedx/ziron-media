@@ -3,7 +3,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import "@/styles/ui.css";
 
-import { RevealText } from "../ui/reveal-text";
+import { RevealText } from "./ui/reveal-text";
 
 interface CtaButtonProps {
   href: string;
@@ -11,7 +11,7 @@ interface CtaButtonProps {
   label: string;
 }
 
-export default function CtaButton({ href, className, label }: CtaButtonProps) {
+export default function Button({ href, className, label }: CtaButtonProps) {
   return (
     <Link
       href={href}

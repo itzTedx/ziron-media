@@ -21,7 +21,7 @@
     --destructive: 0 85% 60%;
     --destructive-foreground: 280 60% 5%;
     --border: 270 20% 86%;
-    --input: 270 20% 20%;
+    --input: 270 20% 86%;
     --ring: 0 0% 40%;
     --radius: 0.5rem;
 
@@ -73,7 +73,7 @@
   }
 
   h3 {
-    @apply text-balance text-2xl tracking-tight md:text-3xl md:leading-[2.5rem];
+    @apply text-balance text-2xl font-medium tracking-tight text-gray-900 md:text-3xl md:leading-[2.5rem];
   }
 }
 
