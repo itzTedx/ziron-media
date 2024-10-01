@@ -8,6 +8,8 @@ import Hero from "./_components/hero";
 import HowWeWorks from "./_components/how-we-works";
 import { Works } from "./_components/works";
 
+export const dynamic = "force-static";
+
 export default function Home() {
   return (
     <main>

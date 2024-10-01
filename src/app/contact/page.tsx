@@ -2,6 +2,8 @@ import { Badge } from "@/components/ui/badge";
 
 import ContactForm from "./_components/contact-form";
 
+export const dynamic = "force-static";
+
 export default function ContactPage() {
   return (
     <main className="relative mx-auto max-w-6xl px-4 py-12 md:grid md:grid-cols-2 md:py-32">

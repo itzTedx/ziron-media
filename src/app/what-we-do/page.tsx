@@ -5,6 +5,8 @@ import { services } from "@/constants/services";
 import Hero from "./_components/radar";
 import ServiceCard from "./_components/service-card";
 
+export const dynamic = "force-static";
+
 export default function Services() {
   return (
     <main className="relative py-12">
