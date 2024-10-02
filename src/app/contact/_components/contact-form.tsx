@@ -34,7 +34,7 @@ export default function ContactForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-6 rounded-lg border border-primary bg-background p-9 shadow-primary-md"
+        className="space-y-6 rounded-xl border border-primary bg-background p-6 shadow-primary-md lg:p-9"
       >
         <FormField
           control={form.control}

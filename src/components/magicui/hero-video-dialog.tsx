@@ -33,6 +33,10 @@ import { Blob } from "../assets/blob";
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 type AnimationStyle =
   | "from-bottom"
   | "from-center"
@@ -105,7 +109,7 @@ export default function HeroVideoDialog({
   return (
     <div className={cn("relative", className)}>
       <div
-        className="group relative cursor-pointer"
+        className="group relative z-10 cursor-pointer"
         onClick={() => setIsVideoOpen(true)}
       >
         <div className="aspect-[16/8] w-full rounded-2xl bg-secondary shadow-lg transition-all duration-200 ease-out group-hover:brightness-[0.8]" />
@@ -132,7 +136,7 @@ export default function HeroVideoDialog({
             </div>
           </div>
         </div>
-        <Blob className="absolute left-0 top-1/2 -z-40 -translate-y-1/2 scale-75 md:scale-125" />
+        <Blob className="absolute left-0 top-1/2 -z-10 -translate-y-1/2 scale-75 md:scale-125" />
       </div>
       {/* <AnimatePresence>
         {isVideoOpen && (

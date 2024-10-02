@@ -10,7 +10,7 @@ import { FAQ } from "@/constants/faq";
 
 export default function Faq() {
   return (
-    <section className="container relative grid gap-10 py-12 max-md:overflow-hidden md:grid-cols-2 md:py-24">
+    <section className="container relative z-0 grid gap-10 py-12 max-md:overflow-hidden md:grid-cols-2 md:py-24">
       <div className="top-28 flex h-fit flex-col gap-5 md:sticky">
         <Badge>✦ FAQs</Badge>
         <h2 className="title-2">
