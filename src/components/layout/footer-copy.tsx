@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function FooterCopy() {
   return (
-    <section className="border-t px-4 py-3 text-violet-200 md:px-9">
+    <section className="border-t border-gray-800 px-4 py-3 text-violet-300 md:px-9">
       <div className="container flex justify-center max-md:flex-col max-md:items-center max-md:gap-3 md:justify-between">
         <p className="text-sm">
           © {new Date().getFullYear()}, Ziron Media. All rights reserved.

@@ -1,6 +1,7 @@
 import { NavItems } from "@/types/nav-links";
 
 export const NAV_LINKS: NavItems[] = [
+  { title: "About", href: "/about" },
   {
     title: "What we do",
     href: "/what-we-do",
@@ -19,7 +20,6 @@ export const NAV_LINKS: NavItems[] = [
       },
     ],
   },
-  { title: "Works", href: "/works" },
+
   { title: "Case Study", href: "/case-studies" },
-  { title: "About", href: "/about" },
 ];

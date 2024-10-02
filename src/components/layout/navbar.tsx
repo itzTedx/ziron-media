@@ -14,13 +14,14 @@ export default function Navbar() {
   const isScrolled = useScroll(100);
 
   return (
-    <>
-      <header className="container sticky top-3 z-[99999] mx-auto max-sm:px-5 max-sm:pt-2">
+    <section className="h-fit w-full bg-background">
+      {/* Desktop navigation */}
+      <header className="container fixed left-1/2 top-3 z-[99999] -translate-x-1/2 max-sm:px-5 max-sm:pt-2">
         <nav
           className={cn(
-            "hidden w-full items-center justify-between rounded-full border-background px-5 py-3 shadow-glow transition-all duration-500 ease-in-out max-lg:text-sm md:flex",
+            "hidden w-full items-center justify-between rounded-full border border-background px-9 py-3 shadow-glow transition-all duration-500 ease-in-out max-lg:text-sm md:flex",
             isScrolled
-              ? "border bg-[#FAF9FB]/50 backdrop-blur-md"
+              ? "bg-[#FAF9FB]/50 backdrop-blur-md"
               : "bg-transparent backdrop-blur-0"
           )}
           style={{
@@ -47,13 +48,15 @@ export default function Navbar() {
           </div>
         </nav>
 
-        <div className="flex items-center justify-between md:hidden">
+        {/* Mobile navigation */}
+        <div className="relative flex items-center justify-between md:hidden">
           <Link href="/">
             <Logo />
           </Link>
           <MobileDrawer />
+          <span className="absolute -inset-x-9 -top-6 -z-10 h-32 w-[120vw] bg-gradient-to-b from-background to-transparent" />
         </div>
       </header>
-    </>
+    </section>
   );
 }

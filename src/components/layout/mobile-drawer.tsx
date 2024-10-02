@@ -16,7 +16,7 @@ import Logo from "../logo";
 export default function MobileDrawer() {
   return (
     <Drawer setBackgroundColorOnScale={false}>
-      <DrawerTrigger className="grid size-10 place-content-center rounded-md border bg-background/50 backdrop-blur-xl">
+      <DrawerTrigger className="grid size-10 place-content-center rounded-full border bg-background/50 backdrop-blur-xl">
         <IconMenu4 className="" />
       </DrawerTrigger>
       <DrawerContent>

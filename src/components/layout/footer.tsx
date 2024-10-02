@@ -5,7 +5,7 @@ import FooterLinks from "./footer-links";
 
 export default function Footer() {
   return (
-    <footer className="h-full rounded-t-3xl bg-gray-900">
+    <footer className="h-full bg-gray-950">
       <div className="container grid gap-6 px-9 py-12 md:grid-cols-2 md:py-24">
         <FooterHead />
         <div className="grid-cols-3 md:grid">

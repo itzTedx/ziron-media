@@ -35,7 +35,7 @@
     --gray-700: 233 36% 40%;
     --gray-800: 233 42% 30%;
     --gray-900: 248 60% 17%;
-    --gray-950: 250 70% 8%;
+    --gray-950: 240 85% 10%;
   }
 
   .dark {
@@ -69,11 +69,22 @@
     @apply bg-background text-foreground;
   }
   h2 {
-    @apply text-balance text-3xl tracking-tight md:text-5xl md:leading-[4rem];
+    @apply text-balance text-3xl font-medium tracking-tight md:text-5xl md:leading-[4rem];
   }
 
   h3 {
     @apply text-balance text-2xl font-medium tracking-tight text-gray-900 md:text-3xl md:leading-[2.5rem];
+  }
+
+  main {
+    @apply rounded-b-3xl bg-background pt-16 md:pt-24;
+  }
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
   }
 }
 

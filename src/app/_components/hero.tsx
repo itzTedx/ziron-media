@@ -4,7 +4,7 @@ import HeroVideoDialog from "@/components/magicui/hero-video-dialog";
 
 export default function Hero() {
   return (
-    <section className="container overflow-hidden py-12 text-center md:py-32 md:pb-40">
+    <section className="container overflow-hidden py-12 text-center md:pb-40">
       <h1 className="font-monaSans text-4xl font-bold tracking-tight text-primary md:text-7xl md:leading-[5rem]">
         We’re great at Digital <br />
         Marketing Solutions

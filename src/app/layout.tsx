@@ -25,7 +25,7 @@ export default function RootLayout({
       <body
         className={cn(plusJakarta.className, monaSans.variable, "antialiased")}
       >
-        <div vaul-drawer-wrapper="">
+        <div vaul-drawer-wrapper="" className="bg-gray-950">
           <LenisProvider />
           <Navbar />
           {children}

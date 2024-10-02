@@ -1,0 +1,134 @@
+.marketing-toolkit__inner {
+  --padding: 10%;
+  position: relative;
+  padding-top: var(--padding);
+}
+
+.marketing-toolkit__service {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+.marketing-toolkit__service:nth-child(1) {
+  left: 0%;
+}
+
+.marketing-toolkit__service:nth-child(2) {
+  left: 20%;
+}
+
+.marketing-toolkit__service:nth-child(3) {
+  left: 40%;
+}
+
+.marketing-toolkit__service:nth-child(4) {
+  left: 60%;
+}
+
+.marketing-toolkit__service:nth-child(5) {
+  left: 80%;
+}
+
+.marketing-toolkit__service:nth-child(1),
+.marketing-toolkit__service:nth-child(5) {
+  height: calc(44% + var(--padding));
+}
+
+.marketing-toolkit__service:nth-child(2),
+.marketing-toolkit__service:nth-child(3),
+.marketing-toolkit__service:nth-child(4) {
+  height: calc(23% + var(--padding));
+}
+
+.marketing-toolkit__service:nth-child(1) {
+  transform: translateX(-12%);
+}
+
+.marketing-toolkit__service:nth-child(2) {
+  transform: translateX(-9%);
+}
+
+.marketing-toolkit__service:nth-child(4) {
+  transform: translateX(9%);
+}
+
+.marketing-toolkit__service:nth-child(5) {
+  transform: translateX(12%);
+}
+
+.marketing-toolkit__service::before {
+  content: "";
+  width: 2px;
+  flex-grow: 1;
+  background-color: #030326;
+}
+
+.marketing-toolkit__service::after {
+  --size: 0.8rem;
+  content: "";
+  width: var(--size);
+  height: var(--size);
+  background-color: #030326;
+  border-radius: 100%;
+}
+
+.marketing-toolkit__service-inner {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  order: -1;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.marketing-toolkit__service-inner::before {
+  content: "";
+  width: 100%;
+  height: 3rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  background-color: #f3e8ff;
+  border-radius: 1000px;
+  z-index: -1;
+  border: 1px solid #4a3aff;
+}
+
+@media (max-width: 768px) {
+  .marketing-toolkit {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: relative;
+  }
+
+  .marketing-toolkit__inner {
+    --padding: 30%;
+    width: 100%;
+    transform: rotate(90deg);
+  }
+
+  .marketing-toolkit__service-inner {
+    transform: rotate(-90deg);
+  }
+}
+
+@media (min-width: 671px) {
+  .marketing-toolkit__service-inner {
+    width: 80%;
+    max-width: 7.5rem;
+  }
+}
+
+@media (max-width: 670px) {
+  .marketing-toolkit__service-inner {
+    padding: 1rem 1rem 0.8rem;
+  }
+}
