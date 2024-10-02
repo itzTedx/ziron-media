@@ -12,7 +12,7 @@ export default function Services() {
     <main className="relative py-12">
       <Hero />
       <Blob className="absolute left-1/2 top-0 -z-50 -translate-x-1/2 max-md:w-full" />
-      <section className="container py-12 md:py-32">
+      <section className="mx-auto max-w-6xl px-6 py-12 md:py-32">
         <Badge variant="secondary">✦ What we are great at</Badge>
         <h2 className="title-2 mb-12">
           Here’s{" "}

@@ -7,7 +7,7 @@ import { slugify } from "@/lib/utils";
 
 export default function ServiceCard({ data }: { data: { label: string } }) {
   return (
-    <div className="group grid items-center pb-12 md:grid-cols-2 md:gap-12 md:pb-24">
+    <div className="group grid items-center pb-12 md:grid-cols-2 md:gap-20 md:pb-32">
       <figure className="grid aspect-[4/3] place-content-center rounded-lg bg-gray-200 md:group-even:order-2">
         <div className="">Placeholder</div>
       </figure>
@@ -24,7 +24,7 @@ export default function ServiceCard({ data }: { data: { label: string } }) {
             and drive business objectives.
           </p>
         </div>
-        <div className="flex items-center gap-9 max-lg:mt-9 max-md:mt-6">
+        <div className="mt-9 flex items-center gap-9 max-md:mt-6">
           <Link
             href={`/contact?message=${data.label}`}
             className="inline-flex items-center gap-2"

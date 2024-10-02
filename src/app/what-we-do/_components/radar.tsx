@@ -14,7 +14,7 @@ import { Radar } from "./radar-line";
 export default function Hero() {
   return (
     <div className="relative flex h-96 w-full flex-col items-center justify-center space-y-4 overflow-hidden bg-background px-4">
-      <div className="mx-auto w-full max-w-4xl max-md:mt-20">
+      <div className="mx-auto w-full max-w-4xl max-md:mt-32">
         <div className="flex w-full items-center justify-center space-x-8 md:justify-between md:space-x-0">
           <IconContainer
             text="Branding"
@@ -67,7 +67,7 @@ export default function Hero() {
           />
         </div>
       </div>
-      <h2 className="absolute bottom-6 px-3 text-center font-medium max-md:top-0">
+      <h2 className="absolute bottom-6 z-50 px-3 text-center font-medium leading-tight max-md:top-9">
         We design, build and elevate <br />
         your <span className="text-secondary">online presence</span>
       </h2>
