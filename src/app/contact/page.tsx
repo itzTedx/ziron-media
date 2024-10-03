@@ -7,18 +7,14 @@ import ContactForm from "./_components/contact-form";
 
 export const dynamic = "force-static";
 
-export default async function ContactPage({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string | string[] | undefined };
-}) {
+export default async function ContactPage() {
   return (
     <main className="min-h-dvh">
       <div className="relative mx-auto max-w-6xl items-start gap-6 px-4 py-12 md:grid md:grid-cols-2 md:py-32">
         <section className="space-y-3">
           <Badge>✦ Get in touch</Badge>
           <h2 className="title-2">
-            Dont be shy,
+            Don&apos;t be shy,
             <span className="text-secondary"> say hi!</span>
           </h2>
           <p className="text-balance">
