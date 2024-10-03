@@ -1,10 +1,13 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 import { getPosts } from "@/server/actions/get-posts";
 import { Posts } from "@/types/posts";
 
 export default async function WorksPages() {
   const posts = await getPosts();
+
+  if (!posts) return notFound();
   return (
     <div className="container my-24 min-h-svh">
       <h2 className="mb-9">Works Page</h2>

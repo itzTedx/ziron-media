@@ -1,11 +1,6 @@
-import { getCategories } from "@/server/actions/get-all-categories";
-
 import { NavigationMenuLink } from "../ui/navigation-menu";
 
 export default async function ServicesDropdown() {
-  const categories = await getCategories();
-
-  console.log(categories);
   return (
     <li className="row-span-3">
       <NavigationMenuLink asChild>
