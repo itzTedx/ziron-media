@@ -1,17 +1,33 @@
+import { Blob } from "@/components/assets/blob";
+import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
+
 import AboutHero from "./_components/hero";
 import OurQuality from "./_components/our-quality-section";
 import Toolkit from "./_components/toolkit";
 
 export default function AboutPage() {
   return (
-    <main className="space-y-36 py-9 md:py-24">
+    <main className="relative space-y-36 overflow-hidden py-9 md:py-24">
       <AboutHero />
+      <Blob className="absolute -right-[25%] -top-[18rem] rotate-45" />
       <section className="container py-24">
         <h2 className="mx-auto max-w-3xl text-center">
           <strong className="font-medium">
             Our story started with our founders, 20 years ago
           </strong>
         </h2>
+      </section>
+      <section className="container">
+        <div className="rounded-xl bg-gray-950 p-9">
+          <h3 className="mb-6 text-center text-background">
+            Building Together with these Brands
+          </h3>
+          <InfiniteMovingCards
+            items={testimonials}
+            direction="right"
+            speed="slow"
+          />
+        </div>
       </section>
       <section className="mx-auto grid max-w-5xl grid-cols-3 px-4">
         <h2>
@@ -47,3 +63,34 @@ export default function AboutPage() {
     </main>
   );
 }
+
+const testimonials = [
+  {
+    src: "/logos/aura.svg",
+    title: "Aura Group",
+  },
+  {
+    src: "/logos/bumbyy.png",
+    title: "Bumbby",
+  },
+  {
+    src: "/logos/famous-daves.png",
+    title: "Famous Daves",
+  },
+  {
+    src: "/logos/kf.png",
+    title: "simply kf",
+  },
+  {
+    src: "/logos/phenom.png",
+    title: "Phenom",
+  },
+  {
+    src: "/logos/mine-hive.png",
+    title: "Mine Hive",
+  },
+  {
+    src: "/logos/saj-legal.png",
+    title: "Saj Legals",
+  },
+];
