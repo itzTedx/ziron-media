@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 
+import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
+import { extractRouterConfig } from "uploadthing/server";
+
+import { ourFileRouter } from "@/app/api/uploadthing/core";
 import BreakpointIndicator from "@/components/dev/breakpoint-indicator";
 import { monaSans, plusJakarta } from "@/fonts";
-import { siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
+import { siteConfig } from "@/utils/site-config";
 
 import "../styles/globals.css";
 import "../styles/ui.css";
@@ -53,6 +57,16 @@ export default function RootLayout({
       <body
         className={cn(plusJakarta.className, monaSans.variable, "antialiased")}
       >
+        {" "}
+        <NextSSRPlugin
+          /**
+           * The `extractRouterConfig` will extract **only** the route configs
+           * from the router to prevent additional information from being
+           * leaked to the client. The data passed to the client is the same
+           * as if you were to fetch `/api/uploadthing` directly.
+           */
+          routerConfig={extractRouterConfig(ourFileRouter)}
+        />
         {children}
         <BreakpointIndicator />
       </body>

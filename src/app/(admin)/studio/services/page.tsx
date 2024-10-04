@@ -6,14 +6,16 @@ export default async function ServiceAdminPage() {
   const data = await getData();
 
   return (
-    <div className="container">
+    <section className="container">
       <Header
         title="Services"
         description="Manage all services"
         btnLink="/studio/services/new"
       />
-      <DataTable columns={columns} data={data} />
-    </div>
+      <div className="">
+        <DataTable columns={columns} data={data} />
+      </div>
+    </section>
   );
 }
 

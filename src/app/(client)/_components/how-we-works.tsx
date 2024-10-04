@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { Icons } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -8,7 +9,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { HOW_WE_WORKS } from "@/constants/how-we-works";
 
 export default function HowWeWorks() {
   return (
@@ -34,24 +34,19 @@ export default function HowWeWorks() {
         </div>
       </div>
       <aside className="space-y-12">
-        {HOW_WE_WORKS.map((step) => (
-          <Card className="bg-gray-50" key={step.id}>
+        {HOW_WE_WORKS.map(({ id, icon, title, description }) => (
+          <Card className="bg-gray-50" key={id}>
             <CardHeader className="flex flex-row items-center justify-between">
-              <div className="relative size-20">
-                <Image
-                  src={`/icons/${step.icon}.svg`}
-                  fill
-                  alt=""
-                  className="object-contain"
-                />
-              </div>
-              <div>#{step.id}</div>
+              <div className="relative size-20">{icon}</div>
+              <span className="font-monaSans text-4xl font-bold italic text-violet-500">
+                #{id}
+              </span>
             </CardHeader>
             <CardContent className="flex flex-col gap-6">
               <CardTitle className="text-balance text-3xl font-medium leading-10">
-                {step.title}
+                {title}
               </CardTitle>
-              <CardDescription>{step.description}</CardDescription>
+              <CardDescription>{description}</CardDescription>
             </CardContent>
           </Card>
         ))}
@@ -59,3 +54,34 @@ export default function HowWeWorks() {
     </section>
   );
 }
+
+const HOW_WE_WORKS = [
+  {
+    id: 1,
+    title: `Understanding your Business`,
+    description:
+      "We begin by discussing your goals and identifying your target audience, defining key customer profiles and your position in the market.",
+    icon: <Icons.briefcase className="size-24 text-violet-500" />,
+  },
+  {
+    id: 2,
+    title: `Refining your Brand`,
+    description:
+      "Next, we either create or refine your brand identity, aligning it with your business vision and ensuring it resonates with your audience.",
+    icon: <Icons.paintbrush className="size-24 text-violet-500" />,
+  },
+  {
+    id: 3,
+    title: `Crafting a Customized Marketing Strategy`,
+    description:
+      "We develop a tailored digital marketing plan, including SEO, PPC, content creation, and branding to drive growth and meet your specific objectives.",
+    icon: <Icons.blueprint className="size-24 text-violet-500" />,
+  },
+  {
+    id: 4,
+    title: `Executing & Optimizing Campaigns`,
+    description:
+      "Finally, we launch your campaigns, continuously monitoring and optimizing them for improved performance, higher lead generation, and maximum ROI.",
+    icon: <Icons.chart className="size-24 text-violet-500" />,
+  },
+];

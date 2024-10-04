@@ -41,7 +41,7 @@ export default function Faq() {
           ))}
         </Accordion>
       </aside>
-      <Blob className="absolute left-1/2 top-0 -z-40 scale-125" />
+      <Blob className="absolute left-[45%] top-0 -z-40 scale-125" />
     </section>
   );
 }

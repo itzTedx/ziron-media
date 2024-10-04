@@ -16,10 +16,10 @@ export default function Header({
   btnType?: "back" | "new";
 }) {
   return (
-    <header className="mb-4 flex justify-between">
+    <header className="sticky top-3 z-50 mt-3 flex w-full justify-between border-b bg-background/80 pb-3 backdrop-blur-lg">
       <div className="">
-        <h1 className="font-monaSans text-3xl">{title}</h1>
-        {description && <p className="text-gray-700">{description}</p>}
+        <h1 className="font-monaSans text-2xl text-gray-800">{title}</h1>
+        {description && <p className="text-sm text-gray-700">{description}</p>}
       </div>
       {btnLink && btnType === "new" ? (
         <Button asChild className="h-12 rounded-full py-2">
