@@ -1,19 +1,17 @@
 "use client";
 
 import Image, { ImageProps } from "next/image";
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import Link from "next/link";
+import React, { createContext, useEffect, useState } from "react";
 
-import { IconArrowNarrowLeft, IconArrowNarrowRight } from "@tabler/icons-react";
+import {
+  IconArrowNarrowLeft,
+  IconArrowNarrowRight,
+  IconArrowUpRight,
+} from "@tabler/icons-react";
 import { motion } from "framer-motion";
 
-import { useOutsideClick } from "@/hooks/use-outside-click";
-import { cn } from "@/lib/utils";
+import { cn, slugify } from "@/lib/utils";
 
 interface CarouselProps {
   items: JSX.Element[];
@@ -24,7 +22,6 @@ type Card = {
   src: string;
   title: string;
   category: string;
-  content: React.ReactNode;
 };
 
 export const CarouselContext = createContext<{
@@ -148,52 +145,18 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
 
 export const Card = ({
   card,
-  index,
+
   layout = false,
 }: {
   card: Card;
   index: number;
   layout?: boolean;
 }) => {
-  const [open, setOpen] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { onCardClose, currentIndex } = useContext(CarouselContext);
-
-  useEffect(() => {
-    function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        handleClose();
-      }
-    }
-
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [open]);
-
-  useOutsideClick(containerRef, () => handleClose());
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-    onCardClose(index);
-  };
-
   return (
     <>
       <motion.div
         layoutId={layout ? `card-${card.title}` : undefined}
-        className="relative z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-3xl bg-gray-100 dark:bg-neutral-900 md:h-[35rem] md:w-96"
+        className="group relative z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-3xl bg-gray-100 dark:bg-neutral-900 md:h-[35rem] md:w-96"
       >
         <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent" />
         <div className="relative z-40 p-8">
@@ -209,6 +172,15 @@ export const Card = ({
           >
             {card.title}
           </motion.p>
+        </div>
+        <div className="absolute bottom-8 right-8 z-40 rounded-lg border border-background bg-background/50 px-3 py-2 opacity-0 backdrop-blur-lg transition-all duration-500 group-hover:opacity-100">
+          <Link
+            href={`/case-studies/${slugify(card.title)}`}
+            className="inline-flex items-center gap-1.5 text-sm font-semibold"
+          >
+            View Case
+            <IconArrowUpRight className="size-4" />
+          </Link>
         </div>
         <BlurImage
           src={card.src}

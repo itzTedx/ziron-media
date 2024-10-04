@@ -3,8 +3,11 @@ import Link from "next/link";
 
 import { IconArrowUpRight } from "@tabler/icons-react";
 
+import { Blob } from "@/components/assets/blob";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+
+import ContactCta from "./_components/contact-cta";
 
 interface Item {
   id: number;
@@ -26,30 +29,37 @@ const items: Item[] = [
     id: 2,
     title: "Tawreeq Document Clearing Services",
     category: "Web Development",
-    href: "/case-studies/",
+    href: "/case-studies/tawreeq",
     imageUrl: "/images/featured/post-7.jpg",
   },
   {
     id: 3,
-    title: "Tawreeq Document Clearing Services",
-    category: "Branding",
-    href: "/case-studies/",
-    imageUrl: "/images/featured/post-5.jpg",
+    title: "SAJ Consultants",
+    category: "Social Media Marketing",
+    href: "/case-studies/saj-collection",
+    imageUrl: "/images/featured/post-8.jpg",
   },
   {
     id: 4,
-    title: "Quantum Dynamics",
-    category: "Data Analytics",
-    href: "/case-studies/",
-    imageUrl: "/images/featured/post-6.jpg",
+    title: "Simply KF",
+    category: "Branding",
+    href: "/case-studies/simply-kf",
+    imageUrl: "/images/featured/post-13.jpg",
+  },
+  {
+    id: 5,
+    title: "Ziron Media",
+    category: "Branding",
+    href: "/case-studies/simply-kf",
+    imageUrl: "/images/featured/post-2.jpg",
   },
 ];
 export default function CaseStudiesPage() {
   const leftColumnItems = items.filter((_, index) => index % 2 === 0);
   const rightColumnItems = items.filter((_, index) => index % 2 !== 0);
   return (
-    <main className="min-h-svh">
-      <section className="container grid max-w-7xl grid-cols-2 py-24">
+    <main className="relative min-h-svh overflow-hidden">
+      <section className="container grid max-w-7xl py-12 md:grid-cols-2 md:py-24">
         <div className="space-y-6">
           <Badge>✦ Your success is our success</Badge>
           <h2 className="font-normal">
@@ -62,68 +72,64 @@ export default function CaseStudiesPage() {
           </p>
         </div>
       </section>
+      <Blob className="absolute -right-[20%] top-0 opacity-50" />
       <section className="container grid max-w-7xl">
-        <div className="grid grid-cols-1 gap-24 md:grid-cols-2">
-          <div className="flex flex-col gap-24">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-24">
+          <div className="flex flex-col gap-12 md:gap-24">
             {leftColumnItems.map((item) => (
-              <Link key={item.id} href={item.href}>
+              <Link key={item.id} className="group" href={item.href}>
                 <Card className="group w-full overflow-hidden">
                   <CardContent className="relative p-0">
-                    <div className="absolute left-6 top-6 rounded-lg bg-background/30 px-4 py-2 text-foreground backdrop-blur-lg">
-                      <div className="text-sm">{item.category}</div>
-                      <div className="text-xl font-semibold">{item.title}</div>
-                    </div>
-                    <Link
-                      href={item.href}
-                      className="absolute bottom-6 right-6 flex translate-y-10 items-center justify-center gap-1.5 rounded-lg border bg-background/50 px-4 py-2 text-sm font-semibold text-foreground opacity-0 backdrop-blur-lg transition-all duration-500 ease-out hover:bg-background/80 group-hover:translate-y-0 group-hover:opacity-100"
-                    >
-                      View Case <IconArrowUpRight />
-                    </Link>
                     <Image
                       src={item.imageUrl}
                       alt={item.title}
                       width={400}
                       height={300}
-                      className="h-auto w-full object-cover"
+                      className="h-auto w-full object-cover transition-all duration-500 group-hover:scale-110"
                     />
                   </CardContent>
                 </Card>
+                <div className="flex items-center justify-between pt-4">
+                  <div>
+                    <p className="text-xs">{item.category}</p>
+                    <h3 className="text-lg">{item.title}</h3>
+                  </div>
+                  <div className="hover:bg-background/800 flex shrink-0 items-center justify-center gap-1.5 rounded-lg border bg-background/50 px-4 py-2 text-sm font-semibold text-foreground backdrop-blur-lg transition-all duration-500 ease-out">
+                    View Case <IconArrowUpRight />
+                  </div>
+                </div>
               </Link>
             ))}
           </div>
-          <div className="flex flex-col gap-24 md:mt-24">
+          <div className="flex flex-col gap-12 md:mt-24 md:gap-24">
             {rightColumnItems.map((item) => (
-              <Link key={item.id} href={item.href}>
+              <Link key={item.id} className="group" href={item.href}>
                 <Card className="group w-full overflow-hidden">
                   <CardContent className="relative p-0">
-                    <div className="absolute left-6 top-6 rounded-lg bg-background/30 px-4 py-2 text-foreground backdrop-blur-lg">
-                      <div className="text-sm">{item.category}</div>
-                      <div className="text-xl font-semibold">{item.title}</div>
-                    </div>
-                    <div className="absolute bottom-6 right-6 flex translate-y-10 items-center justify-center gap-1.5 rounded-lg border bg-background/50 px-4 py-2 text-sm font-semibold text-foreground opacity-0 backdrop-blur-lg transition-all duration-500 ease-out hover:bg-background/80 group-hover:translate-y-0 group-hover:opacity-100">
-                      View Case <IconArrowUpRight />
-                    </div>
                     <Image
                       src={item.imageUrl}
                       alt={item.title}
                       width={400}
                       height={300}
-                      className="h-auto w-full object-cover"
+                      className="h-auto w-full object-cover transition-all duration-500 group-hover:scale-110"
                     />
                   </CardContent>
                 </Card>
+                <div className="flex items-center justify-between pt-4">
+                  <div>
+                    <p className="text-xs">{item.category}</p>
+                    <h3 className="text-lg">{item.title}</h3>
+                  </div>
+                  <div className="hover:bg-background/800 flex shrink-0 items-center justify-center gap-1.5 rounded-lg border bg-background/50 px-4 py-2 text-sm font-semibold text-foreground backdrop-blur-lg transition-all duration-500 ease-out">
+                    View Case <IconArrowUpRight />
+                  </div>
+                </div>
               </Link>
             ))}
           </div>
         </div>
       </section>
-      <section className="mx-aut0 container max-w-7xl">
-        <h5 className="pt-24 text-5xl leading-tight tracking-tight">
-          Like what you see?
-          <br />
-          Why not get in touch.
-        </h5>
-      </section>
+      <ContactCta />
     </main>
   );
 }

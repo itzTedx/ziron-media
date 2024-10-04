@@ -5,8 +5,8 @@ import React, { useState } from "react";
 import {
   IconArrowLeft,
   IconLayoutDashboard,
+  IconPencil,
   IconSettings,
-  IconUserBolt,
 } from "@tabler/icons-react";
 
 import { Logo, LogoType } from "@/components/logo";
@@ -27,17 +27,17 @@ export default function SidebarMenu({
       ),
     },
     {
-      label: "Profile",
-      href: "#",
+      label: "Services",
+      href: "/studio/services",
       icon: (
-        <IconUserBolt className="h-5 w-5 flex-shrink-0 text-neutral-700 dark:text-neutral-200" />
+        <IconSettings className="h-5 w-5 flex-shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
-      label: "Settings",
-      href: "#",
+      label: "Case Study",
+      href: "/studio/case-study",
       icon: (
-        <IconSettings className="h-5 w-5 flex-shrink-0 text-neutral-700 dark:text-neutral-200" />
+        <IconPencil className="h-5 w-5 flex-shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
