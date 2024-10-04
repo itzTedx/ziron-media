@@ -1,4 +1,4 @@
-import "../../../styles/toolkit.css";
+import "../../../../styles/toolkit.css";
 
 export default function Toolkit() {
   return (
