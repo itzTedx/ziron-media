@@ -1,6 +1,6 @@
 import { EmblaOptionsType } from "embla-carousel";
 
-import Logo from "@/components/logo";
+import { Logo } from "@/components/logo";
 import Carousel, {
   Slider,
   SliderContainer,

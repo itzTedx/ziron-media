@@ -5,7 +5,7 @@ import Link from "next/link";
 import useScroll from "@/hooks/use-scroll";
 import { cn } from "@/lib/utils";
 
-import Logo from "../logo";
+import { Logo } from "../logo";
 import Button from "../primary-button";
 import MobileDrawer from "./mobile-drawer";
 import { NavLinks } from "./nav-links";
@@ -19,7 +19,7 @@ export default function Navbar() {
       <header className="container fixed left-1/2 top-3 z-[99999] -translate-x-1/2 max-sm:px-5 max-sm:pt-2">
         <nav
           className={cn(
-            "hidden w-full items-center justify-between rounded-full border border-background px-9 py-3 shadow-glow transition-all duration-500 ease-in-out max-lg:text-sm md:flex",
+            "hidden w-full items-center justify-between rounded-full border border-background bg-[#FAF9FB] px-9 py-3 shadow-glow transition-all duration-500 ease-in-out max-lg:text-sm md:flex",
             isScrolled
               ? "bg-[#FAF9FB]/50 backdrop-blur-md"
               : "bg-transparent backdrop-blur-0"

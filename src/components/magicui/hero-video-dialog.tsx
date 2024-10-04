@@ -1,6 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 import { Play } from "lucide-react";
@@ -8,34 +8,6 @@ import { Play } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 import { Blob } from "../assets/blob";
-
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-/* eslint-disable @typescript-eslint/no-unused-vars */
 
 type AnimationStyle =
   | "from-bottom"
@@ -100,10 +72,14 @@ const animationVariants = {
 
 export default function HeroVideoDialog({
   animationStyle = "from-center",
-  videoSrc,
+
+  thumbnailSrc,
+  thumbnailAlt,
   className,
 }: HeroVideoProps) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const selectedAnimation = animationVariants[animationStyle];
 
   return (
@@ -112,14 +88,14 @@ export default function HeroVideoDialog({
         className="group relative z-10 cursor-pointer"
         onClick={() => setIsVideoOpen(true)}
       >
-        <div className="aspect-[16/8] w-full rounded-2xl bg-secondary shadow-lg transition-all duration-200 ease-out group-hover:brightness-[0.8]" />
-        {/* <img
+        {/* <div className="aspect-[16/8] w-full rounded-2xl bg-secondary shadow-lg transition-all duration-200 ease-out group-hover:brightness-[0.8]" /> */}
+        <Image
           src={thumbnailSrc}
-          alt={thumbnailAlt}
+          alt={thumbnailAlt!}
           width={1920}
           height={1080}
-          className="w-full rounded-md shadow-lg transition-all duration-200 ease-out group-hover:brightness-[0.8]"
-        /> */}
+          className="w-full rounded-2xl shadow-lg transition-all duration-200 ease-out group-hover:brightness-[0.8]"
+        />
         <div className="absolute inset-0 flex scale-[0.9] items-center justify-center rounded-2xl transition-all duration-200 ease-out group-hover:scale-100">
           <div className="relative flex size-24 items-center justify-center rounded-full bg-background/10 backdrop-blur-md">
             <span className="absolute size-28 items-center justify-center rounded-full bg-background/10 backdrop-blur-md" />
@@ -136,7 +112,7 @@ export default function HeroVideoDialog({
             </div>
           </div>
         </div>
-        <Blob className="absolute left-0 top-1/2 -z-10 -translate-y-1/2 scale-75 md:scale-125" />
+        <Blob className="pointer-events-none absolute left-0 top-1/2 -z-10 -translate-y-1/2 scale-75 select-none md:scale-125" />
       </div>
       {/* <AnimatePresence>
         {isVideoOpen && (

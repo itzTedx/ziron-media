@@ -14,8 +14,8 @@ export default function Hero() {
         media management
       </p>
 
-      <Link href="/what-we-do">
-        <div className="group relative mx-auto mt-12 w-56 cursor-pointer overflow-hidden rounded-full border border-primary bg-background p-3 text-center font-semibold uppercase text-primary">
+      <Link href="/what-we-do" className="w-fit">
+        <div className="group relative mx-auto mt-12 w-fit cursor-pointer overflow-hidden rounded-full border border-primary bg-background p-3 text-center font-semibold uppercase text-primary">
           <span className="inline-block translate-y-0 space-x-3 transition-all duration-300 group-hover:-translate-y-12 group-hover:opacity-0">
             <span>✦ </span>
             <span>Let&apos;s get started </span>
@@ -31,7 +31,7 @@ export default function Hero() {
         className="mx-auto mt-24 max-w-5xl"
         animationStyle="from-center"
         videoSrc="https://www.youtube.com/embed/LDU_Txk06tM?si=I2jLBKfxTPB0i127"
-        thumbnailSrc="https://startup-template-sage.vercel.app/hero-light.png"
+        thumbnailSrc="/images/landing-video-thumb.jpg"
         thumbnailAlt="Hero Video"
       />
     </section>

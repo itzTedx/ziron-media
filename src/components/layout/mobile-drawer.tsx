@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/drawer";
 import { NAV_LINKS } from "@/constants";
 
-import Logo from "../logo";
+import { Logo } from "../logo";
 
 export default function MobileDrawer() {
   return (
