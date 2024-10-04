@@ -5,9 +5,13 @@ import HeroVideoDialog from "@/components/magicui/hero-video-dialog";
 export default function Hero() {
   return (
     <section className="container overflow-hidden py-12 text-center md:pb-32">
-      <h1 className="font-monaSans text-4xl font-bold tracking-tight text-primary md:text-7xl md:leading-[5rem]">
-        We’re great at Digital <br />
-        Marketing Solutions
+      <h1 className="font-monaSans text-4xl font-bold tracking-tight text-gray-900 md:text-7xl md:leading-[5rem]">
+        We’re great at{" "}
+        <span className="text-primary">
+          Digital <br />
+          Marketing
+        </span>{" "}
+        Solutions
       </h1>
       <p className="mt-6 text-balance text-xl">
         We specialize in brand identities, scalable websites, and expert social
@@ -15,7 +19,7 @@ export default function Hero() {
       </p>
 
       <Link href="/what-we-do" className="w-fit">
-        <div className="group relative mx-auto mt-12 w-fit cursor-pointer overflow-hidden rounded-full border border-primary bg-background p-3 text-center font-semibold uppercase text-primary">
+        <div className="group relative z-30 mx-auto mt-12 w-fit cursor-pointer overflow-hidden rounded-full border border-primary bg-background p-3 text-center font-semibold uppercase text-primary">
           <span className="inline-block translate-y-0 space-x-3 transition-all duration-300 group-hover:-translate-y-12 group-hover:opacity-0">
             <span>✦ </span>
             <span>Let&apos;s get started </span>

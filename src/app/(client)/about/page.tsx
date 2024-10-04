@@ -1,19 +1,11 @@
+import AboutHero from "./_components/hero";
 import OurQuality from "./_components/our-quality-section";
 import Toolkit from "./_components/toolkit";
 
 export default function AboutPage() {
   return (
     <main className="space-y-36 py-9 md:py-24">
-      <section className="container py-32">
-        <h1 className="max-w-lg text-balance text-5xl leading-tight tracking-tight text-gray-900">
-          We&apos;re a <span className="text-secondary"> new generation</span>{" "}
-          of digital creators
-        </h1>
-        <p className="mt-6 max-w-md text-xl">
-          We are a digital marketing agencies creating powerful brand identities
-          and scalable digital strategies
-        </p>
-      </section>
+      <AboutHero />
       <section className="container py-24">
         <h2 className="mx-auto max-w-3xl text-center">
           <strong className="font-medium">
