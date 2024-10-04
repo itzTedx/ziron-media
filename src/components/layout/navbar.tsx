@@ -19,7 +19,7 @@ export default function Navbar() {
       <header className="container fixed left-1/2 top-3 z-[99999] -translate-x-1/2 max-sm:px-5 max-sm:pt-2">
         <nav
           className={cn(
-            "hidden w-full items-center justify-between rounded-full border border-background bg-[#FAF9FB] px-9 py-3 shadow-glow transition-all duration-500 ease-in-out max-lg:text-sm md:flex",
+            "hidden w-full items-center justify-between rounded-full border border-background bg-[#FAF9FB] px-6 py-3 shadow-glow transition-all duration-500 ease-in-out max-lg:text-sm md:flex",
             isScrolled
               ? "bg-[#FAF9FB]/50 backdrop-blur-md"
               : "bg-[#FAF9FB] backdrop-blur-0"
@@ -28,7 +28,10 @@ export default function Navbar() {
             transitionProperty: "background-color, backdrop-filter, margin-top",
           }}
         >
-          <Link href="/">
+          <Link
+            href="/"
+            className="rounded-full px-3 py-2 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+          >
             <Logo />
           </Link>
           <NavLinks />

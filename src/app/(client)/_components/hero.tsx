@@ -18,7 +18,7 @@ export default function Hero() {
         media management
       </p>
 
-      <Link href="/what-we-do" className="w-fit">
+      <Link href="/what-we-do" className="w-fit rounded-full">
         <div className="group relative z-30 mx-auto mt-12 w-fit cursor-pointer overflow-hidden rounded-full border border-primary bg-background p-3 text-center font-semibold uppercase text-primary">
           <span className="inline-block translate-y-0 space-x-3 transition-all duration-300 group-hover:-translate-y-12 group-hover:opacity-0">
             <span>✦ </span>

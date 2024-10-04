@@ -1,4 +1,10 @@
+import { Metadata } from "next";
+
 import SidebarMenu from "./_components/sidebar";
+
+export const metadata: Metadata = {
+  title: "Dashboard - Ziron Media",
+};
 
 export default function StudioLayout({
   children,

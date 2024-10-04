@@ -1,3 +1,3 @@
 export default function Page() {
-  return <section>Hello</section>;
+  return <section>Dashboard</section>;
 }
