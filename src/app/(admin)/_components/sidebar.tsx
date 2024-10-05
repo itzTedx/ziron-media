@@ -145,7 +145,7 @@ const Option = ({
           : "text-gray-600 hover:bg-muted/60"
       )}
     >
-      <Link href={href} className="flex items-center">
+      <Link href={href} className="flex w-full items-center">
         <motion.div
           layout
           className="grid h-full w-10 place-content-center text-lg"
