@@ -19,6 +19,12 @@ import { motion } from "framer-motion";
 import { FiChevronsRight } from "react-icons/fi";
 
 import { Logo, LogoType } from "@/components/logo";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
 interface TagsProp {
@@ -173,11 +179,33 @@ const Option = ({
           open ? "justify-start" : "justify-center"
         )}
       >
-        <motion.div
-          layout
-          className="grid h-full w-10 place-content-center text-lg"
-        >
-          <Icon className="size-5" />
+        <motion.div layout>
+          {!open && (
+            <TooltipProvider delayDuration={100}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <motion.div
+                    layout
+                    className="grid h-full w-10 place-content-center text-lg"
+                  >
+                    <Icon className="size-5" />
+                  </motion.div>
+                </TooltipTrigger>
+                <TooltipContent side="right" sideOffset={12}>
+                  <p>{title}</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          )}
+
+          {open && (
+            <motion.div
+              layout
+              className="grid h-full w-10 place-content-center text-lg"
+            >
+              <Icon className="size-5" />
+            </motion.div>
+          )}
         </motion.div>
         {open && (
           <motion.span
