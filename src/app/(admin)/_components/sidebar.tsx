@@ -108,7 +108,7 @@ const Option = ({
     <motion.button
       layout
       onClick={() => setSelected(title)}
-      className={`relative h-10 w-full rounded-md transition-colors ${selected === title ? "bg-primary/10 text-primary" : "text-gray-600 hover:bg-slate-100"}`}
+      className={`relative flex h-10 w-full items-center rounded-md transition-colors ${selected === title ? "bg-primary/10 text-primary" : "text-gray-600 hover:bg-slate-100"}`}
     >
       <Link href={href} className="flex w-full items-center">
         <motion.div
