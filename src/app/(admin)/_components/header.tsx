@@ -16,7 +16,7 @@ export default function Header({
   btnType?: "back" | "new";
 }) {
   return (
-    <header className="sticky top-3 z-50 mt-3 flex w-full justify-between border-b bg-background/80 pb-3 backdrop-blur-lg">
+    <header className="sticky top-0 z-50 flex w-full justify-between border-b bg-background/60 pb-3 pt-3 backdrop-blur-lg">
       <div className="">
         <h1 className="font-monaSans text-2xl text-gray-800">{title}</h1>
         {description && <p className="text-sm text-gray-700">{description}</p>}

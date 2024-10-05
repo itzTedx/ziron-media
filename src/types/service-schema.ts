@@ -9,4 +9,7 @@ export const ServiceSchema = z.object({
   why: z.string(),
   about: z.string().min(2),
   content: z.string(),
+  featuredImage: z.string(),
+  excerpt: z.string(),
+  slug: z.string(),
 });

@@ -1,5 +1,4 @@
 import Header from "@/app/(admin)/_components/header";
-import { Separator } from "@/components/ui/separator";
 
 import ServiceForm from "./_components/service-form";
 
@@ -14,7 +13,7 @@ export default function Service({ params }: { params: { id: string } }) {
         btnType="back"
         btnLink="/studio/services"
       />
-      <Separator />
+
       <ServiceForm />
     </section>
   );

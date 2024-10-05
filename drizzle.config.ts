@@ -6,7 +6,7 @@ dotenv.config({
 });
 
 if (typeof process.env.DATABASE_URL !== "string") {
-  throw new Error("Please set your DATABASE_URL");
+  throw new Error("Please set DATABASE_URL");
 }
 
 export default defineConfig({

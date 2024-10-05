@@ -1,10 +1,8 @@
 "use client";
 
-import { UploadButton } from "@uploadthing/react";
 import { useFieldArray, useFormContext } from "react-hook-form";
 import * as z from "zod";
 
-import { OurFileRouter } from "@/app/api/uploadthing/core";
 import {
   FormControl,
   FormField,
@@ -12,30 +10,28 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { ServiceSchema } from "@/types/service-schema";
+import { UploadDropzone } from "@/utils/uploadthing";
 
 export default function ImageDropzone() {
   const { control, setError } = useFormContext<z.infer<typeof ServiceSchema>>();
 
   const { fields, append } = useFieldArray({
     control,
-    name: "featuredImage",
+    name: "image",
   });
 
   return (
     <div className="">
       <FormField
         control={control}
-        name="featuredImage"
+        name="image"
         render={({}) => (
           <FormItem>
             <FormControl>
-              <UploadButton<OurFileRouter>
-                endpoint="featuredImage"
-                onClientUploadComplete={() => {
-                  console.log("Image Uploaded");
-                }}
-                config={{ mode: "auto" }}
-                onUploadError={(error: Error) => {
+              <UploadDropzone
+                className="cursor-pointer border border-input transition-all duration-500 ease-in-out hover:bg-primary/5 ut-button:bg-primary/75 ut-allowed-content:text-secondary-foreground/70 ut-label:text-primary ut-upload-icon:text-primary/70"
+                endpoint="serviceImage"
+                onUploadError={(error) => {
                   setError("image", {
                     type: "validate",
                     message: error.message,
@@ -52,6 +48,10 @@ export default function ImageDropzone() {
                   );
                   return files;
                 }}
+                onClientUploadComplete={() => {
+                  console.log("Image Uploaded");
+                }}
+                config={{ mode: "auto" }}
               />
             </FormControl>
 
