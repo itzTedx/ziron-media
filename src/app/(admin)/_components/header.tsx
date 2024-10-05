@@ -21,25 +21,27 @@ export default function Header({
         <h1 className="font-monaSans text-2xl text-gray-800">{title}</h1>
         {description && <p className="text-sm text-gray-700">{description}</p>}
       </div>
-      {btnLink && btnType === "new" ? (
-        <Button asChild className="h-12 rounded-full py-2">
-          <Link
-            href={btnLink}
-            className="inline-flex items-center justify-center gap-2"
-          >
-            Add New <IconPlus />
-          </Link>
-        </Button>
-      ) : (
-        <Button asChild className="h-12 rounded-full py-2">
-          <Link
-            href={btnLink!}
-            className="inline-flex items-center justify-center gap-2"
-          >
-            <IconArrowLeft /> Back to services
-          </Link>
-        </Button>
-      )}
+      {btnLink ? (
+        btnType === "new" ? (
+          <Button asChild className="h-12 rounded-full py-2">
+            <Link
+              href={btnLink}
+              className="inline-flex items-center justify-center gap-2"
+            >
+              Add New <IconPlus />
+            </Link>
+          </Button>
+        ) : (
+          <Button asChild className="h-12 rounded-full py-2">
+            <Link
+              href={btnLink}
+              className="inline-flex items-center justify-center gap-2"
+            >
+              <IconArrowLeft /> Back to services
+            </Link>
+          </Button>
+        )
+      ) : null}
     </header>
   );
 }

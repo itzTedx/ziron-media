@@ -1,20 +1,24 @@
 import { Metadata } from "next";
 
+import { getTags } from "@/server/actions/get-tags";
+
 import { Sidebar } from "./_components/sidebar";
 
 export const metadata: Metadata = {
   title: "Dashboard - Ziron Media",
 };
 
-export default function StudioLayout({
+export default async function StudioLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const tags = await getTags();
+
   return (
     <div className="flex">
-      <Sidebar />
-      <div className="w-full">{children}</div>
+      <Sidebar tag={tags} />
+      <div className="w-full transition-all">{children}</div>
     </div>
 
     // <SidebarMenu>

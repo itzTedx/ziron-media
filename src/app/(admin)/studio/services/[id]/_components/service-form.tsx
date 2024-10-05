@@ -3,11 +3,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { DialogClose } from "@radix-ui/react-dialog";
 import { IconEye } from "@tabler/icons-react";
-import { UploadButton } from "@uploadthing/react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { OurFileRouter } from "@/app/api/uploadthing/core";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -34,19 +32,17 @@ import {
 } from "@/components/ui/tooltip";
 import { ServiceSchema } from "@/types/service-schema";
 
-import ImageUpload from "./image-dropzone";
-
 export default function ServiceForm() {
   const form = useForm<z.infer<typeof ServiceSchema>>({
     resolver: zodResolver(ServiceSchema),
     defaultValues: {
       title: "",
       description: "",
-      image: "",
+
       why: "",
       about: "",
       content: "",
-      featuredImage: "",
+
       excerpt: "",
     },
   });
@@ -59,7 +55,7 @@ export default function ServiceForm() {
   }
 
   const title = form.getValues("title");
-
+  //
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -100,7 +96,7 @@ export default function ServiceForm() {
                 </FormItem>
               )}
             />
-            <ImageUpload />
+            {/* <ImageUpload /> */}
             <FormField
               control={form.control}
               name="why"
@@ -174,7 +170,7 @@ export default function ServiceForm() {
                   </Tooltip>
                 </TooltipProvider>
               </div>
-              <FormField
+              {/* <FormField
                 control={form.control}
                 name="featuredImage"
                 render={({ field }) => (
@@ -192,7 +188,7 @@ export default function ServiceForm() {
                     }}
                   />
                 )}
-              />
+              /> */}
               <Dialog>
                 <DialogTrigger>
                   <p className="text-sm underline">Add an Excerpt...</p>
