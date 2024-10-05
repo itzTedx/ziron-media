@@ -1,10 +1,8 @@
 "use client";
 
-import { UploadButton } from "@uploadthing/react";
 import { useFieldArray, useFormContext } from "react-hook-form";
 import * as z from "zod";
 
-import { OurFileRouter } from "@/app/api/uploadthing/core";
 import {
   FormControl,
   FormField,
@@ -12,8 +10,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { ServiceSchema } from "@/types/service-schema";
+import { UploadButton } from "@/utils/uploadthing";
 
-export default function ImageDropzone() {
+export default function ImageUpload() {
   const { control, setError } = useFormContext<z.infer<typeof ServiceSchema>>();
 
   const { fields, append } = useFieldArray({
@@ -29,14 +28,14 @@ export default function ImageDropzone() {
         render={({}) => (
           <FormItem>
             <FormControl>
-              <UploadButton<OurFileRouter>
+              <UploadButton
                 endpoint="featuredImage"
                 onClientUploadComplete={() => {
                   console.log("Image Uploaded");
                 }}
                 config={{ mode: "auto" }}
                 onUploadError={(error: Error) => {
-                  setError("image", {
+                  setError("featuredImage", {
                     type: "validate",
                     message: error.message,
                   });

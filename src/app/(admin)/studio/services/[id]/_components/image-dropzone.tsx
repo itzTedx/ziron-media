@@ -1,6 +1,9 @@
 "use client";
 
+import Image from "next/image";
+
 import { useFieldArray, useFormContext } from "react-hook-form";
+import { toast } from "sonner";
 import * as z from "zod";
 
 import {
@@ -13,9 +16,10 @@ import { ServiceSchema } from "@/types/service-schema";
 import { UploadDropzone } from "@/utils/uploadthing";
 
 export default function ImageDropzone() {
-  const { control, setError } = useFormContext<z.infer<typeof ServiceSchema>>();
+  const { control, setError, getValues } =
+    useFormContext<z.infer<typeof ServiceSchema>>();
 
-  const { fields, append } = useFieldArray({
+  const { fields, update, append } = useFieldArray({
     control,
     name: "image",
   });
@@ -39,6 +43,7 @@ export default function ImageDropzone() {
                   return;
                 }}
                 onBeforeUploadBegin={(files) => {
+                  toast.loading("Image Uploading");
                   files.map((file) =>
                     append({
                       name: file.name,
@@ -48,8 +53,24 @@ export default function ImageDropzone() {
                   );
                   return files;
                 }}
-                onClientUploadComplete={() => {
-                  console.log("Image Uploaded");
+                onClientUploadComplete={(res) => {
+                  toast.dismiss();
+                  toast.success("Image uploaded");
+
+                  const images = getValues("image");
+                  images.map((field, imgIdx) => {
+                    if (field.url.search("blob:") === 0) {
+                      const image = res.find((img) => img.name === field.name);
+                      if (image) {
+                        update(imgIdx, {
+                          url: image.url,
+                          name: image.name,
+                          size: image.size,
+                          key: image.key,
+                        });
+                      }
+                    }
+                  });
                 }}
                 config={{ mode: "auto" }}
               />
@@ -59,15 +80,11 @@ export default function ImageDropzone() {
           </FormItem>
         )}
       />
-      <div className="overflow-x-hidden rounded-md">
-        {fields.length === 0 ? (
-          <div className="mt-2 text-center text-sm text-muted">
-            Images not uploaded
-          </div>
-        ) : (
-          ""
-        )}
-      </div>
+      {fields.map((field) => (
+        <div key={field.id} className="relative aspect-video h-12">
+          <Image src={field.url} alt={field.name} fill />
+        </div>
+      ))}
     </div>
   );
 }

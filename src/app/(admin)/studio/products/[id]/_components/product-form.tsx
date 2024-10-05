@@ -31,13 +31,13 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { createService } from "@/server/actions/create-service";
-import { ServiceSchema } from "@/types/service-schema";
+import { productSchema } from "@/types/product-schema";
 
-import ImageDropzone from "./image-dropzone";
+import ImageDropzone from "../../../services/[id]/_components/image-dropzone";
 
-export default function ServiceForm() {
-  const form = useForm<z.infer<typeof ServiceSchema>>({
-    resolver: zodResolver(ServiceSchema),
+export default function ProductForm() {
+  const form = useForm<z.infer<typeof productSchema>>({
+    resolver: zodResolver(productSchema),
     defaultValues: {
       title: "",
       description: "",
@@ -50,11 +50,12 @@ export default function ServiceForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof ServiceSchema>) {
+  function onSubmit(values: z.infer<typeof productSchema>) {
     console.log(values);
   }
 
   const title = form.getValues("title");
+  const excerpt = form.getValues("excerpt");
 
   return (
     <Form {...form}>
@@ -96,7 +97,9 @@ export default function ServiceForm() {
                 </FormItem>
               )}
             />
+
             <ImageDropzone />
+
             <FormField
               control={form.control}
               name="why"
@@ -189,9 +192,12 @@ export default function ServiceForm() {
                   />
                 )}
               /> */}
+              {excerpt && <p>{excerpt}</p>}
               <Dialog>
                 <DialogTrigger>
-                  <p className="text-sm underline">Add an Excerpt...</p>
+                  <p className="text-sm underline">
+                    {excerpt ? "Edit Excerpt" : "Add an Excerpt..."}
+                  </p>
                 </DialogTrigger>
                 <DialogContent>
                   <DialogHeader>

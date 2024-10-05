@@ -18,3 +18,5 @@ The name "Ziron" doesn't have a widely known meaning in major languages or cultu
 - [ ] Update UI/UX
 
 - [ ] Change PNG to SVG in Get started section (Home Page)
+
+- [ ] [Rich Text Editor](https://reactjs-tiptap-editor.vercel.app/)

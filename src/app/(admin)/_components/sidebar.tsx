@@ -58,7 +58,7 @@ export const Sidebar = ({ tag }: TagsProp) => {
   // Prevent rendering until the open state is defined
   if (open === undefined)
     return (
-      <nav className="sticky top-0 h-screen border-r bg-background p-2">
+      <nav className="sticky top-0 z-50 h-screen border-r bg-background p-2">
         <div className="mb-3 border-b pb-3">
           <div className="flex cursor-pointer items-center justify-between rounded-md transition-colors hover:bg-primary/10">
             <div className="flex items-center gap-2 p-2">
@@ -265,6 +265,7 @@ const ToggleClose = ({
 }) => {
   return (
     <motion.button
+      title={open ? "Hide" : "Open Sidebar"}
       layout
       onClick={handleToggle}
       className="w-full border-t transition-colors hover:bg-gray-100"
