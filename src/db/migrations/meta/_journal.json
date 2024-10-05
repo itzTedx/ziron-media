@@ -29,6 +29,13 @@
       "when": 1728115614390,
       "tag": "0003_magenta_swordsman",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1728124468416,
+      "tag": "0004_fluffy_skreet",
+      "breakpoints": true
     }
   ]
 }

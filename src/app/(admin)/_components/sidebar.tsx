@@ -10,6 +10,8 @@ import {
   IconDeviceDesktopSearch,
   IconHome,
   IconLoader,
+  IconMessage,
+  IconSettings,
   IconShoppingBag,
   IconTag,
 } from "@tabler/icons-react";
@@ -65,54 +67,73 @@ export const Sidebar = ({ tag }: TagsProp) => {
   return (
     <motion.nav
       layout
-      className="sticky top-0 h-screen shrink-0 border-r bg-background p-2"
+      className="sticky top-0 flex h-screen shrink-0 flex-col justify-between border-r bg-background"
       style={{
         width: open ? "225px" : "fit-content",
       }}
     >
-      <TitleSection open={open} />
+      <div className="p-2">
+        <TitleSection open={open} />
 
-      <div className="space-y-3">
-        <Option
-          Icon={IconHome}
-          title="Dashboard"
-          href="/studio"
-          open={open}
-          currentPath={pathname}
-        />
-        <Option
-          Icon={IconApps}
-          title="Services"
-          href="/studio/services"
-          open={open}
-          currentPath={pathname}
-        />
-        <Option
-          Icon={IconDeviceDesktopSearch}
-          title="Case Studies"
-          href="/studio/case-study"
-          open={open}
-          currentPath={pathname}
-          notifs={4}
-        />
-        <Option
-          Icon={IconShoppingBag}
-          title="Products"
-          href="/studio/products"
-          open={open}
-          currentPath={pathname}
-        />
-        <Option
-          Icon={IconTag}
-          title="Tags"
-          href="/studio/tags"
-          open={open}
-          currentPath={pathname}
-          notifs={tag.length}
-        />
+        <div className="space-y-3">
+          <Option
+            Icon={IconHome}
+            title="Dashboard"
+            href="/studio"
+            open={open}
+            currentPath={pathname}
+          />
+          <Option
+            Icon={IconApps}
+            title="Services"
+            href="/studio/services"
+            open={open}
+            currentPath={pathname}
+          />
+          <Option
+            Icon={IconDeviceDesktopSearch}
+            title="Case Studies"
+            href="/studio/case-study"
+            open={open}
+            currentPath={pathname}
+            notifs={4}
+          />
+          <Option
+            Icon={IconShoppingBag}
+            title="Products"
+            href="/studio/products"
+            open={open}
+            currentPath={pathname}
+          />
+          <Option
+            Icon={IconTag}
+            title="Tags"
+            href="/studio/tags"
+            open={open}
+            currentPath={pathname}
+            notifs={tag.length}
+          />
+          <Option
+            Icon={IconMessage}
+            title="FAQs"
+            href="/studio/faqs"
+            open={open}
+            currentPath={pathname}
+          />
+        </div>
       </div>
-
-      <ToggleClose open={open} handleToggle={handleToggle} />
+      <div className="">
+        <div className="p-2">
+          <Option
+            Icon={IconSettings}
+            title="Settings"
+            href="/studio/settings"
+            open={open}
+            currentPath={pathname}
+          />
+        </div>
+        <ToggleClose open={open} handleToggle={handleToggle} />
+      </div>
     </motion.nav>
   );
 };
@@ -145,7 +166,13 @@ const Option = ({
           : "text-gray-600 hover:bg-muted/60"
       )}
     >
-      <Link href={href} className="flex w-full items-center">
+      <Link
+        href={href}
+        className={cn(
+          "flex w-full items-center",
+          open ? "justify-start" : "justify-center"
+        )}
+      >
         <motion.div
           layout
           className="grid h-full w-10 place-content-center text-lg"
@@ -185,7 +212,7 @@ const TitleSection = ({ open }: { open: boolean }) => {
     <div className="mb-3 border-b pb-3">
       <div className="flex cursor-pointer items-center justify-between rounded-md transition-colors hover:bg-primary/10">
         <Link href="/" className="flex items-center gap-2 p-2">
-          <LogoType className="size-9" />
+          <LogoType className="size-8" />
           {open && (
             <motion.div
               layout
@@ -212,9 +239,14 @@ const ToggleClose = ({
     <motion.button
       layout
       onClick={handleToggle}
-      className="absolute bottom-0 left-0 right-0 border-t border-slate-300 transition-colors hover:bg-slate-100"
+      className="w-full border-t transition-colors hover:bg-gray-100"
     >
-      <div className="flex items-center p-2">
+      <div
+        className={cn(
+          "flex items-center p-2",
+          open ? "justify-start" : "justify-center"
+        )}
+      >
         <motion.div
           layout
           className="grid size-10 place-content-center text-lg"

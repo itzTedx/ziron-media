@@ -22,3 +22,10 @@ export const Tags = pgTable("tags", {
   tag: text("tag").notNull(),
   createdAt: timestamp("createdAt").defaultNow(),
 });
+
+export const Faqs = pgTable("faqs", {
+  id: serial("id").primaryKey().notNull(),
+  question: text("question").notNull(),
+  answer: text("answer").notNull(),
+  createdAt: timestamp("createdAt").defaultNow(),
+});
