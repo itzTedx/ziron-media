@@ -2,7 +2,7 @@ import Header from "../../_components/header";
 
 export default function ProductsPage() {
   return (
-    <section className="container">
+    <section className="">
       <Header
         title={"Products"}
         description="Ziron Media"

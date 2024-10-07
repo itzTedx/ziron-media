@@ -15,8 +15,20 @@ export const NAV_LINKS: NavItems[] = [
         href: "/branding",
       },
       {
-        title: "Branding",
-        href: "/branding",
+        title: "SEO",
+        href: "/seo",
+      },
+      {
+        title: "Photo Production",
+        href: "/seo",
+      },
+      {
+        title: "Website Development",
+        href: "/seo",
+      },
+      {
+        title: "Photo Production",
+        href: "/seo",
       },
     ],
   },

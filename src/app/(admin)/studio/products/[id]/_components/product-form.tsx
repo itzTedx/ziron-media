@@ -1,14 +1,19 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+
 import { zodResolver } from "@hookform/resolvers/zod";
-import { DialogClose } from "@radix-ui/react-dialog";
 import { IconEye } from "@tabler/icons-react";
+import { useAction } from "next-safe-action/hooks";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogFooter,
   DialogHeader,
@@ -32,10 +37,14 @@ import {
 } from "@/components/ui/tooltip";
 import { createService } from "@/server/actions/create-service";
 import { productSchema } from "@/types/product-schema";
+import { UploadButton } from "@/utils/uploadthing";
 
 import ImageDropzone from "../../../services/[id]/_components/image-dropzone";
 
 export default function ProductForm() {
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+
   const form = useForm<z.infer<typeof productSchema>>({
     resolver: zodResolver(productSchema),
     defaultValues: {
@@ -45,13 +54,31 @@ export default function ProductForm() {
       why: "",
       about: "",
       content: "",
-
+      featuredImage: [],
       excerpt: "",
     },
   });
 
+  const { execute } = useAction(createService, {
+    onExecute: () => {
+      setLoading(true);
+    },
+    onSuccess: ({ data }) => {
+      if (data?.success) {
+        router.push("/studio/products");
+        toast.success(data.success);
+        setLoading(false);
+      }
+    },
+
+    onError: (error) => {
+      console.log(error);
+      setLoading(false);
+    },
+  });
+
   function onSubmit(values: z.infer<typeof productSchema>) {
-    console.log(values);
+    execute(values);
   }
 
   const title = form.getValues("title");
@@ -59,9 +86,9 @@ export default function ProductForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} action={createService}>
+      <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="grid gap-6 md:grid-cols-4">
-          <div className="col-span-3 mt-9 space-y-6 pb-9">
+          <div className="col-span-3 mt-9 space-y-6 px-6 pb-9">
             <FormField
               control={form.control}
               name="title"
@@ -69,6 +96,7 @@ export default function ProductForm() {
                 <FormItem>
                   <FormControl>
                     <Input
+                      autoFocus
                       placeholder="Title"
                       {...field}
                       className="h-12 border-0 shadow-none placeholder:text-2xl"
@@ -156,7 +184,7 @@ export default function ProductForm() {
             />
           </div>
 
-          <div className="col-span-1 flex flex-col justify-between pl-3 pt-9 md:sticky md:top-[4.75rem] md:h-[calc(100dvh-5rem-2.5rem)] md:border-l">
+          <div className="col-span-1 flex flex-col justify-between px-6 pt-9 md:sticky md:top-[4.75rem] md:h-[calc(100dvh-5rem-2.5rem)] md:border-l">
             <div className="space-y-6">
               <div className="flex justify-between">
                 <h5 className="text-sm font-bold">
@@ -173,25 +201,48 @@ export default function ProductForm() {
                   </Tooltip>
                 </TooltipProvider>
               </div>
-              {/* <FormField
+              <FormField
                 control={form.control}
-                name="featuredImage"
-                render={({ field }) => (
-                  <UploadButton<OurFileRouter>
-                    className="cursor-pointer transition-all duration-500 ease-in-out hover:bg-primary/5 ut-button:bg-primary/75 ut-allowed-content:text-secondary-foreground/70 ut-label:text-primary ut-upload-icon:text-primary/70"
-                    endpoint="featuredImage"
-                    onClientUploadComplete={(res: unknown) => {
-                      // Do something with the response
-                      console.log("Files: ", res);
-                      alert("Upload Completed");
-                    }}
-                    onUploadError={(error: Error) => {
-                      // Do something with the error.
-                      alert(`ERROR! ${error.message}`);
-                    }}
-                  />
+                name="content"
+                render={({}) => (
+                  <FormItem>
+                    <FormControl>
+                      <div className="flex gap-4">
+                        <UploadButton
+                          className="ut-button:transitions-all !ut-label:w-full scale-90 ut-button:w-full ut-button:bg-primary/75 ut-button:px-4 ut-button:ring-primary focus-within:ut-button:ring-offset-background hover:ut-button:bg-primary/100 ut-allowed-content:hidden"
+                          endpoint="featuredImage"
+                          onUploadError={(error) => {
+                            form.setError("featuredImage", {
+                              type: "validate",
+                              message: error.message,
+                            });
+
+                            return;
+                          }}
+                          onClientUploadComplete={(res) => {
+                            form.setValue("featuredImage", res);
+                            return;
+                          }}
+                          content={{
+                            button({ ready }) {
+                              if (ready)
+                                return (
+                                  <div className="w-full">
+                                    Set Featured Image
+                                  </div>
+                                );
+                              return <div>Uploading...</div>;
+                            },
+                          }}
+                        />
+                      </div>
+                    </FormControl>
+
+                    <FormMessage />
+                  </FormItem>
                 )}
-              /> */}
+              />
+
               {excerpt && <p>{excerpt}</p>}
               <Dialog>
                 <DialogTrigger>
@@ -232,7 +283,9 @@ export default function ProductForm() {
               </Dialog>
             </div>
 
-            <Button type="submit">Create</Button>
+            <Button type="submit" disabled={loading}>
+              Create
+            </Button>
           </div>
         </div>
       </form>

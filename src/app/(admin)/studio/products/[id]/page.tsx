@@ -6,7 +6,7 @@ export default function Service({ params }: { params: { id: string } }) {
   const isNew = params.id === "new";
 
   return (
-    <section className="container">
+    <section className="">
       <Header
         title={isNew ? "Add New Product" : "Edit Product"}
         description="Manage Products"
