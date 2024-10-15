@@ -3,40 +3,40 @@ import { notFound } from "next/navigation";
 
 import { Blob } from "@/components/assets/blob";
 import Cta from "@/components/cta";
-import { getServiceBySlug } from "@/server/actions/get-service-by-slug";
+import MDXContent from "@/components/editor/mdx-content";
+import { getServiceBySlug } from "@/server/actions/get-service-by-mdx";
 
 export default async function ServicePage({
   params,
 }: {
   params: { slug: string };
 }) {
-  const { service } = await getServiceBySlug(params.slug);
+  const service = await getServiceBySlug(params.slug);
   if (!service) notFound();
 
-  // const mdxSource = await serialize(service.content!);
-
-  // console.log(mdxSource);
+  const { metadata, content } = service;
 
   return (
     <main className="min-h-dvh">
       <header className="container relative z-10 max-w-6xl py-12 text-center">
         <h1 className="text-5xl font-medium capitalize tracking-tight">
-          {service.title}
+          {metadata.title}
         </h1>
-        <p className="mt-4 text-balance md:text-xl">{service.description}</p>
+        <p className="mt-4 text-balance md:text-xl">{metadata.description}</p>
         <figure className="relative mt-10 aspect-[16/8] w-full overflow-hidden rounded-xl bg-gray-100">
           <Image
-            src={service.image}
+            src={metadata.image!}
             fill
-            alt={service.title}
+            alt={metadata.title!}
             className="object-cover"
           />
         </figure>
         <Blob className="absolute right-1/2 top-0 -z-10 opacity-50" />
       </header>
-      {/* <main className="container prose relative z-10 max-w-6xl">
-        <MDXContent source={service.content!} />
-      </main> */}
+      <main className="container prose relative z-10 max-w-6xl">
+        <MDXContent source={content} />
+      </main>
+
       {/* <section className="mx-auto grid max-w-6xl grid-cols-2 px-4 py-12">
         <h2 className="max-w-sm text-balance font-normal">
           Why <span className="capitalize text-secondary">{title} ?</span>

@@ -93,6 +93,8 @@ export default function ServiceForm() {
 
   const title = form.getValues("title");
 
+  console.log(value);
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>

@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 
 import { Blob } from "@/components/assets/blob";
 import { Badge } from "@/components/ui/badge";
-import { getServices } from "@/server/actions/get-services";
+import { getServices } from "@/server/actions/get-service-by-mdx";
 
 import Hero from "./_components/radar";
 import ServiceCard from "./_components/service-card";
@@ -10,7 +10,7 @@ import ServiceCard from "./_components/service-card";
 export const dynamic = "force-static";
 
 export default async function Services() {
-  const { services } = await getServices();
+  const services = await getServices();
 
   if (!services) notFound();
   return (
@@ -26,8 +26,8 @@ export default async function Services() {
           </span>
         </h2>
 
-        {services.map((service) => (
-          <ServiceCard data={service} key={service.id} />
+        {services.map((service, i) => (
+          <ServiceCard data={service} key={i} />
         ))}
       </section>
     </main>

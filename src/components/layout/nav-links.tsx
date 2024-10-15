@@ -26,8 +26,8 @@ export function NavLinks() {
         {services.map((service, i) => (
           <NavigationMenuItem key={`Services_${i}`}>
             <NavigationMenuTrigger>
-              <Link href={service.href} legacyBehavior passHref>
-                <NavigationMenuLink className="uppercase">
+              <Link href={`${service.href}`} passHref>
+                <NavigationMenuLink className="uppercase" asChild>
                   <RevealText>{service.title.replace(/ /g, "\xa0")}</RevealText>
                 </NavigationMenuLink>
               </Link>
@@ -37,23 +37,27 @@ export function NavLinks() {
               <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[750px] lg:grid-cols-[.75fr_1fr_1fr]">
                 <li className="row-span-3">
                   <NavigationMenuLink asChild>
-                    <a
-                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                    <Link
+                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-primary to-secondary p-6 no-underline outline-none focus:shadow-md"
                       href="/"
                     >
-                      <div className="mb-2 mt-4 text-lg font-medium">
+                      <div className="mb-2 mt-4 text-lg font-medium text-background">
                         Ziron Media
                       </div>
-                      <p className="text-sm leading-tight text-muted-foreground">
+                      <p className="text-sm leading-tight text-muted">
                         We specialize in brand identities, scalable websites,
                         and expert social media management
                       </p>
-                    </a>
+                    </Link>
                   </NavigationMenuLink>
                 </li>
                 {service.services?.map((nav, i) => (
-                  <ListItem href={nav.href} title={nav.title} key={i}>
-                    {nav.title}
+                  <ListItem
+                    href={`/what-we-do${nav.href}`}
+                    title={nav.title}
+                    key={i}
+                  >
+                    {nav.description}
                   </ListItem>
                 ))}
               </ul>
@@ -79,10 +83,10 @@ export function NavLinks() {
 export const ListItem = React.forwardRef<
   React.ElementRef<"a">,
   React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
+>(({ className, title, children, href, ...props }, ref) => {
   return (
-    <li>
-      <a {...props}>
+    <li title={String(children)}>
+      <Link href={href!} passHref {...props}>
         <NavigationMenuLink
           ref={ref}
           className={cn(
@@ -95,7 +99,7 @@ export const ListItem = React.forwardRef<
             {children}
           </p>
         </NavigationMenuLink>
-      </a>
+      </Link>
     </li>
   );
 });

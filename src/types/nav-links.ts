@@ -7,4 +7,5 @@ export interface NavItems {
 interface NavService {
   title: string;
   href: string;
+  description: string;
 }

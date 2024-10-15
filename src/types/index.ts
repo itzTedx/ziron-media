@@ -9,12 +9,26 @@ export type SiteConfig = {
   };
 };
 
+// export type Service = {
+//   id: number;
+//   title: string;
+//   description: string;
+//   image: string;
+//   content?: string | null;
+//   slug: string;
+//   createdAt?: Date | null;
+// };
+
 export type Service = {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  content?: string | null;
+  metadata: ServiceMetadata;
+  content: string;
+};
+
+export type ServiceMetadata = {
+  title?: string;
+  description?: string;
+  image?: string;
+  isFeatured?: boolean;
+  id?: number;
   slug: string;
-  createdAt?: Date | null;
 };
