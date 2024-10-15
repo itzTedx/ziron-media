@@ -6,6 +6,14 @@ import OurQuality from "./_components/our-quality-section";
 import Toolkit from "./_components/toolkit";
 
 export default function AboutPage() {
+  function calculateAge(birthYear: number) {
+    const currentYear = new Date().getFullYear();
+    return currentYear - birthYear;
+  }
+
+  const foundedYear = 2020;
+  const age = calculateAge(foundedYear);
+
   return (
     <main className="relative space-y-36 overflow-hidden py-9 md:py-24">
       <AboutHero />
@@ -13,13 +21,13 @@ export default function AboutPage() {
       <section className="container py-24">
         <h2 className="mx-auto max-w-3xl text-center">
           <strong className="font-medium">
-            Our story started with our founders, 20 years ago
+            Our story started with our founders, {age} years ago
           </strong>
         </h2>
       </section>
       <section className="container">
-        <div className="rounded-xl bg-gray-950 p-9">
-          <h3 className="mb-6 text-center text-background">
+        <div className="p-9">
+          <h3 className="mb-6 text-center">
             Building Together with these Brands
           </h3>
           <InfiniteMovingCards

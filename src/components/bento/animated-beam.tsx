@@ -13,7 +13,7 @@ const Circle = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "z-10 flex size-12 items-center justify-center rounded-full border-2 bg-white p-3 shadow-[0_0_20px_-12px_rgba(0,0,0,0.5)]",
+        "z-10 flex size-8 items-center justify-center rounded-full border-2 bg-white p-1.5 shadow-[0_0_20px_-12px_rgba(0,0,0,0.5)] md:size-12 md:p-3",
         className
       )}
     >
@@ -44,29 +44,30 @@ export function AnimatedBeamSocial({ className }: { className?: string }) {
     >
       <div className="flex size-full max-w-lg flex-row items-stretch justify-between gap-6">
         <div className="flex flex-col justify-center">
-          <Circle ref={div7Ref}>
+          <Circle ref={div7Ref} className="max-md:size-8">
             <Icons.user />
           </Circle>
         </div>
         <div className="flex flex-col justify-center">
-          <Circle ref={div6Ref} className="size-20">
+          <Circle ref={div6Ref} className="size-12 md:size-20">
             <Icons.ziron />
           </Circle>
         </div>
-        <div className="flex flex-col justify-center gap-4">
-          <Circle ref={div1Ref}>
+        <div className="flex flex-col justify-center gap-1 md:gap-4">
+          <Circle ref={div1Ref} className="max-md:size-8">
             <Icons.instagram />
           </Circle>
-          <Circle ref={div2Ref}>
+          <Circle ref={div2Ref} className="max-md:size-8">
             <Icons.facebook />
           </Circle>
-          <Circle ref={div3Ref}>
+          <Circle ref={div3Ref} className="max-md:size-8">
             <Icons.linkedin />
           </Circle>
-          <Circle ref={div4Ref}>
+          <Circle ref={div4Ref} className="max-md:size-8">
             <Icons.whatsapp />
           </Circle>
-          <Circle ref={div5Ref}>
+
+          <Circle ref={div5Ref} className="max-md:size-8">
             <Icons.messenger />
           </Circle>
         </div>

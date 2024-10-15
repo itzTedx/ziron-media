@@ -48,7 +48,9 @@ const features = [
     cta: "Learn more",
     className: "col-span-3 lg:col-span-1 row-span-2",
     background: (
-      <AnimatedListDemo className="absolute right-2 top-4 h-[300px] w-full border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
+      <div className="mt-28">
+        <AnimatedListDemo className="absolute right-2 top-0 h-[300px] w-full border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105 md:top-4" />
+      </div>
     ),
   },
   {
@@ -66,7 +68,11 @@ const features = [
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-1",
-    background: <ImagesMarquee />,
+    background: (
+      <div className="mt-9">
+        <ImagesMarquee />
+      </div>
+    ),
   },
 
   {
@@ -115,9 +121,11 @@ const features = [
     href: "#",
     cta: "Learn more",
     className:
-      "lg:col-span-2 row-span-1 md:row-span-2 lg:col-start-3 lg:row-start-3",
+      "lg:col-span-2 row-span-2 md:row-span-2 lg:col-start-3 lg:row-start-3",
     background: (
-      <AnimatedBeamSocial className="absolute -top-8 right-2 border-none transition-all duration-300 ease-out group-hover:scale-105 md:top-4 md:h-[350px]" />
+      <div className="mt-28">
+        <AnimatedBeamSocial className="absolute -top-4 border-none transition-all duration-300 ease-out md:right-2 md:top-4 md:h-[350px] md:group-hover:scale-105" />
+      </div>
     ),
   },
 ];

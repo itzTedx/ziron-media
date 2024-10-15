@@ -7,7 +7,7 @@ export default function ServicesMarquee() {
   return (
     <div className="mt-9">
       {/* <Services left={services.flatMap((item) => item.label)} /> */}
-      <div className="absolute z-10 h-full w-full bg-gradient-to-r from-background/90 via-transparent to-background/90" />
+
       <Marquee repeat={2} pauseOnHover className="[--duration:25000ms]">
         {services.slice(0, 5).map((f, idx) => (
           <figure
