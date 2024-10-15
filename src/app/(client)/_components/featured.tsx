@@ -11,19 +11,21 @@ import { Badge } from "@/components/ui/badge";
 
 export function Featured() {
   return (
-    <section className="container flex flex-col items-center gap-6 px-3 py-12 pt-24 max-sm:overflow-hidden md:px-9 md:py-24">
-      <Badge variant={"secondary"}>✦ What we are great at</Badge>
-      <TitlePullUp />
-      {/* <h2 className="mb-12 text-center font-medium">
+    <section className="bg-violet-50 px-3 py-12 pt-24 max-sm:overflow-hidden md:px-9 md:py-24">
+      <div className="container flex flex-col items-center gap-6">
+        <Badge variant={"secondary"}>✦ What we are great at</Badge>
+        <TitlePullUp />
+        {/* <h2 className="mb-12 text-center font-medium">
         We design, build and elevate <br />
         your <span className="text-secondary">online presence</span>
-      </h2> */}
-      <BentoGrid>
-        {features.map((feature, idx) => (
-          <BentoCard key={idx} {...feature} />
-        ))}
-        <Blob className="pointer-events-none absolute top-0 -z-10 scale-150 select-none" />
-      </BentoGrid>
+        </h2> */}
+        <BentoGrid>
+          {features.map((feature, idx) => (
+            <BentoCard key={idx} {...feature} />
+          ))}
+          <Blob className="pointer-events-none absolute top-0 -z-10 scale-150 select-none" />
+        </BentoGrid>
+      </div>
     </section>
   );
 }
