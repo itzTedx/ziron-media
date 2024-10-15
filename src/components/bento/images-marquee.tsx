@@ -70,7 +70,7 @@ const ReviewCard = ({ img }: { img: string }) => {
 const ImagesMarquee = () => {
   return (
     <>
-      <div className="absolute top-0 z-10 h-full w-full bg-gradient-to-r from-background via-background to-transparent" />
+      <div className="absolute top-0 z-10 h-full w-full bg-gradient-to-r from-background via-background to-transparent md:hidden" />
       <div className="absolute -bottom-5 right-3 grid h-80 -rotate-[21deg] grid-cols-3 flex-row items-center justify-center overflow-hidden md:-right-9">
         <Marquee
           pauseOnHover
