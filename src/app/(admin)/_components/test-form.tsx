@@ -26,7 +26,7 @@ import { ServiceSchema } from "@/types/service-schema";
 
 import ImageDropzone from "../studio/services/[id]/_components/image-dropzone";
 
-const LiveMdxEditor = dynamic(() => import("@/components/mdx-editor"), {
+const LiveMdxEditor = dynamic(() => import("@/components/editor/mdx-editor"), {
   ssr: false,
 });
 

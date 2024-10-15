@@ -1,17 +1,18 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
-import { Suspense, useState } from "react";
+import { useState } from "react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { DialogClose } from "@radix-ui/react-dialog";
 import { IconEye } from "@tabler/icons-react";
 import { useAction } from "next-safe-action/hooks";
+import { JSONContent } from "novel";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
 
+import NovelEditor from "@/components/editor/novel-editor";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -30,6 +31,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import {
   Tooltip,
@@ -43,12 +45,13 @@ import { UploadButton } from "@/utils/uploadthing";
 
 import ImageDropzone from "./image-dropzone";
 
-const LiveMdxEditor = dynamic(() => import("@/components/mdx-editor"), {
-  ssr: false,
-});
+// const LiveMdxEditor = dynamic(() => import("@/components/mdx-editor"), {
+//   ssr: false,
+// });
 
 export default function ServiceForm() {
   const [loading, setLoading] = useState(false);
+  const [value, setValue] = useState<JSONContent>({});
   const router = useRouter();
 
   const form = useForm<z.infer<typeof ServiceSchema>>({
@@ -94,7 +97,7 @@ export default function ServiceForm() {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="grid gap-6 py-9 md:grid-cols-4">
-          <div className="col-span-3 grid h-fit grid-cols-2 justify-center gap-6">
+          <div className="col-span-3 grid h-fit grid-cols-2 gap-4">
             <div className="flex flex-col gap-4">
               <FormField
                 control={form.control}
@@ -133,18 +136,28 @@ export default function ServiceForm() {
                 <FormItem className="col-span-2">
                   <FormLabel className="sr-only">Content</FormLabel>
                   <FormControl className="min-h-52 border">
-                    <Suspense fallback={null}>
+                    {/* <Suspense fallback={null}>
                       <LiveMdxEditor
                         markdown=""
                         className="rounded-md border"
                       />
-                    </Suspense>
+                    </Suspense> */}
                   </FormControl>
 
                   <FormMessage />
                 </FormItem>
               )}
             />
+            <div className="col-span-2">
+              <Label>
+                <span>Content</span>
+                <NovelEditor
+                  initialValue={value}
+                  onChange={setValue}
+                  className="min-h-96 cursor-text rounded-lg border"
+                />
+              </Label>
+            </div>
 
             {/* <FormField
               control={form.control}

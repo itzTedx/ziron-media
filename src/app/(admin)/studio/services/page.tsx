@@ -5,9 +5,9 @@ import { columns } from "./data/columns";
 import { DataTable } from "./data/data-table";
 
 export default async function ServiceAdminPage() {
-  const { service } = await getServices();
+  const { services } = await getServices();
 
-  if (!service) return null;
+  if (!services) return null;
 
   return (
     <section className="container">
@@ -17,7 +17,7 @@ export default async function ServiceAdminPage() {
         btnLink="/studio/services/new"
       />
       <div className="">
-        <DataTable columns={columns} data={service} />
+        <DataTable columns={columns} data={services} />
       </div>
     </section>
   );

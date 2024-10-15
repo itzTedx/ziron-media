@@ -4,11 +4,11 @@ import { db } from "..";
 
 export async function getServices() {
   try {
-    const service = await db.query.Services.findMany();
+    const services = await db.query.Services.findMany();
 
-    if (!service) throw new Error("Service not found");
+    if (!services) throw new Error("Service not found");
 
-    return { service };
+    return { services };
   } catch (error) {
     return { error: `Failed to get Service, Error: ${error}` };
   }
