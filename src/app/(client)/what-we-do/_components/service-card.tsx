@@ -12,13 +12,13 @@ interface ServiceCardProps {
 
 export default function ServiceCard({ data }: ServiceCardProps) {
   return (
-    <div className="group grid items-center pb-12 md:grid-cols-2 md:gap-20 md:pb-32">
+    <div className="group grid pb-12 md:grid-cols-2 md:gap-20 md:pb-32">
       <figure className="relative grid aspect-[4/3] place-content-center overflow-hidden rounded-lg bg-gray-200 md:group-even:order-2">
         <Image
           src={data.image!}
           alt={data.title!}
           fill
-          className="object-cover"
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
         <figcaption className="sr-only">{data.title}</figcaption>
       </figure>

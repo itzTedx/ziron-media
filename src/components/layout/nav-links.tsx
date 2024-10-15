@@ -26,8 +26,8 @@ export function NavLinks() {
         {services.map((service, i) => (
           <NavigationMenuItem key={`Services_${i}`}>
             <NavigationMenuTrigger>
-              <Link href={`${service.href}`} passHref>
-                <NavigationMenuLink className="uppercase" asChild>
+              <Link href={`${service.href}`} passHref className="uppercase">
+                <NavigationMenuLink asChild>
                   <RevealText>{service.title.replace(/ /g, "\xa0")}</RevealText>
                 </NavigationMenuLink>
               </Link>
