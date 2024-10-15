@@ -12,7 +12,7 @@ interface ServiceCardProps {
 
 export default function ServiceCard({ data }: ServiceCardProps) {
   return (
-    <div className="group grid pb-12 md:grid-cols-2 md:gap-20 md:pb-32">
+    <div className="group grid gap-4 pb-12 md:grid-cols-2 md:gap-20 md:pb-32">
       <figure className="relative grid aspect-[4/3] place-content-center overflow-hidden rounded-lg bg-gray-200 md:group-even:order-2">
         <Image
           src={data.image!}
