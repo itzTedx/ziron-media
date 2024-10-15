@@ -2,8 +2,8 @@
 
 import { revalidatePath } from "next/cache";
 
-import { db } from "@/db";
-import { Faqs } from "@/db/schema";
+import { db } from "@/server";
+import { Faqs } from "@/server/schema";
 
 export async function createFaq(formData: FormData) {
   const question = formData.get("question") as string;

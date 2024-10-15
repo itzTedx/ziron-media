@@ -8,3 +8,13 @@ export type SiteConfig = {
     twitter: string;
   };
 };
+
+export type Service = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  content?: string | null;
+  slug: string;
+  createdAt?: Date | null;
+};

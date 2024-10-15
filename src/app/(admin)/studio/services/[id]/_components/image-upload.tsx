@@ -1,6 +1,6 @@
 "use client";
 
-import { useFieldArray, useFormContext } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import * as z from "zod";
 
 import {
@@ -14,11 +14,6 @@ import { UploadButton } from "@/utils/uploadthing";
 
 export default function ImageUpload() {
   const { control, setError } = useFormContext<z.infer<typeof ServiceSchema>>();
-
-  const { fields, append } = useFieldArray({
-    control,
-    name: "featuredImage",
-  });
 
   return (
     <div className="">
@@ -41,16 +36,6 @@ export default function ImageUpload() {
                   });
                   return;
                 }}
-                onBeforeUploadBegin={(files) => {
-                  files.map((file) =>
-                    append({
-                      name: file.name,
-                      size: file.size,
-                      url: URL.createObjectURL(file),
-                    })
-                  );
-                  return files;
-                }}
               />
             </FormControl>
 
@@ -58,15 +43,6 @@ export default function ImageUpload() {
           </FormItem>
         )}
       />
-      <div className="overflow-x-hidden rounded-md">
-        {fields.length === 0 ? (
-          <div className="mt-2 text-center text-sm text-muted">
-            Images not uploaded
-          </div>
-        ) : (
-          ""
-        )}
-      </div>
     </div>
   );
 }

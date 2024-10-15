@@ -1,9 +1,15 @@
 "use client";
 
+import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
+import { Suspense, useState } from "react";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { DialogClose } from "@radix-ui/react-dialog";
 import { IconEye } from "@tabler/icons-react";
+import { useAction } from "next-safe-action/hooks";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
@@ -20,6 +26,7 @@ import {
   FormControl,
   FormField,
   FormItem,
+  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -32,72 +39,114 @@ import {
 } from "@/components/ui/tooltip";
 import { createService } from "@/server/actions/create-service";
 import { ServiceSchema } from "@/types/service-schema";
+import { UploadButton } from "@/utils/uploadthing";
 
 import ImageDropzone from "./image-dropzone";
 
+const LiveMdxEditor = dynamic(() => import("@/components/mdx-editor"), {
+  ssr: false,
+});
+
 export default function ServiceForm() {
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
+
   const form = useForm<z.infer<typeof ServiceSchema>>({
     resolver: zodResolver(ServiceSchema),
     defaultValues: {
       title: "",
       description: "",
-      image: [],
-      why: "",
-      about: "",
+      image: "",
+      featuredImage: "",
       content: "",
-
       excerpt: "",
     },
   });
 
+  const { execute } = useAction(createService, {
+    onExecute: () => {
+      setLoading(true);
+      console.log("Executing");
+    },
+    onSuccess: ({ data }) => {
+      if (data?.success) {
+        console.log("Success");
+        router.push("/studio/services");
+        toast.success(data.success);
+        setLoading(false);
+      }
+    },
+
+    onError: () => {
+      toast.error("Something went wrong.");
+      setLoading(false);
+    },
+  });
+
   function onSubmit(values: z.infer<typeof ServiceSchema>) {
-    console.log(values);
+    console.log("data sending to backend");
+    execute(values);
   }
 
   const title = form.getValues("title");
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} action={createService}>
-        <div className="grid gap-6 md:grid-cols-4">
-          <div className="col-span-3 mt-9 space-y-6 pb-9">
-            <FormField
-              control={form.control}
-              name="title"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Input
-                      placeholder="Title"
-                      {...field}
-                      className="h-12 border-0 shadow-none placeholder:text-2xl"
-                    />
-                  </FormControl>
+      <form onSubmit={form.handleSubmit(onSubmit)}>
+        <div className="grid gap-6 py-9 md:grid-cols-4">
+          <div className="col-span-3 grid h-fit grid-cols-2 justify-center gap-6">
+            <div className="flex flex-col gap-4">
+              <FormField
+                control={form.control}
+                name="title"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Title</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Title" {...field} />
+                    </FormControl>
 
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="description"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Textarea
-                      rows={6}
-                      placeholder="Description"
-                      {...field}
-                      className="border-0 shadow-none placeholder:text-2xl"
-                    />
-                  </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="description"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Description</FormLabel>
+                    <FormControl>
+                      <Textarea rows={6} placeholder="Description" {...field} />
+                    </FormControl>
 
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
             <ImageDropzone />
             <FormField
+              control={form.control}
+              name="content"
+              render={({}) => (
+                <FormItem className="col-span-2">
+                  <FormLabel className="sr-only">Content</FormLabel>
+                  <FormControl className="min-h-52 border">
+                    <Suspense fallback={null}>
+                      <LiveMdxEditor
+                        markdown=""
+                        className="rounded-md border"
+                      />
+                    </Suspense>
+                  </FormControl>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* <FormField
               control={form.control}
               name="why"
               render={({ field }) => (
@@ -151,14 +200,12 @@ export default function ServiceForm() {
                 </FormItem>
               )}
             />
+        */}
           </div>
-
           <div className="col-span-1 flex flex-col justify-between pl-3 pt-9 md:sticky md:top-[4.75rem] md:h-[calc(100dvh-5rem-2.5rem)] md:border-l">
             <div className="space-y-6">
               <div className="flex justify-between">
-                <h5 className="text-sm font-bold">
-                  {title ? title : "No Title"}
-                </h5>
+                <h5 className="text-sm font-bold">{title || "No Title"}</h5>
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger>
@@ -170,25 +217,22 @@ export default function ServiceForm() {
                   </Tooltip>
                 </TooltipProvider>
               </div>
-              {/* <FormField
+              <FormField
                 control={form.control}
                 name="featuredImage"
-                render={({ field }) => (
-                  <UploadButton<OurFileRouter>
+                render={({}) => (
+                  <UploadButton
                     className="cursor-pointer transition-all duration-500 ease-in-out hover:bg-primary/5 ut-button:bg-primary/75 ut-allowed-content:text-secondary-foreground/70 ut-label:text-primary ut-upload-icon:text-primary/70"
                     endpoint="featuredImage"
-                    onClientUploadComplete={(res: unknown) => {
-                      // Do something with the response
-                      console.log("Files: ", res);
-                      alert("Upload Completed");
+                    onClientUploadComplete={(res) => {
+                      form.setValue("featuredImage", res[0].url);
                     }}
                     onUploadError={(error: Error) => {
-                      // Do something with the error.
-                      alert(`ERROR! ${error.message}`);
+                      toast.error(JSON.stringify(error));
                     }}
                   />
                 )}
-              /> */}
+              />
               <Dialog>
                 <DialogTrigger>
                   <p className="text-sm underline">Add an Excerpt...</p>
@@ -226,7 +270,9 @@ export default function ServiceForm() {
               </Dialog>
             </div>
 
-            <Button type="submit">Create</Button>
+            <Button type="submit" disabled={loading}>
+              Create
+            </Button>
           </div>
         </div>
       </form>

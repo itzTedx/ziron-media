@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { TitlePullUp } from "@/components/animations/word-pull-up";
 import { Blob } from "@/components/assets/blob";
 import { AnimatedBeamSocial } from "@/components/bento/animated-beam";
 import { AnimatedListDemo } from "@/components/bento/animated-list";
@@ -12,10 +13,11 @@ export function Featured() {
   return (
     <section className="container flex flex-col items-center gap-6 px-3 py-12 pt-24 max-sm:overflow-hidden md:px-9 md:py-24">
       <Badge variant={"secondary"}>✦ What we are great at</Badge>
-      <h2 className="mb-12 text-center font-medium">
+      <TitlePullUp />
+      {/* <h2 className="mb-12 text-center font-medium">
         We design, build and elevate <br />
         your <span className="text-secondary">online presence</span>
-      </h2>
+      </h2> */}
       <BentoGrid>
         {features.map((feature, idx) => (
           <BentoCard key={idx} {...feature} />

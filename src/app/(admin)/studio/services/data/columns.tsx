@@ -14,20 +14,13 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Service } from "@/types";
 
-export type Payment = {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  createdAt: number;
-};
-
-export const columns: ColumnDef<Payment>[] = [
+export const columns: ColumnDef<Service>[] = [
   {
     id: "select",
     header: ({ table }) => (
-      <div className="w-8">
+      <div className="flex w-5 items-center justify-center">
         <Checkbox
           checked={
             table.getIsAllPageRowsSelected() ||
@@ -50,7 +43,8 @@ export const columns: ColumnDef<Payment>[] = [
   },
   {
     accessorKey: "image",
-    header: () => <div className="">Image</div>,
+
+    header: () => <div className="w-12 items-center">Image</div>,
     cell: ({ row }) => (
       <div className="relative size-12">
         <Image src={row.getValue("image")} fill alt="" />;
@@ -63,20 +57,23 @@ export const columns: ColumnDef<Payment>[] = [
       return (
         <Button
           variant="ghost"
-          className="px-0 hover:bg-transparent active:scale-95"
+          className="items-center justify-start px-0 hover:bg-transparent active:scale-95 md:w-52"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
           Title
-          <ArrowUpDown className="ml-2 h-4 w-4" />
+          <ArrowUpDown className="ml-2 size-3" />
         </Button>
       );
     },
     cell: ({ row }) => (
-      <div className="relative w-52 font-semibold">{row.getValue("title")}</div>
+      <div className="relative font-semibold md:w-52">
+        {row.getValue("title")}
+      </div>
     ),
   },
   {
     accessorKey: "description",
+    size: 270,
     header: "Description",
     cell: ({ row }) => (
       <div className="relative line-clamp-2 max-w-2xl">
@@ -84,29 +81,12 @@ export const columns: ColumnDef<Payment>[] = [
       </div>
     ),
   },
-  {
-    accessorKey: "createdAt",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          className="px-0 hover:bg-transparent active:scale-95"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Created At
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
-  },
 
   {
     id: "actions",
     enableSorting: false,
     enableHiding: false,
-    cell: ({ row }) => {
-      const payment = row.original;
-
+    cell: ({}) => {
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -117,11 +97,7 @@ export const columns: ColumnDef<Payment>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(payment.id)}
-            >
-              Edit
-            </DropdownMenuItem>
+            <DropdownMenuItem>Edit</DropdownMenuItem>
             <DropdownMenuItem>Delete</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

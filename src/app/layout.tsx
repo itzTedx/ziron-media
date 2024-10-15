@@ -60,7 +60,7 @@ export default function RootLayout({
       >
         <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
         {children}
-        <Toaster richColors />
+        <Toaster richColors position="bottom-center" />
         <BreakpointIndicator />
       </body>
     </html>

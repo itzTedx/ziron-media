@@ -1,8 +1,6 @@
 "use client";
 
-import Image from "next/image";
-
-import { useFieldArray, useFormContext } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import { toast } from "sonner";
 import * as z from "zod";
 
@@ -10,27 +8,24 @@ import {
   FormControl,
   FormField,
   FormItem,
+  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { ServiceSchema } from "@/types/service-schema";
 import { UploadDropzone } from "@/utils/uploadthing";
 
 export default function ImageDropzone() {
-  const { control, setError, getValues } =
+  const { control, setError, setValue } =
     useFormContext<z.infer<typeof ServiceSchema>>();
 
-  const { fields, update, append } = useFieldArray({
-    control,
-    name: "image",
-  });
-
   return (
-    <div className="">
+    <div className="m-0">
       <FormField
         control={control}
         name="image"
         render={({}) => (
           <FormItem>
+            <FormLabel>Image</FormLabel>
             <FormControl>
               <UploadDropzone
                 className="cursor-pointer border border-input transition-all duration-500 ease-in-out hover:bg-primary/5 ut-button:bg-primary/75 ut-allowed-content:text-secondary-foreground/70 ut-label:text-primary ut-upload-icon:text-primary/70"
@@ -42,35 +37,13 @@ export default function ImageDropzone() {
                   });
                   return;
                 }}
-                onBeforeUploadBegin={(files) => {
-                  toast.loading("Image Uploading");
-                  files.map((file) =>
-                    append({
-                      name: file.name,
-                      size: file.size,
-                      url: URL.createObjectURL(file),
-                    })
-                  );
-                  return files;
+                onUploadBegin={() => {
+                  toast.loading("Uploading image...");
                 }}
                 onClientUploadComplete={(res) => {
                   toast.dismiss();
                   toast.success("Image uploaded");
-
-                  const images = getValues("image");
-                  images.map((field, imgIdx) => {
-                    if (field.url.search("blob:") === 0) {
-                      const image = res.find((img) => img.name === field.name);
-                      if (image) {
-                        update(imgIdx, {
-                          url: image.url,
-                          name: image.name,
-                          size: image.size,
-                          key: image.key,
-                        });
-                      }
-                    }
-                  });
+                  setValue("image", res[0].url);
                 }}
                 config={{ mode: "auto" }}
               />
@@ -80,11 +53,11 @@ export default function ImageDropzone() {
           </FormItem>
         )}
       />
-      {fields.map((field) => (
+      {/* {fields.map((field) => (
         <div key={field.id} className="relative aspect-video h-12">
           <Image src={field.url} alt={field.name} fill />
         </div>
-      ))}
+      ))} */}
     </div>
   );
 }

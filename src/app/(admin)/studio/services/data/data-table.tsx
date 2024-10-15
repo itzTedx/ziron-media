@@ -2,6 +2,7 @@
 
 import * as React from "react";
 
+import { IconTable } from "@tabler/icons-react";
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -81,8 +82,11 @@ export function DataTable<TData, TValue>({
         />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button className="ml-auto border bg-background text-foreground hover:bg-muted">
-              Columns
+            <Button
+              className="ml-auto border bg-background text-foreground hover:bg-muted"
+              size="icon"
+            >
+              <IconTable stroke={1} />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">

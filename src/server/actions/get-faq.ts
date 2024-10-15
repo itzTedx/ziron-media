@@ -1,6 +1,6 @@
 "use server";
 
-import { db } from "@/db";
+import { db } from "@/server";
 
 export async function getFaqs() {
   const tags = db.query.Faqs.findMany();

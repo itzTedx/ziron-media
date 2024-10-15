@@ -2,6 +2,7 @@ import { Metadata } from "next";
 
 import { getTags } from "@/server/actions/get-tags";
 
+import "../../styles/studio.css";
 import { Sidebar } from "./_components/sidebar";
 
 export const metadata: Metadata = {

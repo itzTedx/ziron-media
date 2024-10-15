@@ -7,48 +7,41 @@ import { JSDOM } from "jsdom";
 import { createSafeActionClient } from "next-safe-action";
 
 import { slugify } from "@/lib/utils";
-import { db } from "@/server";
-import { Services } from "@/server/schema";
 import { ServiceSchema } from "@/types/service-schema";
 
-const action = createSafeActionClient();
+import { db } from "..";
+import { test } from "../schema";
 
 // Create a DOMPurify instance with JSDOM for server-side use
 const window = new JSDOM("").window;
 const purify = DOMPurify(window);
 
-export const createService = action.schema(ServiceSchema).action(
-  async ({
-    parsedInput: {
-      title,
-      description,
-      image,
+const action = createSafeActionClient();
 
-      content,
-    },
-  }) => {
+export const createTest = action
+  .schema(ServiceSchema)
+  .action(async ({ parsedInput: { title, description, content, image } }) => {
     const sanitizedContent = purify.sanitize(content);
+
     try {
-      const newService = await db
-        .insert(Services)
+      const newCategory = await db
+        .insert(test)
         .values({
           title,
           description,
-          image,
-          // featuredImage,
           content: JSON.stringify(sanitizedContent),
-          // excerpt,
+          image,
+
           slug: slugify(title),
         })
         .returning();
 
-      revalidatePath("/studio/services");
+      revalidatePath("/studio");
 
       return {
-        success: `${newService[0].title} has been created`,
+        success: `Test: (${newCategory[0].title}) has been created`,
       };
     } catch (err) {
       return { error: JSON.stringify(err) };
     }
-  }
-);
+  });
