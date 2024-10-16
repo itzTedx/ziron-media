@@ -39,8 +39,8 @@ const BentoCard = ({
   background: ReactNode;
   titleClass?: string;
   description: string;
-  href: string;
-  cta: string;
+  href?: string;
+  cta?: string;
 }) => (
   <div
     key={name}
@@ -52,7 +52,12 @@ const BentoCard = ({
     )}
   >
     <div className="h-full w-full overflow-hidden">{background}</div>
-    <div className="pointer-events-none z-50 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
+    <div
+      className={cn(
+        "pointer-events-none z-50 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300",
+        href && cta && "group-hover:-translate-y-10"
+      )}
+    >
       <h3 className={cn("text-xl font-semibold", titleClass)}>{name}</h3>
       <p className="max-w-lg">{description}</p>
     </div>
@@ -62,16 +67,18 @@ const BentoCard = ({
         "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-6 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
       )}
     >
-      <Button
-        variant="link"
-        asChild
-        className="pointer-events-auto px-0 text-base text-gray-600"
-      >
-        <Link href={href}>
-          {cta}
-          <IconArrowUpRight className="ml-2 size-5" />
-        </Link>
-      </Button>
+      {href && cta && (
+        <Button
+          variant="link"
+          asChild
+          className="pointer-events-auto px-0 text-base text-gray-600"
+        >
+          <Link href={href}>
+            {cta}
+            <IconArrowUpRight className="ml-2 size-5" />
+          </Link>
+        </Button>
+      )}
     </div>
   </div>
 );

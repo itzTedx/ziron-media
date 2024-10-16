@@ -33,11 +33,11 @@ export default function ServiceCard({ data }: ServiceCardProps) {
         <div className="mt-9 flex items-center gap-9 max-md:mt-6">
           <Link
             href={`/contact?message=${data.title}`}
-            className="inline-flex items-center gap-2"
+            className="inline-flex items-center gap-2 transition-colors hover:text-primary"
           >
-            Let&apos;s Talk <IconArrowRight />
+            Let&apos;s Talk <IconArrowRight className="size-4" />
           </Link>
-          <Button href={`/what-we-do/${data.slug}`} label="View Works" />
+          <Button href={`/what-we-do/${data.slug}`} label="Explore More" />
         </div>
       </div>
     </div>

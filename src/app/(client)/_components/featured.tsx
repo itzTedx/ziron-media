@@ -35,8 +35,8 @@ const features = [
     name: "All your Marketing needs in one place",
     description:
       "From strategy to execution, we offer a comprehensive suite of services to cover every aspect of your digital marketing, ensuring you have everything you need under one roof.",
-    href: "#",
-    cta: "Learn more",
+    href: "/what-we-do",
+    cta: "Check what we do",
     titleClass: "text-primary",
     className:
       "col-span-3 lg:col-span-2 row-span-2 border border-primary shadow-primary-md",
@@ -46,8 +46,8 @@ const features = [
     name: "Get Connected to Your Audience – Fast",
     description:
       "Our targeted strategies are designed to quickly connect you with your ideal audience, helping you build strong relationships and drive engagement in no time.",
-    href: "#",
-    cta: "Learn more",
+    href: "/contact",
+    cta: "Contact us now!",
     className: "col-span-3 lg:col-span-1 row-span-2",
     background: (
       <div className="mt-28">
@@ -59,16 +59,15 @@ const features = [
     name: "Data-Driven Strategies",
     description:
       "Unlock growth with tailored marketing strategies based on in-depth analytics and industry insights. We make every decision count, using data to fuel your success.",
-    href: "#",
-    cta: "Learn more",
+
     className: "lg:col-span-1 row-span-1",
     background: <div></div>,
   },
   {
     name: "Creative Content & Design",
     description: "",
-    href: "#",
-    cta: "Learn more",
+    href: "/case-studies",
+    cta: "Check out case studies",
     className: "col-span-3 lg:col-span-1",
     background: (
       <div className="mt-9">
@@ -101,8 +100,8 @@ const features = [
     description:
       "Our partnership doesn’t stop at campaign launch. We provide continuous support and insights, helping you adapt and thrive as your brand evolves.",
     className: "lg:col-start-1 lg:row-start-4 lg:col-span-1",
-    href: "#",
-    cta: "Learn more",
+    // href: "#",
+    // cta: "Learn more",
     background: "",
   },
   {
@@ -120,8 +119,8 @@ const features = [
     name: "We Handle All Your Digital Appearance",
     description:
       "From website design to social media presence, we manage your brand’s entire online identity, ensuring it looks professional, cohesive, and impactful across all platforms.",
-    href: "#",
-    cta: "Learn more",
+    href: "/what-we-do/social-media-management",
+    cta: "Explore our strategies",
     className:
       "lg:col-span-2 row-span-2 md:row-span-2 lg:col-start-3 lg:row-start-3",
     background: (
