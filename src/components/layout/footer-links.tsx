@@ -7,7 +7,7 @@ import { RevealText } from "../ui/reveal-text";
 export default function FooterLinks() {
   return (
     <nav className="self-end">
-      <ul className="flex flex-col gap-3 text-violet-300 md:text-lg">
+      <ul className="flex flex-col gap-3 text-violet-200 md:text-lg">
         <h6>Quick Links</h6>
         <li>
           <Link

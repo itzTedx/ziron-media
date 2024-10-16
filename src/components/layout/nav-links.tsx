@@ -15,6 +15,7 @@ import {
 import { NAV_LINKS } from "@/constants";
 import { cn } from "@/lib/utils";
 
+import { LogoType } from "../logo";
 import { RevealText } from "../ui/reveal-text";
 
 export function NavLinks() {
@@ -41,10 +42,11 @@ export function NavLinks() {
                       className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-primary to-secondary p-6 no-underline outline-none focus:shadow-md"
                       href="/"
                     >
+                      <LogoType className="brightness-[5] saturate-0" />
                       <div className="mb-2 mt-4 text-lg font-medium text-background">
                         Ziron Media
                       </div>
-                      <p className="text-sm leading-tight text-muted">
+                      <p className="text-sm font-light leading-tight text-muted">
                         We specialize in brand identities, scalable websites,
                         and expert social media management
                       </p>
@@ -52,11 +54,7 @@ export function NavLinks() {
                   </NavigationMenuLink>
                 </li>
                 {service.services?.map((nav, i) => (
-                  <ListItem
-                    href={`/what-we-do${nav.href}`}
-                    title={nav.title}
-                    key={i}
-                  >
+                  <ListItem href={`${nav.href}`} title={nav.title} key={i}>
                     {nav.description}
                   </ListItem>
                 ))}

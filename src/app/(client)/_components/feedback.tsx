@@ -26,33 +26,32 @@ export default function Feedback() {
                   digital!”
                 </p>
                 <figcaption className="mt-9 text-secondary">
-                  Client Name, Company name
+                  Menat, All 4 you
                 </figcaption>
               </figure>
             </Slider>
             <Slider className="w-full cursor-pointer">
               <figure className="pointer-events-none mx-auto h-[200px] max-w-4xl cursor-move select-none text-center">
                 <p className="text-xl md:text-2xl">
-                  “Ziron Media is exceptional! Their expertise in logo design
-                  and digital marketing exceeded my expectations. They truly
-                  understand my brand&apos;s needs. My go-to for all things
-                  digital!”
+                  “Working with Ziron Media was a pleasure. Their service is
+                  exceptional, delivering creative designs and effective digital
+                  marketing strategies that elevated my brand&apos;s online
+                  presence. Highly recommend!”
                 </p>
                 <figcaption className="mt-9 text-secondary">
-                  Client Name, Company name
+                  Niraj Patel, Aura Group
                 </figcaption>
               </figure>
             </Slider>
             <Slider className="w-full cursor-pointer">
               <figure className="pointer-events-none mx-auto h-[200px] max-w-4xl cursor-move select-none text-center">
                 <p className="text-xl md:text-2xl">
-                  “Ziron Media is exceptional! Their expertise in logo design
-                  and digital marketing exceeded my expectations. They truly
-                  understand my brand&apos;s needs. My go-to for all things
-                  digital!”
+                  “Exceptional service! Our brand&apos;s visibility skyrocketed
+                  within a few months. Their team is professional, responsive,
+                  and truly understands our business goals.”
                 </p>
                 <figcaption className="mt-9 text-secondary">
-                  Client Name, Company name
+                  Zahab Ismail, Saj Legal
                 </figcaption>
               </figure>
             </Slider>

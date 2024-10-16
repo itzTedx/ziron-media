@@ -39,7 +39,8 @@ export default async function ContactPage() {
                 Come visit us in Dubai.
               </p>
               <Link
-                href="mailto:info@zironmedia.com"
+                href="https://maps.app.goo.gl/paExi9WpQtHtEfkB6"
+                target="_blank"
                 className="text-balance pt-3"
               >
                 #317, Aura Xavier Building, Al Gubaiba Metro Exit-1, Dubai,
