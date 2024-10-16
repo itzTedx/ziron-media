@@ -18,7 +18,7 @@ export default function Feedback() {
         <Carousel options={OPTIONS} isAutoPlay={true}>
           <SliderContainer className="gap-2">
             <Slider className="w-full cursor-pointer">
-              <figure className="pointer-events-none mx-auto h-[200px] max-w-4xl cursor-move select-none text-center">
+              <figure className="pointer-events-none mx-auto max-w-4xl cursor-move select-none text-center">
                 <p className="text-xl md:text-2xl">
                   “The Company is very good on delivering services on time and
                   every time. They have a good team of researchers, who do our
@@ -31,7 +31,7 @@ export default function Feedback() {
               </figure>
             </Slider>
             <Slider className="w-full cursor-pointer">
-              <figure className="pointer-events-none mx-auto h-[200px] max-w-4xl cursor-move select-none text-center">
+              <figure className="pointer-events-none mx-auto max-w-4xl cursor-move select-none text-center">
                 <p className="text-xl md:text-2xl">
                   “I recently worked with Ziron Media for their reels creation
                   services, and I’m beyond impressed! The team delivered
@@ -48,7 +48,7 @@ export default function Feedback() {
               </figure>
             </Slider>
             <Slider className="w-full cursor-pointer">
-              <figure className="pointer-events-none mx-auto h-[200px] max-w-4xl cursor-move select-none text-center">
+              <figure className="pointer-events-none mx-auto max-w-4xl cursor-move select-none text-center">
                 <p className="text-xl md:text-2xl">
                   “Exceptional service! Our brand&apos;s visibility skyrocketed
                   within a few months. Their team is professional, responsive,
