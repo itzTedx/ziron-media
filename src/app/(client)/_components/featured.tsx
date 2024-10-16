@@ -12,7 +12,7 @@ import { Badge } from "@/components/ui/badge";
 export function Featured() {
   return (
     <section className="bg-violet-50 px-3 py-12 pt-24 max-sm:overflow-hidden md:px-9 md:py-24">
-      <div className="container flex flex-col items-center gap-6">
+      <div className="container flex flex-col items-center gap-6 max-md:px-3">
         <Badge variant={"secondary"}>✦ What we are great at</Badge>
         <TitlePullUp />
         {/* <h2 className="mb-12 text-center font-medium">

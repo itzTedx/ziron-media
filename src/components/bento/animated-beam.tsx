@@ -13,7 +13,7 @@ const Circle = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "z-10 flex size-8 items-center justify-center rounded-full border-2 bg-white p-1.5 shadow-[0_0_20px_-12px_rgba(0,0,0,0.5)] md:size-12 md:p-3",
+        "z-10 flex size-8 items-center justify-center rounded-full border bg-white p-1.5 shadow-[0_0_20px_-12px_rgba(0,0,0,0.5)] md:size-12 md:p-3",
         className
       )}
     >
@@ -44,7 +44,7 @@ export function AnimatedBeamSocial({ className }: { className?: string }) {
     >
       <div className="flex size-full max-w-lg flex-row items-stretch justify-between gap-6">
         <div className="flex flex-col justify-center">
-          <Circle ref={div7Ref} className="border-secondary max-md:size-8">
+          <Circle ref={div7Ref} className="max-md:size-8">
             <Icons.user />
           </Circle>
         </div>
