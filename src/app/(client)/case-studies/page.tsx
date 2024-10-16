@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -133,3 +134,23 @@ export default function CaseStudiesPage() {
     </main>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Your success is our success | Success Stories: Ziron media",
+  description:
+    "We are a digital marketing agencies creating powerful brand identities and scalable digital strategies",
+  openGraph: {
+    type: "website",
+    url: `/case-studies`,
+    title: "Your success is our success | Success Stories: Ziron media",
+    description:
+      "We are a digital marketing agencies creating powerful brand identities and scalable digital strategies",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Your success is our success | Success Stories: Ziron media",
+    description:
+      "We are a digital marketing agencies creating powerful brand identities and scalable digital strategies",
+  },
+  alternates: { canonical: `/case-studies` },
+};

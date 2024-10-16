@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 
-import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
-import { extractRouterConfig } from "uploadthing/server";
-
-import { ourFileRouter } from "@/app/api/uploadthing/core";
 import BreakpointIndicator from "@/components/dev/breakpoint-indicator";
+import LenisProvider from "@/components/dev/lenis";
+import Footer from "@/components/layout/footer";
+import Navbar from "@/components/layout/navbar";
 import { Toaster } from "@/components/ui/sonner";
 import { monaSans, plusJakarta } from "@/fonts";
 import { cn } from "@/lib/utils";
@@ -39,6 +38,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+
     title: siteConfig.name,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
@@ -58,10 +58,14 @@ export default function RootLayout({
       <body
         className={cn(plusJakarta.className, monaSans.variable, "antialiased")}
       >
-        <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
-        {children}
-        <Toaster richColors position="bottom-center" />
-        <BreakpointIndicator />
+        <div vaul-drawer-wrapper="" className="bg-gray-950">
+          <LenisProvider />
+          <Navbar />
+          {children}
+          <Toaster richColors position="bottom-center" />
+          <BreakpointIndicator />
+          <Footer />
+        </div>
       </body>
     </html>
   );

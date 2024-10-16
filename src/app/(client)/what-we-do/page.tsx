@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { Blob } from "@/components/assets/blob";
@@ -33,3 +34,23 @@ export default async function Services() {
     </main>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Digital Specialized Services in Dubai: Ziron Media",
+  description:
+    "We design, build and elevate your online presence, We Specialized in digital marketing, branding, growth hacking",
+  openGraph: {
+    type: "website",
+    url: `/what-we-do`,
+    title: "Digital Specialized Services in Dubai: Ziron Media",
+    description:
+      "We design, build and elevate your online presence, We Specialized in digital marketing, branding, growth hacking",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Digital Specialized Services in Dubai: Ziron Media",
+    description:
+      "We design, build and elevate your online presence, We Specialized in digital marketing, branding, growth hacking",
+  },
+  alternates: { canonical: `/what-we-do` },
+};

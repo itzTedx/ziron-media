@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { cn } from "@/lib/utils";
+import { getBase64 } from "@/server/actions/get-blurred-img-data";
 
 import Marquee from "./marquee";
 
@@ -53,15 +54,24 @@ const firstRow = reviews.slice(0, 5);
 const secondRow = reviews.slice(6, 10);
 const thirdRow = reviews.slice(11, 15);
 
-const ReviewCard = ({ img }: { img: string }) => {
+const ReviewCard = async ({ img }: { img: string }) => {
+  const blurData = await getBase64(img);
   return (
     <figure
       className={cn(
-        "relative aspect-square w-14 cursor-pointer overflow-hidden rounded-md border md:w-20"
+        "relative z-10 aspect-square w-14 cursor-pointer overflow-hidden rounded-md border md:w-20"
       )}
     >
       <div className="aspect-square">
-        <Image src={img} fill alt="" />
+        <Image
+          src={img}
+          placeholder="blur"
+          blurDataURL={blurData}
+          fill
+          alt="Creative Designs we did"
+          title="Creative Designs we did"
+          aria-hidden
+        />
       </div>
     </figure>
   );

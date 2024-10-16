@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Link from "next/link";
 
 import { Icons } from "@/components/icons";
@@ -44,7 +45,7 @@ export default async function ContactPage() {
                 className="text-balance pt-3"
               >
                 #317, Aura Xavier Building, Al Gubaiba Metro Exit-1, Dubai,
-                United Arab Emirates{" "}
+                United Arab Emirates
               </Link>
             </div>
           </div>
@@ -55,3 +56,23 @@ export default async function ContactPage() {
     </main>
   );
 }
+
+export const metadata: Metadata = {
+  title: "We'd love to help you grow: Ziron media",
+  description:
+    "We’d love to hear from you: Drop us a line using this form or pay us a visit at our beautiful office in the bustling heart of Dubai.",
+  openGraph: {
+    type: "website",
+    url: `/contact`,
+    title: "We'd love to help you grow: Ziron media",
+    description:
+      "We’d love to hear from you: Drop us a line using this form or pay us a visit at our beautiful office in the bustling heart of Dubai.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "We'd love to help you grow: Ziron media",
+    description:
+      "We’d love to hear from you: Drop us a line using this form or pay us a visit at our beautiful office in the bustling heart of Dubai.",
+  },
+  alternates: { canonical: `/contact` },
+};

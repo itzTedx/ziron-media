@@ -73,7 +73,8 @@ const Notification = ({ name, description, icon, index }: Item) => {
             <Image
               src={`/icons/${icon}.png`}
               fill
-              alt=""
+              alt="icon"
+              title="icon"
               className="object-contain"
             />
           </div>

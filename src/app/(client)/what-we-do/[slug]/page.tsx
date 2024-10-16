@@ -1,10 +1,14 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
 import { Blob } from "@/components/assets/blob";
 import Cta from "@/components/cta";
 import MDXContent from "@/components/editor/mdx-content";
-import { getServiceBySlug } from "@/server/actions/get-service-by-mdx";
+import {
+  getServiceBySlug,
+  getServices,
+} from "@/server/actions/get-service-by-mdx";
 
 export default async function ServicePage({
   params,
@@ -17,7 +21,7 @@ export default async function ServicePage({
   const { metadata, content } = service;
 
   return (
-    <main className="min-h-dvh">
+    <section className="wrapper min-h-dvh">
       <header className="container relative z-10 max-w-7xl py-12 text-center">
         <h1 className="text-5xl font-medium capitalize tracking-tight">
           {metadata.title}
@@ -39,6 +43,53 @@ export default async function ServicePage({
       </main>
 
       <Cta />
-    </main>
+    </section>
   );
+}
+
+export async function generateStaticParams() {
+  const services = await getServices();
+
+  return services.map((service) => ({
+    slug: service.slug,
+  }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const slug = params.slug;
+
+  const services = await getServiceBySlug(params.slug);
+
+  if (!services) return { title: "Ser" };
+
+  const description = `${services.metadata.description!.slice(0, 140)}...`;
+
+  return {
+    title: `${services?.metadata.title}: Ziron Media`,
+    description,
+    openGraph: {
+      type: "website",
+      images: {
+        url: services.metadata.image!,
+        alt: description,
+      },
+      url: `/what-we-do/${slug}`,
+      title: services?.metadata.title,
+      description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${services?.metadata.title}: Ziron Media`,
+      description,
+      images: {
+        url: services.metadata.image!,
+        alt: description,
+      },
+    },
+    alternates: { canonical: `/what-we-do/${slug}` },
+  };
 }

@@ -1,3 +1,5 @@
+import { Metadata } from "next";
+
 import { Blob } from "@/components/assets/blob";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 
@@ -102,3 +104,23 @@ const testimonials = [
     title: "Saj Legals",
   },
 ];
+
+export const metadata: Metadata = {
+  title: "New Generation of digital creators: Ziron Media",
+  description:
+    "We are a digital marketing agencies creating powerful brand identities and scalable digital strategies",
+  openGraph: {
+    type: "website",
+    url: `/about`,
+    title: "New Generation of digital creators: Ziron Media",
+    description:
+      "We are a digital marketing agencies creating powerful brand identities and scalable digital strategies",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "New Generation of digital creators: Ziron Media",
+    description:
+      "We are a digital marketing agencies creating powerful brand identities and scalable digital strategies",
+  },
+  alternates: { canonical: `/about` },
+};

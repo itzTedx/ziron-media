@@ -79,6 +79,10 @@
   main {
     @apply relative z-0 rounded-b-3xl bg-background py-16 md:py-24;
   }
+
+  .wrapper {
+    @apply relative z-0 rounded-b-3xl bg-background py-16 md:py-24;
+  }
 }
 
 @media print {

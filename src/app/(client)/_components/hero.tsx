@@ -1,8 +1,11 @@
 import Link from "next/link";
 
 import HeroVideoDialog from "@/components/magicui/hero-video-dialog";
+import { getBase64 } from "@/server/actions/get-blurred-img-data";
 
-export default function Hero() {
+export default async function Hero() {
+  const blurData = await getBase64("/images/landing-video-thumb.jpg");
+
   return (
     <section className="container overflow-hidden py-12 text-center md:pb-32">
       <h1 className="font-monaSans text-[2rem] font-bold tracking-tight text-gray-900 md:text-7xl md:leading-[5rem]">
@@ -32,6 +35,7 @@ export default function Hero() {
       </Link>
 
       <HeroVideoDialog
+        blurData={blurData}
         className="mx-auto mt-12 max-w-5xl md:mt-24"
         animationStyle="from-center"
         videoSrc="https://www.youtube.com/embed/LDU_Txk06tM?si=I2jLBKfxTPB0i127"

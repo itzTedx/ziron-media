@@ -177,6 +177,7 @@ export const Card = ({
           <Link
             href={`/case-studies/${slugify(card.title)}`}
             className="inline-flex items-center gap-1.5 text-sm font-semibold"
+            title={`Case study of ${card.title} project`}
           >
             View Case
             <IconArrowUpRight className="size-4" />
@@ -216,7 +217,8 @@ export const BlurImage = ({
       loading="lazy"
       decoding="async"
       blurDataURL={typeof src === "string" ? src : undefined}
-      alt={alt ? alt : "Background of a beautiful view"}
+      alt={alt ? alt : "Case study"}
+      title={alt ? alt : "Case study"}
       {...rest}
     />
   );

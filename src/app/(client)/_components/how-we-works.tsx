@@ -9,8 +9,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { getBase64 } from "@/server/actions/get-blurred-img-data";
 
-export default function HowWeWorks() {
+export default async function HowWeWorks() {
+  const blurData = await getBase64("/images/marketing.jpg");
   return (
     <section className="container grid gap-10 py-12 md:grid-cols-2 md:py-24">
       <div className="top-28 flex h-fit flex-col gap-5 md:sticky">
@@ -28,6 +30,8 @@ export default function HowWeWorks() {
           <Image
             src="/images/marketing.jpg"
             fill
+            placeholder="blur"
+            blurDataURL={blurData}
             alt=""
             className="rounded-xl object-cover"
           />

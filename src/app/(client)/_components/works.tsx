@@ -1,5 +1,3 @@
-"use client";
-
 import { Card, Carousel } from "@/components/ui/apple-cards-carousel";
 import { Badge } from "@/components/ui/badge";
 
