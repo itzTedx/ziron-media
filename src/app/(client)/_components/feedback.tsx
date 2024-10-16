@@ -20,26 +20,30 @@ export default function Feedback() {
             <Slider className="w-full cursor-pointer">
               <figure className="pointer-events-none mx-auto h-[200px] max-w-4xl cursor-move select-none text-center">
                 <p className="text-xl md:text-2xl">
-                  “Ziron Media is exceptional! Their expertise in logo design
-                  and digital marketing exceeded my expectations. They truly
-                  understand my brand&apos;s needs. My go-to for all things
-                  digital!”
+                  “The Company is very good on delivering services on time and
+                  every time. They have a good team of researchers, who do our
+                  job to our complete satisfaction. Needless to say, their rates
+                  are highly competitive.”
                 </p>
                 <figcaption className="mt-9 text-secondary">
-                  Menat, All 4 you
+                  Rajan Ahluwalia, Everest Ielts, Canada
                 </figcaption>
               </figure>
             </Slider>
             <Slider className="w-full cursor-pointer">
               <figure className="pointer-events-none mx-auto h-[200px] max-w-4xl cursor-move select-none text-center">
                 <p className="text-xl md:text-2xl">
-                  “Working with Ziron Media was a pleasure. Their service is
-                  exceptional, delivering creative designs and effective digital
-                  marketing strategies that elevated my brand&apos;s online
-                  presence. Highly recommend!”
+                  “I recently worked with Ziron Media for their reels creation
+                  services, and I’m beyond impressed! The team delivered
+                  high-quality, engaging reels that really captured the essence
+                  of my brand. Their creativity and attention to detail were
+                  outstanding, and the reels have significantly boosted my
+                  social media presence. If you&apos;re looking for top-notch
+                  reels and digital marketing services in Dubai, Ziron Media is
+                  the perfect choice!”
                 </p>
                 <figcaption className="mt-9 text-secondary">
-                  Niraj Patel, Aura Group
+                  Nasar Koliyadukkam , Aura Group
                 </figcaption>
               </figure>
             </Slider>
