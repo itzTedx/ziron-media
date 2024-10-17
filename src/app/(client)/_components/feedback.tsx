@@ -47,7 +47,7 @@ export default function Feedback() {
                 </figcaption>
               </figure>
             </Slider>
-            <Slider className="w-full cursor-pointer">
+            {/* <Slider className="w-full cursor-pointer">
               <figure className="pointer-events-none mx-auto max-w-4xl cursor-move select-none text-center">
                 <p className="text-xl md:text-2xl">
                   “Exceptional service! Our brand&apos;s visibility skyrocketed
@@ -58,7 +58,7 @@ export default function Feedback() {
                   Zahab Ismail, Saj Legal
                 </figcaption>
               </figure>
-            </Slider>
+            </Slider> */}
           </SliderContainer>
           <div className="flex justify-center py-4">
             <SliderDotButton />
