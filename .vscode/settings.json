@@ -7,5 +7,5 @@
     "*.css": "tailwindcss"
   },
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cSpell.words": ["uploadthing", "Ziron"]
+  "cSpell.words": ["Bento", "uploadthing", "Ziron"]
 }

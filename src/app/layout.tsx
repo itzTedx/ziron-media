@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+import { GoogleAnalytics } from "@next/third-parties/google";
+
 import BreakpointIndicator from "@/components/dev/breakpoint-indicator";
 import LenisProvider from "@/components/dev/lenis";
 import Footer from "@/components/layout/footer";
@@ -66,6 +68,7 @@ export default function RootLayout({
           <BreakpointIndicator />
           <Footer />
         </div>
+        <GoogleAnalytics gaId="G-80W1TG3C5V" />
       </body>
     </html>
   );

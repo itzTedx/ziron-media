@@ -77,9 +77,9 @@ const features = [
   },
 
   {
-    name: "Customized Campaigns",
+    name: "Tailored Campaigns for Maximum Impact",
     description:
-      "We tailor every campaign to your specific needs and goals, ensuring your marketing efforts resonate with your audience and deliver the best possible results.",
+      "Our marketing strategies are customized to fit your specific needs. Whether you're looking to increase brand awareness or drive conversions, we create a plan that delivers.",
     className: "col-span-3 lg:col-span-2 lg:row-start-3",
     href: "#",
     cta: "Learn more",
@@ -88,7 +88,8 @@ const features = [
         src="/images/globe.jpg"
         width={272}
         height={210}
-        alt=""
+        aria-hidden={true}
+        alt="all arround the world"
         className="absolute right-0 top-3 scale-110 [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)]"
       />
 
@@ -105,7 +106,7 @@ const features = [
     background: "",
   },
   {
-    name: "Conversion Optimization",
+    name: "SEO & PPC Services to Increase Visibility",
     description:
       "We focus on turning visitors into customers, optimizing every touchpoint to maximize your ROI.",
     className:
@@ -116,9 +117,9 @@ const features = [
     background: "",
   },
   {
-    name: "We Handle All Your Digital Appearance",
+    name: "All Your Digital Marketing Needs Under One Roof",
     description:
-      "From website design to social media presence, we manage your brand’s entire online identity, ensuring it looks professional, cohesive, and impactful across all platforms.",
+      "From strategy to execution, we offer everything you need to elevate your digital presence and achieve your marketing goals. Our services cover all aspects of your brand's online identity, including social media, web development, and content marketing.",
     href: "/what-we-do/social-media-management",
     cta: "Explore our strategies",
     className:

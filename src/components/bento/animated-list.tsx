@@ -1,15 +1,16 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 import { AnimatedList } from "@/components/magicui/animated-list";
 import { cn } from "@/lib/utils";
 
+import { Icons } from "../icons";
+
 interface Item {
   name: string;
   description: string;
-  icon: string;
+  icon: React.ReactNode; // Changed from LucideIcon to ReactNode
   time: string;
   index: number;
 }
@@ -19,25 +20,25 @@ let baseNotifications = [
     name: "New Message",
     description: "Can i get more info on this",
     time: "10s ago",
-    icon: "instagram",
+    icon: <Icons.instagram />,
   },
   {
     name: "info@zironmeida.com",
     description: "Enquiry for Digital Marketing",
     time: "30s ago",
-    icon: "gmail",
+    icon: <Icons.gmail />,
   },
   {
     name: "Message from olivia",
     description: "It arrived in excellent condition, just as described",
     time: "30s ago",
-    icon: "messenger",
+    icon: <Icons.messenger />,
   },
   {
     name: "Linkedin",
     description: "You appeared in 9782 searches this week",
     time: "1m ago",
-    icon: "linkedin",
+    icon: <Icons.linkedin />,
   },
 ];
 
@@ -70,13 +71,14 @@ const Notification = ({ name, description, icon, index }: Item) => {
       <div className="flex flex-row items-center gap-2">
         <div className="flex size-10 shrink-0 items-center justify-center rounded-xl">
           <div className="relative size-6">
-            <Image
+            {/* <Image
               src={`/icons/${icon}.png`}
               fill
               alt="icon"
               title="icon"
               className="object-contain"
-            />
+            /> */}
+            {icon}
           </div>
         </div>
         <div className="flex flex-col overflow-hidden">

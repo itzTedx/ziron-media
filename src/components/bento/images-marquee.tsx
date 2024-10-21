@@ -68,8 +68,8 @@ const ReviewCard = async ({ img }: { img: string }) => {
           placeholder="blur"
           blurDataURL={blurData}
           fill
+          sizes="10vw"
           alt="Creative Designs we did"
-          title="Creative Designs we did"
           aria-hidden
         />
       </div>
