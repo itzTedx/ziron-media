@@ -20,6 +20,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { getCurrentTime } from "@/lib/get-current-time";
+import { cn } from "@/lib/utils";
 import { siteConfig } from "@/utils/site-config";
 
 import { TypeWriter } from "../animations/type-writer-blocks";
@@ -36,6 +37,27 @@ export default function FloatingWhatsapp() {
   const [showMessage, setShowMessage] = useState(false);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [message, setMessage] = useState("");
+  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
+
+  useEffect(() => {
+    const updateViewportHeight = () => {
+      if (window.visualViewport) {
+        setViewportHeight(window.visualViewport.height);
+      } else {
+        setViewportHeight(window.innerHeight); // Fallback for unsupported browsers
+      }
+    };
+
+    window.visualViewport?.addEventListener("resize", updateViewportHeight);
+
+    // Cleanup event listener
+    return () => {
+      window.visualViewport?.removeEventListener(
+        "resize",
+        updateViewportHeight
+      );
+    };
+  }, []);
 
   useEffect(() => {
     const delay = 1 * 1000;
@@ -72,7 +94,10 @@ export default function FloatingWhatsapp() {
   };
 
   return (
-    <div className="fixed bottom-3 right-3 z-[99999999]">
+    <div
+      className={cn("fixed right-3 z-[99999999] transition-all")}
+      style={{ bottom: viewportHeight < window.innerHeight ? "30vh" : "3vh" }}
+    >
       <Popover>
         <PopoverTrigger
           onClick={handleClick}
