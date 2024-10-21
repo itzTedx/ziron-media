@@ -5,25 +5,27 @@ import {
   IconBrandWhatsapp,
 } from "@tabler/icons-react";
 
+import { siteConfig } from "@/utils/site-config";
+
 export const SOCIALS = [
   {
     label: "instagram",
-    href: "",
+    href: "https://www.instagram.com/ziron_media/",
     icon: IconBrandInstagram,
   },
   {
     label: "facebook",
-    href: "",
+    href: "https://www.facebook.com/zironmedia",
     icon: IconBrandFacebook,
   },
   {
     label: "linkedin",
-    href: "",
+    href: "https://www.linkedin.com/company/ziron-media",
     icon: IconBrandLinkedin,
   },
   {
     label: "whatsapp",
-    href: "",
+    href: `https://wa.me/${siteConfig.contact.replace(/\s/g, "").replace(/\+/g, "")}`,
     icon: IconBrandWhatsapp,
   },
 ];

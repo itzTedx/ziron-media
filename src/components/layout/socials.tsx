@@ -13,6 +13,8 @@ export default function Socials() {
       {SOCIALS.map((social) => (
         <li key={social.label}>
           <Link
+            target="_blank"
+            rel="noopener noreferrer"
             href={social.href}
             className={cn(
               buttonVariants({ variant: "outline" }),
