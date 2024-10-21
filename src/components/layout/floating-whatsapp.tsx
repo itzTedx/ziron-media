@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 
+import { motion } from "framer-motion";
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -104,7 +106,10 @@ export default function FloatingWhatsapp() {
             <CardContent className="bg-[url('/whatsapp-bg.jpg')] bg-cover py-0 pb-1.5">
               <div className="relative h-[12rem] border-0 pt-4">
                 <div className="whatsapp-clip absolute -left-3 top-4 z-[999] inline-block h-0 w-0" />
-                <div className="w-fit rounded-lg bg-secondary p-3 px-4 text-background shadow-md">
+                <motion.div
+                  className="w-fit rounded-lg bg-primary p-3 px-4 text-background shadow-md"
+                  layout
+                >
                   {showMessage ? (
                     <div className="min-w-[13rem]">
                       <h6 className="pb-1.5 pr-12 font-bold">
@@ -113,9 +118,8 @@ export default function FloatingWhatsapp() {
                       <p className="text-sm">
                         Hello there! 🤝
                         <br />
-                        <strong> Have Questions?</strong>
-                        <br />
-                        We&apos;d love to help!
+                        <strong> Have Questions?</strong> We&apos;d love to
+                        help!
                       </p>
                       <aside className="pt-1 text-right text-xs text-muted">
                         {getCurrentTime()}
@@ -128,7 +132,7 @@ export default function FloatingWhatsapp() {
                       <div className="dot"></div>
                     </div>
                   )}
-                </div>
+                </motion.div>
               </div>
               <BlockInText onExampleClick={sendMessageToWhatsApp} />
             </CardContent>

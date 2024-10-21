@@ -31,7 +31,7 @@ export const TypeWriter = ({
 
   return (
     <span className="line-clamp-1 w-full cursor-pointer text-xs">
-      <strong className="text-gray-600"> ✦ Ask about: </strong>
+      <strong className="text-secondary"> ✦ Ask about: </strong>
       {examples[exampleIndex].split("").map((l, i) => {
         return (
           <motion.span

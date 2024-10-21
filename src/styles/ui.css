@@ -186,7 +186,7 @@
 .whatsapp-clip {
   border-style: solid;
   border-width: 0 20px 20px 0;
-  border-color: transparent hsl(var(--secondary)) transparent transparent;
+  border-color: transparent hsl(var(--primary)) transparent transparent;
 }
 
 .dot {
