@@ -43,7 +43,7 @@ export default function Feedback() {
                   the perfect choice!”
                 </p>
                 <figcaption className="mt-9 text-secondary">
-                  Nasar Koliyadukkam , Aura Group
+                  Nasar Koliyadukkam
                 </figcaption>
               </figure>
             </Slider>
