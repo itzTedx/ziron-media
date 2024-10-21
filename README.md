@@ -22,3 +22,5 @@ The name "Ziron" doesn't have a widely known meaning in major languages or cultu
 - [ ] --[Rich Text Editor](https://reactjs-tiptap-editor.vercel.app/)--
 
 - [ ] Implement Breadcrump in what we do page and case study page
+
+- [ ] Proper meta titles for each pages
