@@ -57,6 +57,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <meta name="google-site-verification" content="ApzGDgxzf02cJKRvF91NImSEkYYlfYjD60c7JH6ky_I" />
       <body
         className={cn(plusJakarta.className, monaSans.variable, "antialiased")}
       >
