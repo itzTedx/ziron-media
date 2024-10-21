@@ -30,7 +30,12 @@ export default async function ContactPage() {
               <p className="text-sm font-light text-gray-600">
                 Our friendly team is here to help.
               </p>
-              <Link href="mailto:info@zironmedia.com">info@zironmedia.com</Link>
+              <Link
+                href="mailto:info&#64;zironmedia&#46;com"
+                className="select-none"
+              >
+                info&#64;zironmedia&#46;com
+              </Link>
             </div>
 
             <div className="space-y-4">

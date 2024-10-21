@@ -7,8 +7,13 @@ export const siteConfig: SiteConfig = {
     "Ziron Media, a Dubai-based digital marketing agency, offers SEO, PPC, branding, social media management, web design, and lead generation to elevate your business with data-driven strategies.",
 
   url: "https://www.zironmedia.com",
+  logo: "/favicon.svg",
   ogImage: "/og.jpg",
   links: {
-    twitter: "https://x.com/itzTedx_",
+    // twitter: "https://x.com/itzTedx_",
+    linkedin: "https://www.linkedin.com/company/ziron-media",
+    instagram: "https://www.instagram.com/ziron_media/",
+    facebook: "https://www.facebook.com/zironmedia",
   },
+  contact: "",
 };

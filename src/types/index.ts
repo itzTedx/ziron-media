@@ -4,9 +4,14 @@ export type SiteConfig = {
   description: string;
   url: string;
   ogImage: string;
+  logo: string;
   links: {
-    twitter: string;
+    // twitter: string;
+    linkedin: string;
+    facebook: string;
+    instagram: string;
   };
+  contact: string;
 };
 
 // export type Service = {

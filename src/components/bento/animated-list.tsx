@@ -70,16 +70,7 @@ const Notification = ({ name, description, icon, index }: Item) => {
     >
       <div className="flex flex-row items-center gap-2">
         <div className="flex size-10 shrink-0 items-center justify-center rounded-xl">
-          <div className="relative size-6">
-            {/* <Image
-              src={`/icons/${icon}.png`}
-              fill
-              alt="icon"
-              title="icon"
-              className="object-contain"
-            /> */}
-            {icon}
-          </div>
+          <div className="relative size-6">{icon}</div>
         </div>
         <div className="flex flex-col overflow-hidden">
           <figcaption className="flex flex-row items-center whitespace-pre text-lg font-medium">

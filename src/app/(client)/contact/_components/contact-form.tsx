@@ -51,7 +51,7 @@ export default function ContactForm() {
             <FormItem>
               <FormLabel>Name</FormLabel>
               <FormControl>
-                <Input placeholder="John Doe" {...field} autoFocus />
+                <Input placeholder="John Doe" {...field} />
               </FormControl>
 
               <FormMessage />

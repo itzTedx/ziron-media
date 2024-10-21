@@ -24,7 +24,11 @@ export default async function Faq() {
           find the answer you’re looking for? Please chat to our team.
         </p>
       </div>
-      <aside className="relative space-y-12">
+      <aside
+        className="relative space-y-12"
+        itemScope
+        itemType="https://schema.org/FAQPage"
+      >
         <Accordion
           type="single"
           collapsible
@@ -36,9 +40,25 @@ export default async function Faq() {
               value={`faq-${i}`}
               key={faq.id}
               className="rounded-xl border bg-background px-4 py-4 transition-all data-[state=open]:border-primary data-[state=closed]:shadow-lg data-[state=open]:shadow-primary-md data-[state=closed]:shadow-gray-900/5 md:px-9"
+              itemScope
+              itemProp="mainEntity"
+              itemType="https://schema.org/Question"
             >
-              <AccordionTrigger>{faq.question}</AccordionTrigger>
-              <AccordionContent>{faq.answer}</AccordionContent>
+              <AccordionTrigger
+                aria-label={`Toggle question: ${faq.question}`}
+                id={`question-${i}`}
+              >
+                {faq.question}
+              </AccordionTrigger>
+              <AccordionContent
+                itemScope
+                itemProp="acceptedAnswer"
+                itemType="https://schema.org/Answer"
+                id={`question-${i}-answer`}
+                aria-labelledby={`question-${i}`}
+              >
+                {faq.answer}
+              </AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>
