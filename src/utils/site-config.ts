@@ -15,5 +15,5 @@ export const siteConfig: SiteConfig = {
     instagram: "https://www.instagram.com/ziron_media/",
     facebook: "https://www.facebook.com/zironmedia",
   },
-  contact: "",
+  contact: "+971 58 171 1486",
 };
