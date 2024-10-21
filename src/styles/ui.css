@@ -181,6 +181,13 @@
   }
 }
 
+/* Video Player Styles */
+media-theme-sutro {
+  --media-primary-color: hsl(var(--accent));
+  --media-secondary-color: hsl(var(--primary));
+  --media-accent-color: hsl(var(--secondary));
+}
+
 /* Floating Whatsapp */
 
 .whatsapp-clip {

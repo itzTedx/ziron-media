@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 
-import { Blob } from "@/components/assets/blob";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 
 import AboutHero from "./_components/hero";
@@ -17,9 +16,9 @@ export default function AboutPage() {
   const age = calculateAge(foundedYear);
 
   return (
-    <main className="relative space-y-36 overflow-hidden py-9 md:py-24">
+    <main className="relative space-y-36 py-9 md:py-24">
       <AboutHero />
-      <Blob className="absolute -right-[25%] -top-[18rem] rotate-45" />
+
       <section className="container py-24">
         <h2 className="mx-auto max-w-3xl text-center">
           <strong className="font-medium">
@@ -39,15 +38,19 @@ export default function AboutPage() {
           />
         </div>
       </section>
-      <section className="mx-auto grid max-w-5xl grid-cols-3 px-4">
-        <h2>
+      <section className="mx-auto grid max-w-5xl gap-4 px-4 md:grid-cols-3">
+        <h2 className="md:hidden">
+          Creating Long Term
+          <span className="text-secondary"> Success</span>
+        </h2>
+        <h2 className="hidden md:block">
           Creating
           <br />
           Long Term
           <br />
           <span className="text-secondary">Success</span>
         </h2>
-        <p className="col-span-2 text-xl">
+        <p className="text-xl md:col-span-2">
           We help all kinds of companies, big and small, from all kinds of
           sectors. The thing they have in common is that they’re ambitious and
           want to make their mark online. They like that we’re experts in our
@@ -61,7 +64,7 @@ export default function AboutPage() {
           the place. And why we come into work each day wanting to go one
           better.
         </p>
-        <div className="col-span-3 space-y-12 py-12 md:py-24">
+        <div className="space-y-12 py-12 md:col-span-3 md:py-24">
           <h3 className="py-12 text-center max-md:pb-32">
             Our Marketing Toolkit
           </h3>

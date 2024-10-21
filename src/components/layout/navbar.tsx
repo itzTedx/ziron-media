@@ -16,7 +16,7 @@ export default function Navbar() {
   return (
     <section className="h-fit w-full bg-background">
       {/* Desktop navigation */}
-      <header className="container fixed left-1/2 top-3 z-[99999] -translate-x-1/2 max-sm:px-5 max-sm:pt-2">
+      <header className="container fixed left-1/2 top-3 z-[999] -translate-x-1/2 max-sm:px-5 max-sm:pt-2">
         <nav
           className={cn(
             "hidden w-full items-center justify-between rounded-full border border-background bg-[#FAF9FB] px-6 py-3 shadow-glow transition-all duration-500 ease-in-out max-lg:text-sm md:flex",

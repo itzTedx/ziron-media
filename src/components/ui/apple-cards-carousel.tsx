@@ -11,7 +11,7 @@ import {
 } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 
-import { cn, slugify } from "@/lib/utils";
+import { cn, isMobile, slugify } from "@/lib/utils";
 
 interface CarouselProps {
   items: JSX.Element[];
@@ -76,10 +76,6 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
       });
       setCurrentIndex(index);
     }
-  };
-
-  const isMobile = () => {
-    return window && window.innerWidth < 768;
   };
 
   return (
@@ -173,10 +169,10 @@ export const Card = ({
             {card.title}
           </motion.p>
         </div>
-        <div className="absolute bottom-8 right-8 z-40 rounded-lg border border-background bg-background/50 px-3 py-2 opacity-0 backdrop-blur-lg transition-all duration-500 group-hover:opacity-100">
+        <div className="absolute bottom-8 right-8 z-40 rounded-lg border border-background bg-background/50 px-3 py-2 opacity-0 backdrop-blur-lg transition-all duration-500 focus-within:outline-none focus-within:ring-1 focus-within:ring-ring group-focus-within:opacity-100 group-hover:opacity-100">
           <Link
             href={`/case-studies/${slugify(card.title)}`}
-            className="inline-flex items-center gap-1.5 text-sm font-semibold"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold focus-within:outline-none"
             title={`Case study of ${card.title} project`}
           >
             View Case

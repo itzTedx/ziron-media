@@ -1,5 +1,7 @@
 export default function TwoColumn({ children }: { children: React.ReactNode }) {
   return (
-    <div className="container grid max-w-5xl grid-cols-2 gap-4">{children}</div>
+    <div className="max-w-5xl gap-4 md:container md:grid md:grid-cols-2">
+      {children}
+    </div>
   );
 }

@@ -13,7 +13,14 @@ const AccordionItem = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
 >(({ className, ...props }, ref) => (
-  <AccordionPrimitive.Item ref={ref} className={cn(className)} {...props} />
+  <AccordionPrimitive.Item
+    ref={ref}
+    className={cn(
+      "focus-within:outline-none focus-within:ring-1 focus-within:ring-ring",
+      className
+    )}
+    {...props}
+  />
 ));
 AccordionItem.displayName = "AccordionItem";
 
@@ -25,13 +32,13 @@ const AccordionTrigger = React.forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "flex flex-1 items-center justify-between text-start text-base font-medium transition-all md:py-4 md:text-lg [&[data-state=open]>svg]:rotate-180 [&[data-state=open]>svg]:bg-primary [&[data-state=open]>svg]:text-background",
+        "group flex flex-1 items-center justify-between text-start text-base font-semibold transition-[transform_color] focus-visible:!outline-none md:py-4 md:text-lg [&[data-state=open]>svg]:rotate-180 [&[data-state=open]>svg]:bg-primary [&[data-state=open]>svg]:text-background",
         className
       )}
       {...props}
     >
       <span
-        className="relative after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 after:bg-muted-foreground after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100 md:after:absolute"
+        className="relative after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 after:bg-muted-foreground after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100 group-focus-within:after:origin-bottom-left group-focus-within:after:scale-x-100 md:after:absolute"
         itemProp="name"
       >
         {children}

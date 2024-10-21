@@ -1,8 +1,10 @@
 import Image from "next/image";
 
+import { Blob } from "@/components/assets/blob";
+
 export default function AboutHero() {
   return (
-    <section className="container relative overflow-hidden py-20 text-center">
+    <section className="container relative overflow-x-clip py-20 text-center">
       <h1 className="mx-auto max-w-3xl text-balance font-monaSans text-6xl leading-tight tracking-tight text-gray-900">
         We&apos;re a <span className="text-secondary"> New Generation</span> of
         digital creators
@@ -15,9 +17,11 @@ export default function AboutHero() {
         src="/images/about-hero.png"
         height={400}
         width={1064}
+        quality={100}
         alt=""
         className="mx-auto"
       />
+      <Blob className="absolute left-0 top-[10rem] rotate-45" />
     </section>
   );
 }

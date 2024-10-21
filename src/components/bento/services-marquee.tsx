@@ -13,7 +13,7 @@ export default async function ServicesMarquee() {
 
       <Marquee repeat={2} pauseOnHover className="[--duration:25000ms]">
         {services.slice(0, 5).map((service, idx) => (
-          <Link key={idx} href={`/what-we-do/${service.slug}`}>
+          <Link key={idx} href={`/what-we-do/${service.slug}`} tabIndex={-1}>
             <figure
               className={cn(
                 "relative cursor-pointer rounded-xl border px-4 py-2",
@@ -31,7 +31,7 @@ export default async function ServicesMarquee() {
       </Marquee>
       <Marquee reverse pauseOnHover className="[--duration:25000ms]">
         {services.slice(6, 10).map((service, idx) => (
-          <Link key={idx} href={`/what-we-do/${service.slug}`}>
+          <Link key={idx} href={`/what-we-do/${service.slug}`} tabIndex={-1}>
             <figure
               className={cn(
                 "relative cursor-pointer rounded-xl border px-4 py-2",
@@ -53,7 +53,7 @@ export default async function ServicesMarquee() {
       </Marquee>
       <Marquee repeat={2} pauseOnHover className="[--duration:25000ms]">
         {services.slice(11, 15).map((service, idx) => (
-          <Link key={idx} href={`/what-we-do/${service.slug}`}>
+          <Link key={idx} href={`/what-we-do/${service.slug}`} tabIndex={-1}>
             <figure
               className={cn(
                 "relative cursor-pointer rounded-xl border px-4 py-2",

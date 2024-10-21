@@ -14,7 +14,10 @@ import { getBase64 } from "@/server/actions/get-blurred-img-data";
 export default async function HowWeWorks() {
   const blurData = await getBase64("/images/marketing.jpg");
   return (
-    <section className="container grid gap-10 py-12 md:grid-cols-2 md:py-24">
+    <section
+      className="container grid gap-10 py-12 md:grid-cols-2 md:py-24"
+      id="how-we-works"
+    >
       <div className="top-28 flex h-fit flex-col gap-5 md:sticky">
         <Badge>✦ How we works</Badge>
         <h2 className="title-2">
@@ -40,14 +43,14 @@ export default async function HowWeWorks() {
       <aside className="space-y-12">
         {HOW_WE_WORKS.map(({ id, icon, title, description }) => (
           <Card className="bg-gray-50" key={id}>
-            <CardHeader className="flex flex-row items-center justify-between">
-              <div className="relative size-20">{icon}</div>
+            <CardHeader className="flex flex-row items-center justify-between p-6 md:p-8">
+              <div className="relative size-16 md:size-20">{icon}</div>
               <span className="font-monaSans text-4xl font-bold italic text-violet-500">
                 #{id}
               </span>
             </CardHeader>
-            <CardContent className="flex flex-col gap-6">
-              <CardTitle className="text-balance text-3xl font-medium leading-10">
+            <CardContent className="flex flex-col gap-2 p-4 pt-0 md:gap-6 md:p-6 md:pt-0">
+              <CardTitle className="text-balance text-xl font-medium md:text-3xl md:leading-10">
                 {title}
               </CardTitle>
               <CardDescription>{description}</CardDescription>
@@ -65,27 +68,27 @@ const HOW_WE_WORKS = [
     title: `Understanding your Business`,
     description:
       "We begin by discussing your goals and identifying your target audience, defining key customer profiles and your position in the market.",
-    icon: <Icons.briefcase className="size-24 text-violet-500" />,
+    icon: <Icons.briefcase className="size-16 text-violet-500 md:size-24" />,
   },
   {
     id: 2,
     title: `Refining your Brand`,
     description:
       "Next, we either create or refine your brand identity, aligning it with your business vision and ensuring it resonates with your audience.",
-    icon: <Icons.paintbrush className="size-24 text-violet-500" />,
+    icon: <Icons.paintbrush className="size-16 text-violet-500 md:size-24" />,
   },
   {
     id: 3,
     title: `Crafting a Customized Marketing Strategy`,
     description:
       "We develop a tailored digital marketing plan, including SEO, PPC, content creation, and branding to drive growth and meet your specific objectives.",
-    icon: <Icons.blueprint className="size-24 text-violet-500" />,
+    icon: <Icons.blueprint className="size-16 text-violet-500 md:size-24" />,
   },
   {
     id: 4,
     title: `Executing & Optimizing Campaigns`,
     description:
       "Finally, we launch your campaigns, continuously monitoring and optimizing them for improved performance, higher lead generation, and maximum ROI.",
-    icon: <Icons.chart className="size-24 text-violet-500" />,
+    icon: <Icons.chart className="size-16 text-violet-500 md:size-24" />,
   },
 ];

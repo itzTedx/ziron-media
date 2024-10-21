@@ -37,13 +37,15 @@ export default function FloatingWhatsapp() {
   const [showMessage, setShowMessage] = useState(false);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [message, setMessage] = useState("");
-  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
+  const [viewportHeight, setViewportHeight] = useState(
+    typeof window !== "undefined" ? window.innerHeight : 0
+  );
 
   useEffect(() => {
     const updateViewportHeight = () => {
-      if (window.visualViewport) {
+      if (window.innerWidth < 768 && window.visualViewport) {
         setViewportHeight(window.visualViewport.height);
-      } else {
+      } else if (window.innerWidth < 768) {
         setViewportHeight(window.innerHeight); // Fallback for unsupported browsers
       }
     };
@@ -88,15 +90,18 @@ export default function FloatingWhatsapp() {
     const encodedMessage = encodeURIComponent(messageToSend);
     const whatsappUrl = `https://wa.me/${siteConfig.contact.replace(/\s/g, "").replace(/\+/g, "")}?text=${encodedMessage}`;
 
-    console.log("Link", whatsappUrl);
-
     window.open(whatsappUrl, "_blank");
   };
 
   return (
     <div
       className={cn("fixed right-3 z-[99999999] transition-all")}
-      style={{ bottom: viewportHeight < window.innerHeight ? "30vh" : "3vh" }}
+      style={{
+        bottom:
+          typeof window !== "undefined" && viewportHeight < window.innerHeight
+            ? "30vh"
+            : "3vh",
+      }}
     >
       <Popover>
         <PopoverTrigger

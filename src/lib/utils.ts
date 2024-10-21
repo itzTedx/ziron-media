@@ -49,3 +49,7 @@ export function truncateFileName(fileName: string, maxLength: number): string {
     return fileName;
   }
 }
+
+export const isMobile = () => {
+  return window && window.innerWidth < 768;
+};

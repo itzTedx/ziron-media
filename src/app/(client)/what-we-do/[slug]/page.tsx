@@ -27,7 +27,7 @@ export default async function ServicePage({
           {metadata.title}
         </h1>
         <p className="mt-4 text-balance">{metadata.description}</p>
-        <figure className="relative mt-9 aspect-[16/9] w-full overflow-hidden rounded-xl bg-gray-100 md:mt-16">
+        <figure className="relative mt-9 aspect-[16/7] w-full overflow-hidden rounded-xl bg-gray-100 md:mt-16">
           {/* <div className="absolute bottom-0 z-10 h-96 w-full bg-gradient-to-t from-background/50 to-transparent" /> */}
           <Image
             src={metadata.image!}
@@ -38,7 +38,7 @@ export default async function ServicePage({
         </figure>
         <Blob className="absolute right-1/2 top-0 -z-10 opacity-50" />
       </header>
-      <main className="container prose relative z-10 max-w-7xl md:prose-lg">
+      <main className="container prose relative z-10 max-w-7xl bg-transparent md:prose-lg">
         <MDXContent source={content} />
       </main>
 

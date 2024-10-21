@@ -47,7 +47,7 @@ const jsonLd: WithContext<Organization> = {
 
 export default function Home() {
   return (
-    <main className="overflow-hidden">
+    <main>
       <Hero />
       <Featured />
       <HowWeWorks />

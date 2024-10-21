@@ -6,47 +6,32 @@ import Carousel, {
   SliderContainer,
   SliderDotButton,
 } from "@/components/ui/carousel";
+import { FEEDBACKS } from "@/constants/feedbacks";
 
 export default function Feedback() {
   const OPTIONS: EmblaOptionsType = { loop: true };
   return (
     <>
-      <div className="bg-violet-50 py-40 max-md:px-4">
-        <div className="mx-auto w-fit scale-150 pb-9 text-center brightness-[3.5] saturate-0">
+      <div className="bg-violet-50 py-6 max-md:px-4 md:py-40">
+        <div className="mx-auto w-fit scale-150 py-9 text-center brightness-[3.5] saturate-0">
           <Logo />
         </div>
         <Carousel options={OPTIONS} isAutoPlay={true}>
           <SliderContainer className="gap-2">
-            <Slider className="w-full cursor-pointer">
-              <figure className="pointer-events-none mx-auto max-w-4xl cursor-move select-none text-center">
-                <p className="text-xl md:text-2xl">
-                  “The Company is very good on delivering services on time and
-                  every time. They have a good team of researchers, who do our
-                  job to our complete satisfaction. Needless to say, their rates
-                  are highly competitive.”
-                </p>
-                <figcaption className="mt-9 text-secondary">
-                  Rajan Ahluwalia, Everest Ielts, Canada
-                </figcaption>
-              </figure>
-            </Slider>
-            <Slider className="w-full cursor-pointer">
-              <figure className="pointer-events-none mx-auto max-w-4xl cursor-move select-none text-center">
-                <p className="text-xl md:text-2xl">
-                  “I recently worked with Ziron Media for their reels creation
-                  services, and I’m beyond impressed! The team delivered
-                  high-quality, engaging reels that really captured the essence
-                  of my brand. Their creativity and attention to detail were
-                  outstanding, and the reels have significantly boosted my
-                  social media presence. If you&apos;re looking for top-notch
-                  reels and digital marketing services in Dubai, Ziron Media is
-                  the perfect choice!”
-                </p>
-                <figcaption className="mt-9 text-secondary">
-                  Nasar Koliyadukkam
-                </figcaption>
-              </figure>
-            </Slider>
+            {FEEDBACKS.map((feed, i) => (
+              <Slider
+                className="w-full cursor-pointer"
+                key={`Feedback-${i + 1}`}
+              >
+                <figure className="pointer-events-none mx-auto max-w-4xl cursor-move select-none text-center">
+                  <p className="md:text-2xl">“{feed.feedback}”</p>
+                  <figcaption className="mt-4 text-secondary md:mt-9">
+                    {feed.name}
+                  </figcaption>
+                </figure>
+              </Slider>
+            ))}
+
             {/* <Slider className="w-full cursor-pointer">
               <figure className="pointer-events-none mx-auto max-w-4xl cursor-move select-none text-center">
                 <p className="text-xl md:text-2xl">

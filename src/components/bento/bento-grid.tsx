@@ -55,7 +55,9 @@ const BentoCard = ({
     <div
       className={cn(
         "pointer-events-none z-50 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300",
-        href && cta && "group-hover:-translate-y-10"
+        href &&
+          cta &&
+          "group-focus-within:-translate-y-10 group-hover:-translate-y-10 group-focus-visible:outline-none"
       )}
     >
       <h3 className={cn("text-xl font-semibold", titleClass)}>{name}</h3>
@@ -64,14 +66,14 @@ const BentoCard = ({
 
     <div
       className={cn(
-        "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-6 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
+        "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-6 opacity-0 transition-all duration-300 group-focus-within:translate-y-0 group-focus-within:opacity-100 group-focus-within:outline-none group-hover:translate-y-0 group-hover:opacity-100"
       )}
     >
       {href && cta && (
         <Button
           variant="link"
           asChild
-          className="pointer-events-auto px-0 text-base text-gray-600"
+          className="pointer-events-auto px-0 text-base text-gray-600 focus-visible:ring-0 focus-visible:after:origin-bottom-left focus-visible:after:scale-x-100"
         >
           <Link href={href}>
             {cta}

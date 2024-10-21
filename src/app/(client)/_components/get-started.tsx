@@ -8,13 +8,13 @@ const AnimatedList = dynamic(() =>
 export default function GetStated() {
   return (
     <>
-      <section className="relative mx-auto max-w-7xl px-6 py-40 max-sm:overflow-hidden">
-        <div className="rounded-2xl border border-primary bg-background/30 py-9 shadow-primary-md backdrop-blur-md max-sm:text-center md:grid md:grid-cols-12 md:bg-primary md:py-20">
+      <section className="relative mx-auto max-w-7xl px-6 py-40 max-md:overflow-hidden">
+        <div className="rounded-2xl border border-primary bg-primary/80 py-9 shadow-primary-md backdrop-blur-md max-sm:text-center md:grid md:grid-cols-12 md:bg-primary md:py-20">
           <div className="col-span-6 col-start-2 px-6">
-            <h3 className="text-balance text-2xl font-bold text-primary md:text-5xl md:leading-[3.25rem] md:text-violet-100">
+            <h3 className="text-balance text-3xl font-bold leading-8 text-primary text-violet-100 md:text-5xl md:leading-[3.25rem]">
               Guaranteed Target Audience Delivery - Your Success, Our Promise!
             </h3>
-            <p className="mt-3 text-balance text-xl text-gray-800 md:mt-6 md:text-violet-200">
+            <p className="mt-3 text-balance text-violet-200 md:mt-6 md:text-xl">
               We&apos;ll deliver your brand straight to your ideal customers,
               ensuring maximum impact and engagement.
             </p>
@@ -27,7 +27,7 @@ export default function GetStated() {
             <AnimatedList className="absolute top-1/2 h-[400px] w-full -translate-y-1/2 border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_70%)] group-hover:scale-105" />
           </div>
         </div>
-        <div className="absolute left-1/2 top-1/2 -z-10 w-full md:hidden">
+        <div className="absolute left-1/2 top-1/2 -z-10 w-full -translate-y-14 scale-90 md:hidden">
           <Iphone15Pro
             className="dark absolute top-1/2 h-[30rem] -translate-y-1/2"
             src="/images/iphone-bg.jpg"
