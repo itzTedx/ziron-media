@@ -1,6 +1,5 @@
 import dynamic from "next/dynamic";
 
-// import { AnimatedListDemo } from "@/components/bento/animated-list";
 import Iphone15Pro from "@/components/ui/iphone-15-pro";
 
 const AnimatedList = dynamic(() =>
@@ -20,7 +19,7 @@ export default function GetStated() {
               ensuring maximum impact and engagement.
             </p>
           </div>
-          <div className="max-sm:hidden md:relative md:col-span-3">
+          <div className="max-md:hidden md:relative md:col-span-3">
             <Iphone15Pro
               className="dark absolute top-1/2 h-[30rem] -translate-y-1/2"
               src="/images/iphone-bg.jpg"

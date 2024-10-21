@@ -4,6 +4,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 
 import BreakpointIndicator from "@/components/dev/breakpoint-indicator";
 import LenisProvider from "@/components/dev/lenis";
+import FloatingWhatsapp from "@/components/layout/floating-whatsapp";
 import Footer from "@/components/layout/footer";
 import Navbar from "@/components/layout/navbar";
 import { Toaster } from "@/components/ui/sonner";
@@ -57,7 +58,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <meta name="google-site-verification" content="ApzGDgxzf02cJKRvF91NImSEkYYlfYjD60c7JH6ky_I" />
+      <meta
+        name="google-site-verification"
+        content="ApzGDgxzf02cJKRvF91NImSEkYYlfYjD60c7JH6ky_I"
+      />
       <body
         className={cn(plusJakarta.className, monaSans.variable, "antialiased")}
       >
@@ -66,6 +70,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Toaster richColors position="bottom-center" />
+          <FloatingWhatsapp />
           <BreakpointIndicator />
           <Footer />
         </div>
