@@ -230,3 +230,29 @@ media-theme-sutro {
     transform: translateY(0px);
   }
 }
+/* 
+nav {
+  align-items: center;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  -moz-backdrop-filter: blur(20px);
+  background-color: initial;
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    hsl(var(--background)) 20%,
+    transparent 20.5%,
+    transparent 49.5%,
+    hsla(var(--background)) 50%
+  );
+  background-size: 60px 60px;
+  border-top: 1px dotted var(--accent);
+  bottom: 0;
+  display: flex;
+  font-size: 14px;
+  justify-content: flex-start;
+  left: 0;
+  line-height: 14px;
+  padding: 20px;
+  position: fixed;
+  right: 0;
+} */

@@ -15,8 +15,8 @@ import {
 import { NAV_LINKS } from "@/constants";
 import { cn } from "@/lib/utils";
 
+import { RevealText } from "../animations/reveal-text";
 import { LogoType } from "../logo";
-import { RevealText } from "../ui/reveal-text";
 
 export function NavLinks() {
   const services = NAV_LINKS.filter((item) => item.services);

@@ -12,7 +12,7 @@ export const RevealText = ({ children }: { children: string }) => {
       whileHover="hovered"
       className="relative block overflow-hidden whitespace-nowrap"
       style={{
-        lineHeight: 1,
+        lineHeight: 1.2,
       }}
     >
       <div>

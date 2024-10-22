@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
 import { Blob } from "../assets/blob";
 
 interface HeroVideoProps {
-  blurData: string;
+  blurData?: string;
   videoSrc: string;
   thumbnailSrc: string;
   thumbnailAlt?: string;
@@ -41,8 +41,8 @@ export default function HeroVideoDialog({
             width={1920}
             height={1080}
             priority
-            placeholder="blur"
-            blurDataURL={blurData}
+            placeholder={blurData ? "blur" : "empty"}
+            blurDataURL={blurData ? blurData : undefined}
             quality={80}
             className="w-full rounded-2xl shadow-lg transition-all duration-200 ease-out group-hover:brightness-[0.8]"
           />

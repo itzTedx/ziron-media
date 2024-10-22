@@ -1,3 +1,4 @@
+import SparklingGrid from "../animations/sparkling-grid";
 import { TextHoverEffect } from "../ui/text-hover-effect";
 import FooterCopy from "./footer-copy";
 import FooterHead from "./footer-head";
@@ -5,8 +6,9 @@ import FooterLinks from "./footer-links";
 
 export default function Footer() {
   return (
-    <footer className="h-full bg-gray-950">
-      <div className="container grid gap-6 px-9 py-12 md:grid-cols-2 md:py-24">
+    <footer className="relative h-full bg-gray-950">
+      <SparklingGrid />
+      <div className="container relative z-50 grid gap-6 px-9 py-12 md:grid-cols-2 md:py-24">
         <FooterHead />
         <div className="grid-cols-3 md:grid">
           <div></div>

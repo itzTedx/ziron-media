@@ -39,7 +39,7 @@ export const TextHoverEffect = ({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onMouseMove={(e) => setCursor({ x: e.clientX, y: e.clientY })}
-      className="select-none"
+      className="relative z-[9999] select-none"
     >
       <defs>
         <linearGradient
@@ -92,7 +92,7 @@ export const TextHoverEffect = ({
         textAnchor="middle"
         dominantBaseline="middle"
         strokeWidth="0.3"
-        className="font-monaSans fill-transparent stroke-primary text-[2.8rem] font-bold dark:stroke-neutral-800"
+        className="fill-transparent stroke-primary font-monaSans text-[2.8rem] font-bold dark:stroke-neutral-800"
         style={{ opacity: hovered ? 0.7 : 0 }}
       >
         {text}
@@ -104,7 +104,7 @@ export const TextHoverEffect = ({
         textAnchor="middle"
         dominantBaseline="middle"
         strokeWidth="0.3"
-        className="font-monaSans fill-transparent stroke-primary text-[2.8rem] font-bold dark:stroke-neutral-800"
+        className="fill-transparent stroke-primary font-monaSans text-[2.8rem] font-bold dark:stroke-neutral-800"
         initial={{ strokeDashoffset: 1000, strokeDasharray: 1000 }}
         animate={{
           strokeDashoffset: 0,
@@ -125,7 +125,7 @@ export const TextHoverEffect = ({
         stroke="url(#textGradient)"
         strokeWidth="0.3"
         mask="url(#textMask)"
-        className="font-monaSans fill-transparent text-[2.8rem] font-bold"
+        className="fill-transparent font-monaSans text-[2.8rem] font-bold"
       >
         {text}
       </text>

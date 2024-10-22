@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { NAV_LINKS } from "@/constants";
 
-import { RevealText } from "../ui/reveal-text";
+import { RevealText } from "../animations/reveal-text";
 
 export default function FooterLinks() {
   return (

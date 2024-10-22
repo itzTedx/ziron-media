@@ -7,8 +7,6 @@ import Lenis from "lenis";
 export default function LenisProvider() {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 0.1,
-      lerp: 0.05,
       prevent(node) {
         return node.hasAttribute("data-scroll-locked");
       },

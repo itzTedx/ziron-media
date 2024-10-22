@@ -18,7 +18,7 @@ export default function Socials() {
             href={social.href}
             className={cn(
               buttonVariants({ variant: "outline" }),
-              "size-11 p-0 hover:bg-primary/30"
+              "size-11 p-0 backdrop-blur-md hover:bg-primary/30"
             )}
           >
             {<social.icon />}
