@@ -69,7 +69,7 @@ export default function RootLayout({
           <LenisProvider />
           <Navbar />
           {children}
-          <Toaster richColors position="bottom-center" />
+          <Toaster richColors theme="light" />
           <FloatingWhatsapp />
           <BreakpointIndicator />
           <Footer />
