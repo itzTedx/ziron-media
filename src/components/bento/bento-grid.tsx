@@ -16,7 +16,7 @@ const BentoGrid = ({
   return (
     <div
       className={cn(
-        "relative z-0 flex w-full auto-rows-[22rem] grid-rows-4 gap-3 max-md:flex-col md:grid lg:grid-cols-4",
+        "relative z-0 flex w-full auto-rows-[22rem] grid-rows-4 gap-3 max-md:flex-col md:grid md:grid-cols-4",
         className
       )}
     >
@@ -36,7 +36,7 @@ const BentoCard = ({
 }: {
   name: string;
   className: string;
-  background: ReactNode;
+  background?: ReactNode;
   titleClass?: string;
   description: string;
   href?: string;

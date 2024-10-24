@@ -7,7 +7,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const services = await getServices();
 
-  const projectsEntries: MetadataRoute.Sitemap = services.map(({ slug }) => ({
+  const servicesEntries: MetadataRoute.Sitemap = services.map(({ slug }) => ({
     url: `${baseURL}/what-we-do/${slug}`,
     priority: 0.9,
   }));
@@ -43,6 +43,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "yearly",
       priority: 0.5,
     },
-    ...projectsEntries,
+    ...servicesEntries,
   ];
 }

@@ -42,15 +42,15 @@ export default async function HowWeWorks() {
       </div>
       <aside className="space-y-12">
         {HOW_WE_WORKS.map(({ id, icon, title, description }) => (
-          <Card className="bg-gray-50" key={id}>
+          <Card className="relative overflow-clip bg-gray-50" key={id}>
             <CardHeader className="flex flex-row items-center justify-between p-6 md:p-8">
               <div className="relative size-16 md:size-20">{icon}</div>
-              <span className="font-monaSans text-4xl font-bold italic text-violet-500">
+              <span className="absolute right-3 top-0 font-monaSans text-7xl font-semibold italic text-violet-100">
                 #{id}
               </span>
             </CardHeader>
             <CardContent className="flex flex-col gap-2 p-4 pt-0 md:gap-6 md:p-6 md:pt-0">
-              <CardTitle className="text-balance text-xl font-medium md:text-3xl md:leading-10">
+              <CardTitle className="text-balance text-xl font-medium md:leading-10 lg:text-3xl">
                 {title}
               </CardTitle>
               <CardDescription>{description}</CardDescription>

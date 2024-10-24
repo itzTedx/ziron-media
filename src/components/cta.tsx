@@ -7,7 +7,7 @@ import { GraphUp } from "@/components/assets/graph-up";
 export default function Cta() {
   return (
     <section
-      className="relative mx-auto max-w-6xl pb-24 pt-40 max-md:px-4"
+      className="relative mx-auto max-w-6xl overflow-hidden pb-24 pt-40 max-md:px-4"
       id="cta"
     >
       <div className="relative flex h-72 w-full items-center justify-between gap-12 rounded-[1.875rem] border border-secondary bg-gradient-to-bl from-gray-900 to-violet-900 shadow-primary-md md:h-96">

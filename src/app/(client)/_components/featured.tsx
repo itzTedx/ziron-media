@@ -69,7 +69,7 @@ const features = [
     cta: "Check what we do",
     titleClass: "text-primary",
     className:
-      "col-span-3 lg:col-span-2 row-span-2 border border-primary shadow-primary-md",
+      "col-span-3 md:col-span-2 row-span-2 border border-primary shadow-primary-md",
     background: <ServicesMarquee />,
   },
   {
@@ -78,7 +78,7 @@ const features = [
       "Our targeted strategies are designed to quickly connect you with your ideal audience, helping you build strong relationships and drive engagement in no time.",
     href: "/contact",
     cta: "Contact us now!",
-    className: "col-span-3 lg:col-span-1 row-span-2",
+    className: "col-span-3 md:col-span-2 row-span-2",
     background: (
       <div className="mt-28">
         <AnimatedList className="absolute right-2 top-0 h-[300px] w-full border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105 md:top-4" />
@@ -90,15 +90,14 @@ const features = [
     description:
       "Unlock growth with tailored marketing strategies based on in-depth analytics and industry insights. We make every decision count, using data to fuel your success.",
 
-    className: "lg:col-span-1 row-span-1",
-    background: <div></div>,
+    className: "lg:col-span-1 md:col-span-2 row-span-1",
   },
   {
     name: "Creative Content & Design",
     description: "",
     href: "/case-studies",
     cta: "Check out case studies",
-    className: "col-span-3 lg:col-span-1",
+    className: "col-span-3 md:col-span-2 lg:col-span-1",
     background: (
       <div className="mt-9">
         <ImagesMarquee />
@@ -110,7 +109,7 @@ const features = [
     name: "Tailored Campaigns for Maximum Impact",
     description:
       "Our marketing strategies are customized to fit your specific needs. Whether you're looking to increase brand awareness or drive conversions, we create a plan that delivers.",
-    className: "col-span-3 lg:col-span-2 lg:row-start-3",
+    className: "col-span-3 md:col-span-4 lg:col-span-2 lg:row-start-3",
     href: "#",
     cta: "Learn more",
     background: (
@@ -130,7 +129,7 @@ const features = [
     name: "Dedicated Support",
     description:
       "Our partnership doesn’t stop at campaign launch. We provide continuous support and insights, helping you adapt and thrive as your brand evolves.",
-    className: "lg:col-start-1 lg:row-start-4 lg:col-span-1",
+    className: "lg:col-start-1 md:col-span-2 lg:row-start-4 lg:col-span-1",
     // href: "#",
     // cta: "Learn more",
     background: "",
@@ -140,7 +139,7 @@ const features = [
     description:
       "We focus on turning visitors into customers, optimizing every touchpoint to maximize your ROI.",
     className:
-      "col-span-3 row-span-1 lg:col-start-2 lg:row-start-4 lg:col-span-1",
+      "col-span-3 row-span-1 md:col-span-2 lg:col-start-2 lg:row-start-4 lg:col-span-1",
     href: "#",
     cta: "Learn more",
     titleClass: "text-balance",
@@ -153,7 +152,7 @@ const features = [
     href: "/what-we-do/social-media-management",
     cta: "Explore our strategies",
     className:
-      "lg:col-span-2 row-span-2 md:row-span-2 lg:col-start-3 lg:row-start-3",
+      "lg:col-span-2 row-span-2 md:col-span-4 md:row-span-1 lg:row-span-2 lg:col-start-3 lg:row-start-3 ",
     background: (
       <div className="mt-28">
         <AnimatedBeam className="absolute -top-4 border-none transition-all duration-300 ease-out md:right-2 md:top-4 md:h-[350px] md:group-hover:scale-105" />

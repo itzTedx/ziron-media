@@ -19,10 +19,10 @@ interface SparklingGridProps {
 }
 
 export default function SparklingGrid({
-  gridSize = 30,
+  gridSize = 40,
   sparkleFrequency = 0.03,
-  sparkleColor = { light: "darkgray", dark: "silver" },
-  dotColor = { light: "bg-black/20", dark: "bg-white/20" },
+  sparkleColor = { light: "violet", dark: "silver" },
+  dotColor = { light: "bg-secondary/30", dark: "bg-white/20" },
   theme = "dark",
 }: SparklingGridProps) {
   const containerRef = useRef<HTMLDivElement>(null);

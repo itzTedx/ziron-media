@@ -69,14 +69,16 @@ const Notification = ({ name, description, icon, index }: Item) => {
       )}
     >
       <div className="flex flex-row items-center gap-2">
-        <div className="flex size-10 shrink-0 items-center justify-center rounded-xl">
-          <div className="relative size-6">{icon}</div>
+        <div className="flex size-8 shrink-0 items-center justify-center rounded-xl lg:size-10">
+          <div className="relative size-5 lg:size-6">{icon}</div>
         </div>
         <div className="flex flex-col overflow-hidden">
           <figcaption className="flex flex-row items-center whitespace-pre text-lg font-medium">
-            <span className="text-sm">{name}</span>
+            <span className="text-xs lg:text-sm">{name}</span>
             <span className="mx-1">·</span>
-            <span className="text-xs text-gray-500">{timeAgo}</span>
+            <span className="text-[0.5rem] text-gray-500 lg:text-xs">
+              {timeAgo}
+            </span>
           </figcaption>
           <p className="truncate text-xs font-normal">{description}</p>
         </div>
