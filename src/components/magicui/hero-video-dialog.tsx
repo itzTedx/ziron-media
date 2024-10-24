@@ -60,20 +60,22 @@ export default function HeroVideoDialog({
             onMouseLeave={() => setIsVideoPlaying(false)}
             className="relative w-full overflow-hidden rounded-2xl"
           >
-            <Image
-              src={thumbnailSrc}
-              alt={thumbnailAlt!}
-              title={thumbnailAlt!}
-              width={1920}
-              height={1080}
-              priority
-              placeholder={blurData ? "blur" : "empty"}
-              blurDataURL={blurData ? blurData : undefined}
-              quality={80}
-              className={cn(
-                "w-full shadow-lg transition-all duration-200 ease-in-out group-hover:brightness-[0.8]"
-              )}
-            />
+            <div className="">
+              <Image
+                src={thumbnailSrc}
+                alt={thumbnailAlt!}
+                title={thumbnailAlt!}
+                width={1280}
+                height={640}
+                priority
+                placeholder={blurData ? "blur" : "empty"}
+                blurDataURL={blurData ? blurData : undefined}
+                quality={80}
+                className={cn(
+                  "w-full shadow-lg transition-all duration-200 ease-in-out group-hover:brightness-[0.8]"
+                )}
+              />
+            </div>
 
             <video
               className={cn(

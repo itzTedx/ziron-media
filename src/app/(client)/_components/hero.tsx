@@ -57,7 +57,7 @@ export default async function Hero() {
         videoSrc="/video/Landing-intro.webm"
         videoPlaceholder="/video/Landing-intro-low.webm"
         subtitle="/video/subtitle.vtt"
-        thumbnailSrc="/images/landing-video-thumb.jpg"
+        thumbnailSrc="/images/landing-intro-thumb.webp"
         thumbnailAlt="Hero Video"
       />
     </section>
