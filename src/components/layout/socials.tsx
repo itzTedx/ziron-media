@@ -15,6 +15,7 @@ export default function Socials() {
           <Link
             target="_blank"
             rel="noopener noreferrer"
+            title={`Follow us on ${social.label}`}
             href={social.href}
             className={cn(
               buttonVariants({ variant: "outline" }),

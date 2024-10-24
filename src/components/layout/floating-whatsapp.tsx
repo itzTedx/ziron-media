@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { motion } from "framer-motion";
 
@@ -41,15 +41,14 @@ export default function FloatingWhatsapp() {
     typeof window !== "undefined" ? window.innerHeight : 0
   );
 
-  useEffect(() => {
-    const updateViewportHeight = () => {
-      if (window.innerWidth < 768 && window.visualViewport) {
-        setViewportHeight(window.visualViewport.height);
-      } else if (window.innerWidth < 768) {
-        setViewportHeight(window.innerHeight); // Fallback for unsupported browsers
-      }
-    };
+  const updateViewportHeight = useCallback(() => {
+    const newHeight = window.visualViewport?.height || window.innerHeight; // Use optional chaining
+    if (window.innerWidth < 768) {
+      setViewportHeight(newHeight);
+    }
+  }, []);
 
+  useEffect(() => {
     window.visualViewport?.addEventListener("resize", updateViewportHeight);
 
     // Cleanup event listener
@@ -59,7 +58,7 @@ export default function FloatingWhatsapp() {
         updateViewportHeight
       );
     };
-  }, []);
+  }, [updateViewportHeight]);
 
   useEffect(() => {
     const delay = 1 * 1000;
@@ -74,24 +73,30 @@ export default function FloatingWhatsapp() {
     return () => clearTimeout(timer);
   }, [isPopupVisible]);
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     setIsPopupVisible(true);
-  };
+    updateViewportHeight(); // Update height on click
+  }, [updateViewportHeight]);
 
-  const handleInputChange = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    setMessage(event.currentTarget.value);
-    // Check for Enter key press
-    if (event.key === "Enter") {
-      sendMessageToWhatsApp(message);
-    }
-  };
+  const handleInputChange = useCallback(
+    (event: React.KeyboardEvent<HTMLInputElement>) => {
+      const newMessage = event.currentTarget.value;
+      setMessage(newMessage);
+      // Check for Enter key press
+      if (event.key === "Enter") {
+        sendMessageToWhatsApp(newMessage);
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
 
-  const sendMessageToWhatsApp = (messageToSend: string) => {
+  const sendMessageToWhatsApp = useCallback((messageToSend: string) => {
     const encodedMessage = encodeURIComponent(messageToSend);
     const whatsappUrl = `https://wa.me/${siteConfig.contact.replace(/\s/g, "").replace(/\+/g, "")}?text=${encodedMessage}`;
 
     window.open(whatsappUrl, "_blank");
-  };
+  }, []);
 
   return (
     <div

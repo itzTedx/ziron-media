@@ -33,6 +33,7 @@ export default function SparklingGrid({
 
     const rows = Math.ceil(container.offsetHeight / gridSize);
     const cols = Math.ceil(container.offsetWidth / gridSize);
+    const dots: HTMLDivElement[] = []; // Store created dots for cleanup
 
     const createDot = (row: number, col: number) => {
       const dot = document.createElement("div");
@@ -44,6 +45,7 @@ export default function SparklingGrid({
       dot.style.opacity = "0";
       dot.style.transform = "scale(0) rotate(0deg)";
       container.appendChild(dot);
+      dots.push(dot); // Store the dot for cleanup
 
       const centerRow = rows / 2;
       const centerCol = cols / 2;
@@ -64,23 +66,19 @@ export default function SparklingGrid({
         dot.style.transform = "scale(1) rotate(360deg)";
       }, delay + 500);
 
-      setTimeout(() => {
-        const sparkle = () => {
-          if (Math.random() < sparkleFrequency) {
-            dot.style.backgroundColor =
-              theme === "dark" ? sparkleColor.dark : sparkleColor.light;
-            dot.style.boxShadow = `0 0 5px ${
-              theme === "dark" ? "white" : "black"
-            }`;
-            setTimeout(() => {
-              dot.style.backgroundColor = "";
-              dot.style.boxShadow = "";
-            }, 300);
-          }
-          setTimeout(sparkle, 1000 + Math.random() * 4000);
-        };
-        sparkle();
-      }, delay + 1000);
+      const sparkle = () => {
+        if (Math.random() < sparkleFrequency) {
+          dot.style.backgroundColor =
+            theme === "dark" ? sparkleColor.dark : sparkleColor.light;
+          dot.style.boxShadow = `0 0 5px ${theme === "dark" ? "white" : "black"}`;
+          setTimeout(() => {
+            dot.style.backgroundColor = "";
+            dot.style.boxShadow = "";
+          }, 300);
+        }
+        setTimeout(sparkle, 1000 + Math.random() * 4000);
+      };
+      setTimeout(sparkle, delay + 1000);
     };
 
     for (let row = 0; row < rows; row++) {
@@ -90,9 +88,8 @@ export default function SparklingGrid({
     }
 
     return () => {
-      while (container.firstChild) {
-        container.removeChild(container.firstChild);
-      }
+      // Cleanup created dots
+      dots.forEach((dot) => container.removeChild(dot));
     };
   }, [theme, gridSize, sparkleFrequency, sparkleColor, dotColor]);
 

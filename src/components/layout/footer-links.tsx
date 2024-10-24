@@ -12,9 +12,7 @@ export default function FooterLinks() {
         <li>
           <Link
             href="/"
-            className={
-              "relative flex items-center gap-3 py-2 font-medium uppercase"
-            }
+            className={"relative flex items-center gap-3 py-2 font-medium"}
             aria-label={`Visit Home page`}
           >
             ✦<RevealText> Home</RevealText>
@@ -24,9 +22,7 @@ export default function FooterLinks() {
           <li key={i}>
             <Link
               href={link.href}
-              className={
-                "relative flex items-center gap-3 py-2 font-medium uppercase"
-              }
+              className={"relative flex items-center gap-3 py-2 font-medium"}
               aria-label={`Visit ${link.title} page`}
             >
               ✦<RevealText>{link.title.replace(/ /g, "\xa0")}</RevealText>
@@ -36,9 +32,7 @@ export default function FooterLinks() {
         <li>
           <Link
             href="/contact"
-            className={
-              "relative flex items-center gap-3 py-2 font-medium uppercase"
-            }
+            className={"relative flex items-center gap-3 py-2 font-medium"}
             aria-label={`Visit Home page`}
           >
             ✦ <RevealText>Contact</RevealText>

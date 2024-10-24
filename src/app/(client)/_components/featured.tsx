@@ -78,7 +78,7 @@ const features = [
       "Our targeted strategies are designed to quickly connect you with your ideal audience, helping you build strong relationships and drive engagement in no time.",
     href: "/contact",
     cta: "Contact us now!",
-    className: "col-span-3 md:col-span-2 row-span-2",
+    className: "col-span-3 md:col-span-2 lg:col-span-1 row-span-2",
     background: (
       <div className="mt-28">
         <AnimatedList className="absolute right-2 top-0 h-[300px] w-full border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105 md:top-4" />
@@ -110,7 +110,7 @@ const features = [
     description:
       "Our marketing strategies are customized to fit your specific needs. Whether you're looking to increase brand awareness or drive conversions, we create a plan that delivers.",
     className: "col-span-3 md:col-span-4 lg:col-span-2 lg:row-start-3",
-    href: "#",
+    href: "/what-we-do/digital-marketing",
     cta: "Learn more",
     background: (
       <Image
@@ -140,7 +140,7 @@ const features = [
       "We focus on turning visitors into customers, optimizing every touchpoint to maximize your ROI.",
     className:
       "col-span-3 row-span-1 md:col-span-2 lg:col-start-2 lg:row-start-4 lg:col-span-1",
-    href: "#",
+    href: "/what-we-do/seo",
     cta: "Learn more",
     titleClass: "text-balance",
     background: "",

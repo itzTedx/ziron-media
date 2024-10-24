@@ -1,6 +1,13 @@
 "use client";
 
-import { RefObject, useEffect, useId, useState } from "react";
+import {
+  RefObject,
+  useCallback,
+  useEffect,
+  useId,
+  useMemo,
+  useState,
+} from "react";
 
 import { motion } from "framer-motion";
 
@@ -49,56 +56,66 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
   const [pathD, setPathD] = useState("");
   const [svgDimensions, setSvgDimensions] = useState({ width: 0, height: 0 });
 
-  // Calculate the gradient coordinates based on the reverse prop
-  const gradientCoordinates = reverse
-    ? {
-        x1: ["90%", "-10%"],
-        x2: ["100%", "0%"],
-        y1: ["0%", "0%"],
-        y2: ["0%", "0%"],
-      }
-    : {
-        x1: ["10%", "110%"],
-        x2: ["0%", "100%"],
-        y1: ["0%", "0%"],
-        y2: ["0%", "0%"],
-      };
+  // Memoize gradient coordinates
+  const gradientCoordinates = useMemo(
+    () =>
+      reverse
+        ? {
+            x1: ["90%", "-10%"],
+            x2: ["100%", "0%"],
+            y1: ["0%", "0%"],
+            y2: ["0%", "0%"],
+          }
+        : {
+            x1: ["10%", "110%"],
+            x2: ["0%", "100%"],
+            y1: ["0%", "0%"],
+            y2: ["0%", "0%"],
+          },
+    [reverse]
+  );
+
+  // Memoize updatePath function
+  const updatePath = useCallback(() => {
+    if (containerRef.current && fromRef.current && toRef.current) {
+      const containerRect = containerRef.current.getBoundingClientRect();
+      const rectA = fromRef.current.getBoundingClientRect();
+      const rectB = toRef.current.getBoundingClientRect();
+
+      const svgWidth = containerRect.width;
+      const svgHeight = containerRect.height;
+      setSvgDimensions({ width: svgWidth, height: svgHeight });
+
+      const startX =
+        rectA.left - containerRect.left + rectA.width / 2 + startXOffset;
+      const startY =
+        rectA.top - containerRect.top + rectA.height / 2 + startYOffset;
+      const endX =
+        rectB.left - containerRect.left + rectB.width / 2 + endXOffset;
+      const endY =
+        rectB.top - containerRect.top + rectB.height / 2 + endYOffset;
+
+      const controlY = startY - curvature;
+      const d = `M ${startX},${startY} Q ${
+        (startX + endX) / 2
+      },${controlY} ${endX},${endY}`;
+      setPathD(d);
+    }
+  }, [
+    containerRef,
+    fromRef,
+    toRef,
+    curvature,
+    startXOffset,
+    startYOffset,
+    endXOffset,
+    endYOffset,
+  ]);
 
   useEffect(() => {
-    const updatePath = () => {
-      if (containerRef.current && fromRef.current && toRef.current) {
-        const containerRect = containerRef.current.getBoundingClientRect();
-        const rectA = fromRef.current.getBoundingClientRect();
-        const rectB = toRef.current.getBoundingClientRect();
-
-        const svgWidth = containerRect.width;
-        const svgHeight = containerRect.height;
-        setSvgDimensions({ width: svgWidth, height: svgHeight });
-
-        const startX =
-          rectA.left - containerRect.left + rectA.width / 2 + startXOffset;
-        const startY =
-          rectA.top - containerRect.top + rectA.height / 2 + startYOffset;
-        const endX =
-          rectB.left - containerRect.left + rectB.width / 2 + endXOffset;
-        const endY =
-          rectB.top - containerRect.top + rectB.height / 2 + endYOffset;
-
-        const controlY = startY - curvature;
-        const d = `M ${startX},${startY} Q ${
-          (startX + endX) / 2
-        },${controlY} ${endX},${endY}`;
-        setPathD(d);
-      }
-    };
-
     // Initialize ResizeObserver
-    const resizeObserver = new ResizeObserver((entries) => {
-      // For all entries, recalculate the path
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars, prefer-const
-      for (let entry of entries) {
-        updatePath();
-      }
+    const resizeObserver = new ResizeObserver(() => {
+      updatePath(); // Call updatePath directly
     });
 
     // Observe the container element
@@ -113,16 +130,7 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
     return () => {
       resizeObserver.disconnect();
     };
-  }, [
-    containerRef,
-    fromRef,
-    toRef,
-    curvature,
-    startXOffset,
-    startYOffset,
-    endXOffset,
-    endYOffset,
-  ]);
+  }, [containerRef, updatePath]); // Updated dependencies
 
   return (
     <svg

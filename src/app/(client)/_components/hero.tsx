@@ -18,11 +18,11 @@ export default async function Hero() {
   const blurData = await getBase64("/images/landing-intro-thumb.webp");
 
   return (
-    <section className="relative pb-12 md:pb-32">
-      <div className="container relative flex flex-col overflow-hidden">
-        <div className="absolute inset-0 -z-10 h-full w-full bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:20px_24px]">
-          <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-fuchsia-400 opacity-20 blur-[100px]"></div>
-        </div>
+    <section className="relative bg-gradient-to-b from-violet-50 to-purple-50">
+      <div className="absolute inset-0 z-10 h-full w-full bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:20px_24px]">
+        <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-purple-400 opacity-20 blur-[100px]"></div>
+      </div>
+      <div className="container relative z-20 flex flex-col overflow-clip pb-12 md:pb-32">
         <h1 className="text-balance pt-24 text-center font-monaSans text-[2.5rem] font-bold leading-10 tracking-tight text-gray-900 md:pt-32 md:text-7xl md:leading-[5rem]">
           We’re great at{" "}
           <span className="text-primary">
