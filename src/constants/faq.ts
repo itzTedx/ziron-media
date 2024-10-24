@@ -1,4 +1,4 @@
-export const FAQ = [
+export const FAQS = [
   {
     question: "What are the monthly costs?",
     answer:

@@ -125,11 +125,17 @@ export default function HeroVideoDialog({
             <video
               autoPlay
               slot="media"
-              src={videoSrc}
+              // src={videoSrc}
               playsInline
-              title={thumbnailAlt}
+              // title={thumbnailAlt}
               crossOrigin="anonymous"
             >
+              <source
+                src={videoPlaceholder}
+                type="video/webm"
+                media="all and (max-width: 480px)"
+              />
+              <source src={videoSrc} type="video/webm" />
               <track
                 // className="hidden"
                 kind="captions"

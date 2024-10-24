@@ -6,11 +6,9 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
-import { getFaqs } from "@/server/actions/get-faq";
+import { FAQS } from "@/constants/faq";
 
 export default async function Faq() {
-  const faqs = await getFaqs();
-
   return (
     <section className="container relative z-0 grid gap-10 py-12 max-md:overflow-hidden md:grid-cols-2 md:py-24">
       <div className="top-28 flex h-fit flex-col gap-5 md:sticky">
@@ -35,10 +33,10 @@ export default async function Faq() {
           className="relative flex w-full flex-col gap-6 md:gap-8"
           defaultValue="faq-0"
         >
-          {faqs.map((faq, i) => (
+          {FAQS.map((faq, i) => (
             <AccordionItem
               value={`faq-${i}`}
-              key={faq.id}
+              key={`faq-${i + 1}`}
               className="rounded-xl border bg-background px-4 py-4 transition-all data-[state=open]:border-primary data-[state=closed]:shadow-lg data-[state=open]:shadow-primary-md data-[state=closed]:shadow-gray-900/5 md:px-9"
               itemScope
               itemProp="mainEntity"
