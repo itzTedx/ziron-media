@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 import BreakpointIndicator from "@/components/dev/breakpoint-indicator";
 import LenisProvider from "@/components/dev/lenis";
-import FloatingWhatsapp from "@/components/layout/floating-whatsapp";
 import Footer from "@/components/layout/footer";
 import Navbar from "@/components/layout/navbar";
 import { Toaster } from "@/components/ui/sonner";
@@ -14,6 +14,13 @@ import { siteConfig } from "@/utils/site-config";
 
 import "../styles/globals.css";
 import "../styles/ui.css";
+
+const FloatingWhatsapp = dynamic(
+  () => import("@/components/layout/floating-whatsapp"),
+  {
+    ssr: false,
+  }
+);
 
 export const metadata: Metadata = {
   title: siteConfig.name,
