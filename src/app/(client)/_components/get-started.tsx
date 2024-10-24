@@ -22,7 +22,7 @@ export default function GetStated() {
           <div className="max-md:hidden md:relative md:col-span-3">
             <Iphone15Pro
               className="dark absolute top-1/2 h-[30rem] -translate-y-1/2"
-              src="/images/iphone-bg.jpg"
+              src="/images/iphone-bg.webp"
             />
             <AnimatedList className="absolute top-1/2 h-[400px] w-full -translate-y-1/2 border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_70%)] group-hover:scale-105" />
           </div>
@@ -30,7 +30,7 @@ export default function GetStated() {
         <div className="absolute left-1/2 top-1/2 -z-10 w-full -translate-y-14 scale-90 md:hidden">
           <Iphone15Pro
             className="dark absolute top-1/2 h-[30rem] -translate-y-1/2"
-            src="/images/iphone-bg.jpg"
+            src="/images/iphone-bg.webp"
           />
           <AnimatedList className="absolute top-1/2 h-[400px] w-full -translate-y-1/2 border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_70%)] group-hover:scale-105" />
         </div>

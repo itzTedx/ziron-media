@@ -1,13 +1,43 @@
+import dynamic from "next/dynamic";
 import Image from "next/image";
+
+import { IconCircle } from "@tabler/icons-react";
 
 import { TitlePullUp } from "@/components/animations/word-pull-up";
 import { Blob } from "@/components/assets/blob";
-import { AnimatedBeamSocial } from "@/components/bento/animated-beam";
-import { AnimatedListDemo } from "@/components/bento/animated-list";
 import { BentoCard, BentoGrid } from "@/components/bento/bento-grid";
-import ImagesMarquee from "@/components/bento/images-marquee";
-import ServicesMarquee from "@/components/bento/services-marquee";
 import { Badge } from "@/components/ui/badge";
+
+const ServicesMarquee = dynamic(
+  () => import("@/components/bento/services-marquee"),
+  {
+    loading: () => <IconCircle className="animate-spin" />,
+  }
+);
+const ImagesMarquee = dynamic(
+  () => import("@/components/bento/images-marquee"),
+  {
+    loading: () => <IconCircle className="animate-spin" />,
+  }
+);
+const AnimatedList = dynamic(
+  () =>
+    import("@/components/bento/animated-list").then(
+      (mod) => mod.AnimatedListDemo
+    ),
+  {
+    loading: () => <IconCircle className="animate-spin" />,
+  }
+);
+const AnimatedBeam = dynamic(
+  () =>
+    import("@/components/bento/animated-beam").then(
+      (mod) => mod.AnimatedBeamSocial
+    ),
+  {
+    loading: () => <IconCircle className="animate-spin" />,
+  }
+);
 
 export function Featured() {
   return (
@@ -51,7 +81,7 @@ const features = [
     className: "col-span-3 lg:col-span-1 row-span-2",
     background: (
       <div className="mt-28">
-        <AnimatedListDemo className="absolute right-2 top-0 h-[300px] w-full border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105 md:top-4" />
+        <AnimatedList className="absolute right-2 top-0 h-[300px] w-full border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105 md:top-4" />
       </div>
     ),
   },
@@ -126,7 +156,7 @@ const features = [
       "lg:col-span-2 row-span-2 md:row-span-2 lg:col-start-3 lg:row-start-3",
     background: (
       <div className="mt-28">
-        <AnimatedBeamSocial className="absolute -top-4 border-none transition-all duration-300 ease-out md:right-2 md:top-4 md:h-[350px] md:group-hover:scale-105" />
+        <AnimatedBeam className="absolute -top-4 border-none transition-all duration-300 ease-out md:right-2 md:top-4 md:h-[350px] md:group-hover:scale-105" />
       </div>
     ),
   },
