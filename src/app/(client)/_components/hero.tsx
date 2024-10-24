@@ -1,18 +1,16 @@
-import dynamic from "next/dynamic";
 import Link from "next/link";
 
-import { IconCircle } from "@tabler/icons-react";
-
 import MagneticButton from "@/components/animations/magnetic-button";
+import HeroVideoDialog from "@/components/magicui/hero-video-dialog";
 import { getBase64 } from "@/server/actions/get-blurred-img-data";
 import { siteConfig } from "@/utils/site-config";
 
-const HeroVideoDialog = dynamic(
-  () => import("@/components/magicui/hero-video-dialog"),
-  {
-    loading: () => <IconCircle className="animate-spin" />,
-  }
-);
+// const HeroVideoDialog = dynamic(
+//   () => import("@/components/magicui/hero-video-dialog"),
+//   {
+//     loading: () => <IconCircle className="animate-spin" />,
+//   }
+// );
 
 export default async function Hero() {
   const blurData = await getBase64("/images/landing-intro-thumb.webp");
