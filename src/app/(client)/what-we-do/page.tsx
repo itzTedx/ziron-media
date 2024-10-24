@@ -42,14 +42,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `/what-we-do`,
-    images: ['/images/elevate-brand.jpg'],
+    images: ["/images/elevate-brand.jpg"],
     title: "Digital Specialized Services in Dubai: Ziron Media",
     description:
       "We design, build and elevate your online presence, We Specialized in digital marketing, branding, growth hacking",
   },
   twitter: {
     card: "summary_large_image",
-    images: ['/images/elevate-brand.jpg'],
+    images: ["/images/elevate-brand.jpg"],
     title: "Digital Specialized Services in Dubai: Ziron Media",
     description:
       "We design, build and elevate your online presence, We Specialized in digital marketing, branding, growth hacking",
