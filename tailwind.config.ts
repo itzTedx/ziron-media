@@ -2,7 +2,6 @@
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Config } from "tailwindcss";
-import { withUt } from "uploadthing/tw";
 
 const {
   default: flattenColorPalette,
@@ -159,7 +158,7 @@ const config: Config = {
     require("@tailwindcss/typography"),
   ],
 };
-export default withUt(config);
+export default config;
 
 // This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).
 function addVariablesForColors({ addBase, theme }: any) {
