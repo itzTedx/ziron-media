@@ -40,7 +40,7 @@ export default async function HowWeWorks() {
           />
         </div>
       </div>
-      <aside className="space-y-12">
+      <aside className="space-y-12 md:px-12">
         {HOW_WE_WORKS.map(({ id, icon, title, description }) => (
           <Card className="relative overflow-clip bg-gray-50" key={id}>
             <CardHeader className="flex flex-row items-center justify-between p-6 md:p-8">
