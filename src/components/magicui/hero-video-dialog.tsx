@@ -1,10 +1,11 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
+import { IconCircle } from "@tabler/icons-react";
 import { Play } from "lucide-react";
-import MediaThemeSutro from "player.style/sutro/react";
 
 import {
   Dialog,
@@ -17,6 +18,10 @@ import {
 import { cn } from "@/lib/utils";
 
 import { Blob } from "../assets/blob";
+
+const MediaThemeSutro = dynamic(() => import("player.style/sutro/react"), {
+  loading: () => <IconCircle className="animate-spin" />,
+});
 
 interface HeroVideoProps {
   blurData?: string;
