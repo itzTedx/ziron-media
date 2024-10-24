@@ -2,7 +2,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
 
-import MDXContent from "@/components/editor/mdx-content";
+import MDXContent from "@/components/mdx-content";
 
 const root = path.join(process.cwd(), "src", "content", "legal");
 

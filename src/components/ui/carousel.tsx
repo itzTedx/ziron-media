@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
 "use client";
 
 import React, {
@@ -27,132 +25,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
 
 type UseDotButtonType = {
   selectedIndex: number;
@@ -428,7 +300,7 @@ export const Slider: React.FC<SliderProps> = ({ children, className }) => {
   const { isScale, setSlidesArr } = useCarouselContext();
 
   const addImgToSlider = useCallback(() => {
-    setSlidesArr((prev) => [...prev]);
+    setSlidesArr((prev: Element[]) => [...prev]); // Explicitly type 'prev' as Element[]
   }, [setSlidesArr]);
   useEffect(() => {
     addImgToSlider();
@@ -524,9 +396,9 @@ export const SliderSnapDisplay = ({ className }: { className?: string }) => {
         <motion.div
           key={selectedSnap}
           custom={direction}
-          initial={(d: number) => ({ y: d * 20, opacity: 0 })}
+          initial={{ y: direction * 20, opacity: 0 }} // Changed to direct value
           animate={{ y: 0, opacity: 1 }}
-          exit={(d: number) => ({ y: d * -20, opacity: 0 })}
+          exit={{ y: direction * -20, opacity: 0 }} // Changed to direct value
         >
           {selectedSnap + 1}
         </motion.div>
@@ -541,31 +413,36 @@ export const SliderDotButton = ({ className }: { className?: string }) => {
   return (
     <div className={cn("flex", className)}>
       <div className="flex gap-1">
-        {scrollSnaps.map((_, index) => (
-          <button
-            type="button"
-            key={index}
-            onClick={() => onDotButtonClick(index)}
-            className={`relative m-0 inline-flex size-1.5 p-0`}
-          >
-            <div className="size-1.5 rounded-full bg-gray-500/40"></div>
-            {index === selectedIndex && (
-              <AnimatePresence mode="wait">
-                <motion.div
-                  transition={{
-                    layout: {
-                      duration: 0.4,
-                      ease: "easeInOut",
-                      delay: 0.04,
-                    },
-                  }}
-                  layoutId={`hover-${carouselId}`}
-                  className="absolute left-0 top-0 z-[3] h-full w-full rounded-full bg-secondary"
-                />
-              </AnimatePresence>
-            )}
-          </button>
-        ))}
+        {scrollSnaps.map(
+          (
+            snap: number,
+            index: React.Key | null | undefined // Changed from 'any' to 'number'
+          ) => (
+            <button
+              type="button"
+              key={index}
+              onClick={() => onDotButtonClick(index)}
+              className={`relative m-0 inline-flex size-1.5 p-0`}
+            >
+              <div className="size-1.5 rounded-full bg-gray-500/40"></div>
+              {index === selectedIndex && (
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    transition={{
+                      layout: {
+                        duration: 0.4,
+                        ease: "easeInOut",
+                        delay: 0.04,
+                      },
+                    }}
+                    layoutId={`hover-${carouselId}`}
+                    className="absolute left-0 top-0 z-[3] h-full w-full rounded-full bg-secondary"
+                  />
+                </AnimatePresence>
+              )}
+            </button>
+          )
+        )}
       </div>
     </div>
   );
@@ -690,26 +567,33 @@ export const ThumsSlider = () => {
   return (
     <div className="mt-2 overflow-hidden" ref={emblaThumbsRef}>
       <div className="flex flex-row gap-2">
-        {slidesrArr?.map((slide, index) => (
-          <div
-            key={index}
-            className={`aspect-auto w-full min-w-0 rounded-md border-2 xl:h-24 ${
-              index === selectedIndex
-                ? "opacity-100"
-                : "border-transparent opacity-30"
-            }`}
-            style={{ flex: `0 0 15%` }}
-            onClick={() => onThumbClick(index)}
-          >
-            <motion.img
-              src={slide}
-              className="h-full w-full rounded-sm object-cover"
-              width={400}
-              height={400}
-              alt="image"
-            />
-          </div>
-        ))}
+        {slidesrArr?.map(
+          (slide: string | undefined, index: React.Key | null | undefined) => (
+            <div
+              role="button"
+              key={index}
+              className={`aspect-auto w-full min-w-0 rounded-md border-2 xl:h-24 ${
+                index === selectedIndex
+                  ? "opacity-100"
+                  : "border-transparent opacity-30"
+              }`}
+              style={{ flex: `0 0 15%` }}
+              tabIndex={0} // Added tabIndex to make it tabbable
+              onClick={() => onThumbClick(index)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === "Space") onThumbClick(index);
+              }} // Added keyboard accessibility
+            >
+              <motion.img
+                src={slide}
+                className="h-full w-full rounded-sm object-cover"
+                width={400}
+                height={400}
+                alt="image"
+              />
+            </div>
+          )
+        )}
       </div>
     </div>
   );

@@ -31,6 +31,7 @@ export default function Navbar() {
           <Link
             href="/"
             className="rounded-full px-3 py-2 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+            title="Back to Homepage"
           >
             <Logo />
           </Link>

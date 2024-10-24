@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 
 import { Blob } from "@/components/assets/blob";
 import Cta from "@/components/cta";
-import MDXContent from "@/components/editor/mdx-content";
+import MDXContent from "@/components/mdx-content";
 import {
   getServiceBySlug,
   getServices,
