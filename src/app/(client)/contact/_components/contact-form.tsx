@@ -47,7 +47,7 @@ export default function ContactForm() {
       if (data?.success) {
         toast.dismiss();
         toast.success("Email sent!", {
-          description: `Thanks for reaching out, ${data.success.name}`,
+          description: `Thanks for reaching out, ${data.success}`,
         });
         setLoading(false);
       }
@@ -61,7 +61,7 @@ export default function ContactForm() {
     },
   });
 
-  async function onSubmit(values: contactTypes) {
+  function onSubmit(values: contactTypes) {
     execute(values);
   }
 
