@@ -21,7 +21,7 @@ async function sendEnquiryToEmail(values: zContactSchema) {
   const { data, error } = await resend.emails.send({
     from: "Portfolio <enquiry@zironmedia.com>",
     replyTo: email,
-    to: "melwinafs@gmail.com",
+    to: "sahana@zironmedia.com",
     subject: `Enquiry from ${name}`,
     text: message,
   });
