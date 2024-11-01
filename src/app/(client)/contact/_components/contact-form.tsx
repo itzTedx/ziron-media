@@ -20,7 +20,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { sendEmail } from "@/server/actions/send-email";
-import { contactSchema, contactTypes } from "@/types/contact-schema";
+import { contactSchema, zContactSchema } from "@/types/contact-schema";
 
 export default function ContactForm() {
   const [loading, setLoading] = useState(false);
@@ -28,7 +28,7 @@ export default function ContactForm() {
 
   const message = searchParams.get("message");
 
-  const form = useForm<contactTypes>({
+  const form = useForm<zContactSchema>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
       name: "",
@@ -42,27 +42,32 @@ export default function ContactForm() {
   const { execute } = useAction(sendEmail, {
     onExecute: () => {
       setLoading(true);
+      toast.loading("Please wait...");
     },
     onSuccess: ({ data }) => {
+      setLoading(false);
+      toast.dismiss();
       if (data?.success) {
-        toast.dismiss();
         toast.success("Email sent!", {
-          description: `Thanks for reaching out, ${data.success}`,
+          description: `Thanks for reaching out, ${data.success.name}`,
         });
-        setLoading(false);
       }
     },
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onError: (error: any) => {
+    onError: (error) => {
       console.log(error);
+      toast.dismiss();
       toast.error("Something went wrong");
       setLoading(false);
     },
   });
 
-  function onSubmit(values: contactTypes) {
+  async function onSubmit(values: zContactSchema) {
     execute(values);
+
+    toast.success(`Thanks ${values.name}!`, {
+      description: `will get back to you soon `,
+    });
   }
 
   return (

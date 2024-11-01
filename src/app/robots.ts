@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: "/studio",
+      disallow: "/test",
     },
     sitemap: "https://www.zironmedia.com/sitemap.xml",
   };
