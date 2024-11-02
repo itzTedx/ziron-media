@@ -8,7 +8,7 @@ import FloatingWhatsapp from "@/components/layout/floating-whatsapp";
 import Footer from "@/components/layout/footer";
 import Navbar from "@/components/layout/navbar";
 import { Toaster } from "@/components/ui/sonner";
-import { monaSans, plusJakarta } from "@/fonts";
+import { monaSans, plusJakarta, valverde } from "@/fonts";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/utils/site-config";
 
@@ -75,7 +75,12 @@ export default function RootLayout({
         content="ApzGDgxzf02cJKRvF91NImSEkYYlfYjD60c7JH6ky_I"
       />
       <body
-        className={cn(plusJakarta.className, monaSans.variable, "antialiased")}
+        className={cn(
+          plusJakarta.className,
+          monaSans.variable,
+          valverde.variable,
+          "antialiased"
+        )}
       >
         <div vaul-drawer-wrapper="" className="bg-gray-950">
           <LenisProvider />

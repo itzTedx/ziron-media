@@ -11,5 +11,11 @@ const monaSans = localFont({
   weight: "700",
   display: "swap",
 });
+const valverde = localFont({
+  src: "./Valverde-CondSemBdIta.otf",
+  variable: "--font-valverde",
+  weight: "600",
+  display: "swap",
+});
 
-export { monaSans, plusJakarta };
+export { monaSans, plusJakarta, valverde };

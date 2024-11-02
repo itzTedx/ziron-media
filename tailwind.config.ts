@@ -26,6 +26,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         monaSans: ["var(--font-monaSans)"],
+        valverde: ["var(--font-valverde)"],
       },
       colors: {
         background: "hsl(var(--background))",

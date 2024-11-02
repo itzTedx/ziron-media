@@ -1,0 +1,179 @@
+"use client";
+
+import { useState } from "react";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useAction } from "next-safe-action/hooks";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { sendEmail } from "@/server/actions/send-email";
+import { contactSchema, zContactSchema } from "@/types/contact-schema";
+
+export default function EnquiryForm() {
+  const [loading, setLoading] = useState(false);
+
+  const form = useForm<zContactSchema>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
+  });
+
+  const { execute } = useAction(sendEmail, {
+    onExecute: () => {
+      setLoading(true);
+      toast.loading("Please wait...");
+    },
+    onSuccess: ({ data }) => {
+      setLoading(false);
+      toast.dismiss();
+      if (data?.success) {
+        toast.success("Email sent!", {
+          description: `Thanks for reaching out, ${data.success.name}`,
+        });
+      }
+    },
+
+    onError: (error) => {
+      console.log(error);
+      toast.dismiss();
+      toast.error("Something went wrong");
+      setLoading(false);
+    },
+  });
+
+  async function onSubmit(values: zContactSchema) {
+    execute(values);
+
+    toast.success(`Thanks ${values.name}!`, {
+      description: `will get back to you soon `,
+    });
+  }
+
+  return (
+    <Form {...form}>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="w-full space-y-6 rounded-xl border border-primary bg-background p-6 shadow-primary-md lg:p-9"
+      >
+        <div className="">
+          <h3 className="text-xl font-semibold">
+            Ready to boost your online presence?
+          </h3>
+          <p className="text-sm">
+            Fill out the contact form below to get started. Our team is eager to
+            assist you.
+          </p>
+        </div>
+        <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Name</FormLabel>
+              <FormControl>
+                <Input placeholder="John Doe" {...field} />
+              </FormControl>
+
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <div className="flex w-full gap-4">
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormLabel>Phone</FormLabel>
+                <FormControl>
+                  <Input placeholder="+971 98 765 4321" {...field} />
+                </FormControl>
+
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input placeholder="name@company.com" {...field} />
+                </FormControl>
+
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>I need to know more about</FormLabel>
+              <FormControl>
+                <Input placeholder="Digital Marketing" {...field} />
+              </FormControl>
+
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="message"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Message</FormLabel>
+              <FormControl>
+                <Textarea
+                  rows={5}
+                  maxLength={560}
+                  placeholder="Type your message"
+                  {...field}
+                />
+              </FormControl>
+
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <Button
+          type="submit"
+          disabled={!form.formState.isValid || loading}
+          className="group relative isolation-auto z-10 mx-auto flex h-auto items-center justify-center gap-3 overflow-hidden rounded-full border-2 bg-foreground px-4 py-2 uppercase tracking-wide text-gray-50 backdrop-blur-md before:absolute before:-left-full before:-z-10 before:aspect-square before:w-full before:rounded-full before:bg-secondary before:transition-all before:duration-700 hover:bg-foreground hover:text-gray-50 before:hover:left-0 before:hover:w-full before:hover:scale-150 before:hover:duration-700 disabled:opacity-30"
+        >
+          Send Request
+          <svg
+            viewBox="0 0 16 19"
+            className="size-8 rotate-45 justify-end rounded-full border border-gray-700 bg-gray-50 p-2 text-gray-50 duration-300 ease-linear group-hover:rotate-90 group-hover:border-none group-hover:bg-gray-50"
+          >
+            <path
+              className="fill-gray-800 group-hover:fill-gray-800"
+              d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+            ></path>
+          </svg>
+        </Button>
+      </form>
+    </Form>
+  );
+}

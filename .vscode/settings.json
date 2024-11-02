@@ -7,5 +7,13 @@
     "*.css": "tailwindcss"
   },
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cSpell.words": ["Bento", "tabler", "uploadthing", "webm", "webp", "Ziron"]
+  "cSpell.words": [
+    "Bento",
+    "tabler",
+    "uploadthing",
+    "valverde",
+    "webm",
+    "webp",
+    "Ziron"
+  ]
 }

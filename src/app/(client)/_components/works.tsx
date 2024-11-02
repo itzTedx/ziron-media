@@ -2,9 +2,7 @@ import { Card, Carousel } from "@/components/ui/apple-cards-carousel";
 import { Badge } from "@/components/ui/badge";
 
 export function Works() {
-  const cards = data.map((card, index) => (
-    <Card key={card.src} card={card} index={index} />
-  ));
+  const cards = data.map((card) => <Card key={card.src} card={card} />);
 
   return (
     <div className="py-12 md:py-24">

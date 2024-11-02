@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
+import { LogoStrip } from "@/components/logo-strip";
 
 import AboutHero from "./_components/hero";
 import OurQuality from "./_components/our-quality-section";
@@ -31,11 +31,7 @@ export default function AboutPage() {
           <h3 className="mb-6 text-center">
             Building Together with these Brands
           </h3>
-          <InfiniteMovingCards
-            items={testimonials}
-            direction="right"
-            speed="slow"
-          />
+          <LogoStrip />
         </div>
       </section>
       <section className="mx-auto grid max-w-5xl gap-4 px-4 md:grid-cols-3">
@@ -76,37 +72,6 @@ export default function AboutPage() {
     </main>
   );
 }
-
-const testimonials = [
-  {
-    src: "/logos/aura.svg",
-    title: "Aura Group",
-  },
-  {
-    src: "/logos/bumbyy.png",
-    title: "Bumbby",
-  },
-  {
-    src: "/logos/famous-daves.png",
-    title: "Famous Daves",
-  },
-  {
-    src: "/logos/kf.png",
-    title: "simply kf",
-  },
-  {
-    src: "/logos/phenom.png",
-    title: "Phenom",
-  },
-  {
-    src: "/logos/mine-hive.png",
-    title: "Mine Hive",
-  },
-  {
-    src: "/logos/saj-legal.png",
-    title: "Saj Legals",
-  },
-];
 
 export const metadata: Metadata = {
   title: "New Generation of digital creators: Ziron Media",
