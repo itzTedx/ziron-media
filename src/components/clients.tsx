@@ -6,11 +6,11 @@ import { cn } from "@/lib/utils";
 import MagneticButton from "./animations/magnetic-button";
 import { Card } from "./ui/card";
 
-export const LogoStrip = () => {
+export const Clients = () => {
   return (
     <section className="container max-w-6xl py-20">
-      <Card className="flex justify-between gap-5 overflow-hidden bg-background p-0">
-        <div className="p-12">
+      <Card className="flex flex-col justify-between gap-5 overflow-hidden bg-background p-0 md:flex-row">
+        <div className="p-4 md:p-12">
           <h3 className="leading-[1]">
             Building success together with these brands
           </h3>
@@ -35,7 +35,7 @@ export const LogoStrip = () => {
             </Link>
           </MagneticButton>
         </div>
-        <div className="relative z-10 grid max-w-7xl flex-shrink-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        <div className="relative z-10 grid max-w-7xl flex-shrink-0 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {brands.map((brand, i) => (
             <Feature key={brand.title} {...brand} i={i} />
           ))}

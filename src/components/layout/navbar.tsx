@@ -58,7 +58,7 @@ export default function Navbar() {
             <Logo />
           </Link>
           <MobileDrawer />
-          <span className="absolute -inset-x-9 -top-6 -z-10 h-32 w-[120vw] bg-gradient-to-b from-background via-background/70 to-transparent" />
+          <span className="absolute -inset-x-9 -top-6 -z-10 h-20 w-[120vw] bg-gradient-to-b from-background via-background/70 to-transparent" />
         </div>
       </header>
     </section>

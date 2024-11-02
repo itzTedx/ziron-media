@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import { LogoStrip } from "@/components/logo-strip";
+import { Clients } from "@/components/clients";
 
 import AboutHero from "./_components/hero";
 import OurQuality from "./_components/our-quality-section";
@@ -31,7 +31,7 @@ export default function AboutPage() {
           <h3 className="mb-6 text-center">
             Building Together with these Brands
           </h3>
-          <LogoStrip />
+          <Clients />
         </div>
       </section>
       <section className="mx-auto grid max-w-5xl gap-4 px-4 md:grid-cols-3">

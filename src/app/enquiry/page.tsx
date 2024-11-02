@@ -1,4 +1,4 @@
-import { LogoStrip } from "@/components/logo-strip";
+import { Clients } from "@/components/clients";
 
 import { Works } from "../(client)/_components/works";
 import { AboutUs } from "./_components/about-us";
@@ -11,7 +11,7 @@ export default function EnquiryPage() {
   return (
     <main>
       <Hero />
-      <LogoStrip />
+      <Clients />
       <AboutUs />
       <Services />
       <Works />

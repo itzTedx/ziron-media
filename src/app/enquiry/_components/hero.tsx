@@ -21,7 +21,7 @@ export const Hero = () => {
             today&apos;s competitive online landscape.
           </p>
         </div>
-        <ul className="flex gap-2 pt-4">
+        <ul className="gap-2 pt-4 md:flex">
           <li className="flex gap-2">
             <div className="flex size-10 items-center justify-center rounded-full border">
               I

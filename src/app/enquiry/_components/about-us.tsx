@@ -4,11 +4,11 @@ import { Badge } from "@/components/ui/badge";
 
 export const AboutUs = () => {
   return (
-    <section className="container grid grid-cols-5 gap-6 py-20">
+    <section className="container gap-6 py-20 md:grid md:grid-cols-5">
       <div className="col-span-2">
         <div className="aspect-square bg-muted" />
       </div>
-      <div className="col-span-3 flex flex-col justify-between px-12 py-6">
+      <div className="col-span-3 flex flex-col justify-between py-6 md:px-12">
         <div>
           <h3 className="font-monaSans text-6xl tracking-tighter">
             We&apos;re a{" "}
