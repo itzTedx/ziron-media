@@ -3,10 +3,12 @@ import { IconPlus } from "@tabler/icons-react";
 import confetti from "@/components/assets/confetti.json";
 import engagement from "@/components/assets/engagement.json";
 import AnimationLottie from "@/components/lottie-animation";
+import { getServices } from "@/server/actions/get-service-by-mdx";
 
 import EnquiryForm from "./enquiry-form";
 
-export const Hero = () => {
+export const Hero = async () => {
+  const services = await getServices();
   return (
     <section className="container gap-4 px-4 py-4 md:grid md:grid-cols-6 md:px-8 md:py-6 lg:grid-cols-12">
       <div className="col-span-3 flex flex-col justify-between py-3 md:py-12 lg:col-span-6">
@@ -51,7 +53,7 @@ export const Hero = () => {
         </ul>
       </div>
       <div className="col-span-3 w-full max-md:pt-4 lg:col-span-5 lg:col-start-8">
-        <EnquiryForm />
+        <EnquiryForm data={services} />
       </div>
     </section>
   );

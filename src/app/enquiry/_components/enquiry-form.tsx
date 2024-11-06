@@ -1,13 +1,23 @@
 "use client";
 
+import { redirect } from "next/navigation";
 import { useState } from "react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { IconCaretUpDownFilled } from "@tabler/icons-react";
 import { useAction } from "next-safe-action/hooks";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
 import {
   Form,
   FormControl,
@@ -17,15 +27,24 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { Textarea } from "@/components/ui/textarea";
-import { sendEmail } from "@/server/actions/send-email";
-import { contactSchema, zContactSchema } from "@/types/contact-schema";
+import { cn } from "@/lib/utils";
+import { sendEnquiry } from "@/server/actions/send-enquiry";
+import { ServiceMetadata } from "@/types";
+import { enquirySchema, zEnquirySchema } from "@/types/enquiry-schema";
 
-export default function EnquiryForm() {
+export default function EnquiryForm({ data }: { data: ServiceMetadata[] }) {
+  console.log("Data:", data);
   const [loading, setLoading] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  const form = useForm<zContactSchema>({
-    resolver: zodResolver(contactSchema),
+  const form = useForm<zEnquirySchema>({
+    resolver: zodResolver(enquirySchema),
     defaultValues: {
       name: "",
       email: "",
@@ -35,18 +54,20 @@ export default function EnquiryForm() {
     },
   });
 
-  const { execute } = useAction(sendEmail, {
+  const { execute } = useAction(sendEnquiry, {
     onExecute: () => {
       setLoading(true);
       toast.loading("Please wait...");
     },
     onSuccess: ({ data }) => {
-      setLoading(false);
-      toast.dismiss();
       if (data?.success) {
-        toast.success("Email sent!", {
-          description: `Thanks for reaching out, ${data.success.name}`,
+        toast.dismiss();
+        setLoading(false);
+        toast.success(`Thanks for reaching out, ${data.success.name}`, {
+          description: `Our experts will contact you soon for more details about ${data.success.service}`,
         });
+        form.reset();
+        redirect("/");
       }
     },
 
@@ -58,7 +79,7 @@ export default function EnquiryForm() {
     },
   });
 
-  async function onSubmit(values: zContactSchema) {
+  async function onSubmit(values: zEnquirySchema) {
     execute(values);
 
     toast.success(`Thanks ${values.name}!`, {
@@ -129,16 +150,61 @@ export default function EnquiryForm() {
           control={form.control}
           name="service"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>I need to know more about</FormLabel>
-              <FormControl>
-                <Input placeholder="Digital Marketing" {...field} />
-              </FormControl>
+            <FormItem className="">
+              <FormLabel>Company</FormLabel>
+
+              <Popover open={open} onOpenChange={setOpen}>
+                <PopoverTrigger asChild>
+                  <FormControl>
+                    <Button
+                      variant="outline"
+                      role="combobox"
+                      className={cn(
+                        "w-full justify-between border-input bg-transparent text-foreground hover:bg-transparent",
+                        !field.value && "text-muted-foreground"
+                      )}
+                    >
+                      {field.value
+                        ? data.find((cat) => cat.title === field.value)?.title
+                        : "Select Category"}
+                      <IconCaretUpDownFilled className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                    </Button>
+                  </FormControl>
+                </PopoverTrigger>
+                <PopoverContent
+                  align="start"
+                  className="p-0 sm:w-[19.5rem]"
+                  data-scroll-locked={open ? true : false}
+                >
+                  <Command>
+                    <CommandInput placeholder="Search Services..." />
+                    <CommandEmpty>Currently unavailable</CommandEmpty>
+                    <CommandList className="p-1">
+                      <CommandGroup heading="We're best at">
+                        {data.map((cat) => (
+                          <CommandItem
+                            value={cat.title}
+                            className="cursor-pointer px-4 py-2.5 font-medium"
+                            key={cat.id}
+                            onSelect={() => {
+                              form.setValue("service", cat.title!);
+                              setOpen(false);
+                            }}
+                          >
+                            {cat.title}
+                          </CommandItem>
+                        ))}
+                      </CommandGroup>
+                    </CommandList>
+                  </Command>
+                </PopoverContent>
+              </Popover>
 
               <FormMessage />
             </FormItem>
           )}
         />
+
         <FormField
           control={form.control}
           name="message"

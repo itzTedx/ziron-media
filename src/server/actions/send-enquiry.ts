@@ -3,27 +3,28 @@
 import { createSafeActionClient } from "next-safe-action";
 import { Resend } from "resend";
 
-import { contactSchema, zContactSchema } from "@/types/contact-schema";
+import EnquiryTemplate from "@/features/enquiry-email-template";
+import { enquirySchema, zEnquirySchema } from "@/types/enquiry-schema";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const action = createSafeActionClient();
 
-export const sendEmail = action
-  .schema(contactSchema)
+export const sendEnquiry = action
+  .schema(enquirySchema)
   .action(async ({ parsedInput }) => {
     await sendEnquiryToEmail(parsedInput);
     return { success: parsedInput };
   });
 
-async function sendEnquiryToEmail(values: zContactSchema) {
-  const { name, email, message } = values;
+async function sendEnquiryToEmail(values: zEnquirySchema) {
+  const { name, email } = values;
 
   const { data, error } = await resend.emails.send({
     from: "Enquiry <enquiry@zironmedia.com>",
     replyTo: email,
-    to: "sahana@zironmedia.com",
-    subject: `Enquiry from ${name}`,
-    text: message,
+    to: "melwinafs@gmail.com",
+    subject: `Enquiry from ${name} - Ad Campaign`,
+    react: EnquiryTemplate({ data: values }),
   });
 
   if (error) {

@@ -23,7 +23,7 @@ export const Clients = () => {
               className="rounded-full focus-within:outline-none focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2"
             >
               <div className="group relative z-30 w-fit cursor-pointer overflow-hidden rounded-full border border-primary bg-background p-3 text-center font-semibold uppercase text-primary">
-                <span className="inline-block translate-y-0 space-x-3 transition-all duration-300 focus-within:-translate-y-12 focus-within:opacity-0 group-hover:-translate-y-12 group-hover:opacity-0">
+                <span className="inline-block translate-y-0 space-x-3 text-sm transition-all duration-300 focus-within:-translate-y-12 focus-within:opacity-0 group-hover:-translate-y-12 group-hover:opacity-0 md:text-base">
                   <span>✦ </span>
                   <span>Explore our Success Stories </span>
                 </span>
