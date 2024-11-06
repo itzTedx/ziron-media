@@ -7,7 +7,7 @@ import { getServices } from "@/server/actions/get-service-by-mdx";
 export const Services = async () => {
   const services = await getServices();
   return (
-    <section className="container relative grid grid-cols-2 gap-4 py-28 md:grid-cols-4">
+    <section className="container relative grid grid-cols-2 gap-3 px-3 py-9 md:grid-cols-4 md:gap-4 md:px-8 md:py-28">
       {services.splice(0, 7).map((service) => (
         <Link
           href={service.slug}
@@ -31,9 +31,9 @@ export const Services = async () => {
               })
               .flat()}
           </h5>
-          <div className="flex items-center gap-2 pt-6">
+          <div className="flex items-center gap-2 pt-6 max-md:text-xs">
             <div className="rounded-full border p-1">
-              <IconArrowUpRight className="size-5" />
+              <IconArrowUpRight className="size-4 md:size-5" />
             </div>
             Learn More
           </div>
@@ -48,9 +48,9 @@ export const Services = async () => {
           <br />
           Services
         </h5>
-        <div className="flex items-center gap-2 pt-6">
+        <div className="flex items-center gap-2 pt-6 max-md:text-xs">
           <div className="rounded-full border p-1">
-            <IconArrowUpRight className="size-5" />
+            <IconArrowUpRight className="size-4 md:size-5" />
           </div>
           Learn More
         </div>

@@ -88,7 +88,7 @@ const Feature = ({
   return (
     <div
       className={cn(
-        "group/feature relative flex flex-col py-4 lg:border-r",
+        "group/feature relative flex flex-col items-center justify-center py-4 lg:border-r",
         (i === 0 || i === 4) && "lg:border-l",
         i < 4 && "lg:border-b"
       )}
@@ -99,7 +99,8 @@ const Feature = ({
       {i >= 4 && (
         <div className="pointer-events-none absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-100 to-transparent opacity-0 transition duration-200 group-hover/feature:opacity-100" />
       )}
-      <div className="relative z-10 mt-2 px-5 mix-blend-multiply">
+      <div className="absolute left-0 top-1/2 h-6 w-1 origin-center -translate-y-1/2 rounded-br-full rounded-tr-full bg-neutral-300 transition-all duration-200 group-hover/feature:bg-primary" />
+      <div className="relative z-10 px-5 mix-blend-multiply">
         <Image
           src={logo}
           height={100}
@@ -108,12 +109,12 @@ const Feature = ({
           className="h-16 object-contain"
         />
       </div>
-      <div className="relative z-10 mb-2 px-5 text-center text-sm font-semibold">
+      {/* <div className="relative z-10 mb-2 px-5 text-center text-sm font-semibold">
         <div className="absolute inset-y-0 left-0 h-6 w-1 origin-center rounded-br-full rounded-tr-full bg-neutral-300 transition-all duration-200 group-hover/feature:bg-primary" />
         <span className="inline-block text-neutral-800 transition duration-200 group-hover/feature:scale-105">
           {title}
         </span>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -1,16 +1,34 @@
 import Image from "next/image";
 
+import { Icons } from "@/components/icons";
+import { PartnerLogo } from "@/components/layout/partners-logo";
 import { Badge } from "@/components/ui/badge";
 
 export const AboutUs = () => {
   return (
-    <section className="container gap-6 py-20 md:grid md:grid-cols-5">
-      <div className="col-span-2">
-        <div className="aspect-square bg-muted" />
+    <section className="container gap-6 py-9 md:grid md:grid-cols-5 md:py-20">
+      <div className="relative col-span-2">
+        <div className="relative aspect-square overflow-hidden rounded-xl">
+          <div className="group absolute bottom-3 left-3 z-10 flex max-w-9 items-center rounded-full border bg-background/30 p-2 text-background backdrop-blur-md">
+            <Icons.ai className="size-4" />
+            {/* <span
+              className="m-0 hidden px-1 text-xs font-medium group-hover:block"
+              aria-hidden
+            >
+              AI Generated Image
+            </span> */}
+          </div>
+          <Image
+            src="/images/new-gen-creators.jpg"
+            objectFit="cover"
+            fill
+            alt="Three young professionals in a modern workspace discussing analytics, with digital screens and lush greenery around them."
+          />
+        </div>
       </div>
       <div className="col-span-3 flex flex-col justify-between py-6 md:px-12">
         <div>
-          <h3 className="font-monaSans text-6xl tracking-tighter">
+          <h3 className="font-monaSans text-[2.1rem] tracking-tighter max-md:leading-10 md:text-6xl">
             We&apos;re a{" "}
             <span className="font-valverde text-secondary">
               New Generation{" "}
@@ -22,34 +40,9 @@ export const AboutUs = () => {
             identities and scalable digital strategies
           </p>
         </div>
-        <div className="space-y-8">
+        <div className="space-y-8 max-md:pt-9">
           <Badge>✦ We’re partnered with</Badge>
-          <ul className="flex gap-12">
-            <li>
-              <Image
-                src="/logos/google-partner.svg"
-                width={120}
-                height={50}
-                alt="Google Partner"
-              />
-            </li>
-            <li>
-              <Image
-                src="/logos/meta-business-partner.svg"
-                width={120}
-                height={50}
-                alt="Meta Business Partner"
-              />
-            </li>
-            <li>
-              <Image
-                src="/logos/tiktok-partner.svg"
-                width={120}
-                height={50}
-                alt="Tiktok Partner"
-              />
-            </li>
-          </ul>
+          <PartnerLogo />
         </div>
       </div>
     </section>

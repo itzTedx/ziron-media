@@ -91,6 +91,7 @@ export default function RootLayout({
           <BreakpointIndicator />
           <Footer />
         </div>
+
         <GoogleAnalytics gaId="G-80W1TG3C5V" />
       </body>
     </html>

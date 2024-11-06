@@ -12,6 +12,8 @@ import { siteConfig } from "@/utils/site-config";
 //   }
 // );
 
+// 🚀
+
 export default async function Hero() {
   const blurData = await getBase64("/images/landing-intro-thumb.webp");
 
@@ -23,7 +25,7 @@ export default async function Hero() {
       <div className="container relative z-20 flex flex-col overflow-clip pb-12 md:pb-32">
         <h1 className="text-balance pt-24 text-center font-monaSans text-[2.5rem] font-bold leading-10 tracking-tight text-gray-900 md:pt-32 md:text-7xl md:leading-[5rem]">
           We’re great at{" "}
-          <span className="text-primary">
+          <span className="font-valverde text-primary">
             Digital <br className="hidden md:block" />
             Marketing
           </span>{" "}

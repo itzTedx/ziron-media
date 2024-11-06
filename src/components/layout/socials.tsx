@@ -9,7 +9,7 @@ import { buttonVariants } from "../ui/button";
 
 export default function Socials() {
   return (
-    <ul className="mt-6 flex gap-3 text-violet-300">
+    <ul className="flex gap-3 text-violet-300">
       {SOCIALS.map((social) => (
         <li key={social.label}>
           <Link

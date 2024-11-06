@@ -41,7 +41,7 @@ const AnimatedBeam = dynamic(
 
 export function Featured() {
   return (
-    <section className="bg-violet-50 px-3 py-12 pt-24 max-md:overflow-hidden md:px-9 md:py-24">
+    <section className="bg-indigo-50/40 px-3 py-12 pt-24 max-md:overflow-hidden md:px-9 md:py-24">
       <div className="container flex flex-col items-center gap-6 max-md:px-3">
         <Badge variant={"secondary"}>✦ What we are great at</Badge>
         <TitlePullUp />

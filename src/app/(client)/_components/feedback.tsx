@@ -12,7 +12,7 @@ export default function Feedback() {
   const OPTIONS: EmblaOptionsType = { loop: true };
   return (
     <>
-      <div className="bg-violet-50 px-4 py-6 md:py-40">
+      <div className="bg-indigo-50/50 px-4 py-6 md:py-40">
         <div className="mx-auto w-fit scale-150 py-9 text-center brightness-[3.5] saturate-0">
           <Logo />
         </div>

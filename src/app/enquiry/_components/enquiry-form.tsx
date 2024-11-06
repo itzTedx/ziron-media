@@ -30,6 +30,8 @@ export default function EnquiryForm() {
       name: "",
       email: "",
       message: "",
+      phone: "",
+      service: "",
     },
   });
 
@@ -96,7 +98,7 @@ export default function EnquiryForm() {
         <div className="flex w-full gap-4">
           <FormField
             control={form.control}
-            name="email"
+            name="phone"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormLabel>Phone</FormLabel>
@@ -125,7 +127,7 @@ export default function EnquiryForm() {
         </div>
         <FormField
           control={form.control}
-          name="email"
+          name="service"
           render={({ field }) => (
             <FormItem>
               <FormLabel>I need to know more about</FormLabel>
@@ -145,8 +147,8 @@ export default function EnquiryForm() {
               <FormLabel>Message</FormLabel>
               <FormControl>
                 <Textarea
-                  rows={5}
-                  maxLength={560}
+                  rows={4}
+                  maxLength={1260}
                   placeholder="Type your message"
                   {...field}
                 />
