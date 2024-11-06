@@ -64,10 +64,6 @@ export default function ContactForm() {
 
   async function onSubmit(values: zContactSchema) {
     execute(values);
-
-    toast.success(`Thanks ${values.name}!`, {
-      description: `will get back to you soon `,
-    });
   }
 
   return (

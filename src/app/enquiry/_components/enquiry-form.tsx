@@ -39,7 +39,6 @@ import { ServiceMetadata } from "@/types";
 import { enquirySchema, zEnquirySchema } from "@/types/enquiry-schema";
 
 export default function EnquiryForm({ data }: { data: ServiceMetadata[] }) {
-  console.log("Data:", data);
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -81,10 +80,6 @@ export default function EnquiryForm({ data }: { data: ServiceMetadata[] }) {
 
   async function onSubmit(values: zEnquirySchema) {
     execute(values);
-
-    toast.success(`Thanks ${values.name}!`, {
-      description: `will get back to you soon `,
-    });
   }
 
   return (

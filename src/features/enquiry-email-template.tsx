@@ -16,7 +16,7 @@ import {
 
 import { zEnquirySchema } from "@/types/enquiry-schema";
 
-const baseUrl = process.env.BASE_URL ? `https://${process.env.BASE_URL}` : "";
+const baseUrl = process.env.BASE_URL || "";
 
 export function EnquiryTemplate({ data }: { data: zEnquirySchema }) {
   const previewText = `New Enquiry from ${data.name}`;
