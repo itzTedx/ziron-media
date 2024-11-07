@@ -1,5 +1,6 @@
 import {
   Body,
+  Column,
   Container,
   Font,
   Head,
@@ -9,6 +10,7 @@ import {
   Img,
   Link,
   Preview,
+  Row,
   Section,
   Tailwind,
   Text,
@@ -30,18 +32,18 @@ export function EnquiryTemplate({ data }: { data: zEnquirySchema }) {
           url: "https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2",
           format: "woff2",
         }}
-        fontWeight={400}
+        fontWeight={500}
         fontStyle="normal"
       />
       <Preview>{previewText}</Preview>
       <Tailwind>
         <Body className="mx-auto my-auto bg-white px-2 font-sans">
-          <Container className="mx-auto my-[40px] max-w-[465px] rounded border border-solid border-[#eaeaea] p-[20px]">
+          <Container className="mx-auto my-[40px] max-w-[565px] rounded border border-solid border-[#eaeaea] p-[20px]">
             <Section className="mt-[32px]">
               <Img
                 src={`${baseUrl}/logos/ziron-logo.png`}
-                width="40"
-                height="37"
+                width="34"
+                height="40"
                 alt="Zironmedia"
                 className="mx-auto my-0"
               />
@@ -65,9 +67,69 @@ export function EnquiryTemplate({ data }: { data: zEnquirySchema }) {
 
             <Hr className="mx-0 my-[26px] w-full border border-solid border-[#eaeaea]" />
             <Heading as="h3">Message:</Heading>
-            <Text className="text-[12px] leading-[24px] text-black">
+            <Text className="text-[16px] leading-[24px] text-black">
               {data.message}
             </Text>
+            <Section>
+              <Row>
+                <Column colSpan={4}>
+                  <Img
+                    src={`${baseUrl}/logos/ziron-logo.png`}
+                    width="34"
+                    height="40"
+                    alt="Ziron Media's logo"
+                  />
+                  <Text className="my-[8px] text-[16px] font-semibold leading-[24px] text-gray-900">
+                    Acme corporation
+                  </Text>
+                  <Text className="mb-[0px] mt-[4px] text-[16px] leading-[24px] text-gray-500">
+                    Think different
+                  </Text>
+                </Column>
+                <Column align="left" className="table-cell align-bottom">
+                  <Row className="table-cell h-[44px] w-[56px] align-bottom">
+                    <Column className="pr-[8px]">
+                      <Link href="#">
+                        <Img
+                          alt="Facebook"
+                          height="36"
+                          src="https://react.email/static/facebook-logo.png"
+                          width="36"
+                        />
+                      </Link>
+                    </Column>
+                    <Column className="pr-[8px]">
+                      <Link href="#">
+                        <Img
+                          alt="X"
+                          height="36"
+                          src="https://react.email/static/x-logo.png"
+                          width="36"
+                        />
+                      </Link>
+                    </Column>
+                    <Column>
+                      <Link href="#">
+                        <Img
+                          alt="Instagram"
+                          height="36"
+                          src="https://react.email/static/instagram-logo.png"
+                          width="36"
+                        />
+                      </Link>
+                    </Column>
+                  </Row>
+                  <Row>
+                    <Text className="my-[8px] text-[16px] font-semibold leading-[24px] text-gray-500">
+                      123 Main Street Anytown, CA 12345
+                    </Text>
+                    <Text className="mb-[0px] mt-[4px] text-[16px] font-semibold leading-[24px] text-gray-500">
+                      mail@example.com +123456789
+                    </Text>
+                  </Row>
+                </Column>
+              </Row>
+            </Section>
           </Container>
         </Body>
       </Tailwind>
