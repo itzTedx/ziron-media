@@ -64,7 +64,7 @@ export async function generateMetadata({
 
   const services = await getServiceBySlug(params.slug);
 
-  if (!services) return { title: "Ser" };
+  if (!services) return { title: "Service" };
 
   const description = `${services.metadata.description!.slice(0, 140)}...`;
 

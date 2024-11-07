@@ -78,7 +78,7 @@ export default function CasePage({ params }: { params: { slug: string } }) {
               </li>
             </ul>
             <Button asChild>
-              <Link href="/what-we-dp">
+              <Link href="/what-we-do">
                 What we do
                 <IconArrowRight />
               </Link>

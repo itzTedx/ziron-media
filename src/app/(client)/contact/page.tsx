@@ -8,6 +8,13 @@ import ContactForm from "./_components/contact-form";
 
 export const dynamic = "force-static";
 
+const meta = {
+  title: "We'd love to help you grow: Ziron media",
+  description:
+    "We’d love to hear from you: Drop us a line using this form or pay us a visit at our beautiful office in the bustling heart of Dubai.",
+  url: "/contact",
+};
+
 export default async function ContactPage() {
   return (
     <main className="min-h-dvh">
@@ -63,21 +70,18 @@ export default async function ContactPage() {
 }
 
 export const metadata: Metadata = {
-  title: "We'd love to help you grow: Ziron media",
-  description:
-    "We’d love to hear from you: Drop us a line using this form or pay us a visit at our beautiful office in the bustling heart of Dubai.",
+  title: meta.title,
+  description: meta.description,
   openGraph: {
     type: "website",
-    url: `/contact`,
-    title: "We'd love to help you grow: Ziron media",
-    description:
-      "We’d love to hear from you: Drop us a line using this form or pay us a visit at our beautiful office in the bustling heart of Dubai.",
+    url: meta.url,
+    title: meta.title,
+    description: meta.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: "We'd love to help you grow: Ziron media",
-    description:
-      "We’d love to hear from you: Drop us a line using this form or pay us a visit at our beautiful office in the bustling heart of Dubai.",
+    title: meta.title,
+    description: meta.description,
   },
-  alternates: { canonical: `/contact` },
+  alternates: { canonical: meta.url },
 };
