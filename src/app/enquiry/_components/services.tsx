@@ -10,7 +10,7 @@ export const Services = async () => {
     <section className="container relative grid grid-cols-2 gap-3 px-3 py-9 md:grid-cols-4 md:gap-4 md:px-8 md:py-28">
       {services.splice(0, 7).map((service) => (
         <Link
-          href={service.slug}
+          href={`/what-we-do/${service.slug}`}
           key={service.id}
           className="z-20 flex flex-col justify-between rounded-md border bg-gray-50 p-6"
         >
@@ -41,7 +41,7 @@ export const Services = async () => {
       ))}
       <Link
         href={"/what-we-do"}
-        className="flex flex-col justify-between rounded-md border bg-gray-50 p-6"
+        className="z-20 flex flex-col justify-between rounded-md border bg-gray-50 p-6"
       >
         <h5 className="text-lg font-semibold">
           <span className="text-muted-foreground">Explore our</span>
