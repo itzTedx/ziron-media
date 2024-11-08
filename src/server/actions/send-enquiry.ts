@@ -22,7 +22,7 @@ async function sendEnquiryToEmail(values: zEnquirySchema) {
   const { data, error } = await resend.emails.send({
     from: "Enquiry <enquiry@zironmedia.com>",
     replyTo: email,
-    to: "melwinafs@gmail.com",
+    to: "info@zironmedia.com",
     subject: `Enquiry from ${name} - Ad Campaign`,
     react: EnquiryTemplate({ data: values }),
   });

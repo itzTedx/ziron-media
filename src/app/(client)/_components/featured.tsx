@@ -45,10 +45,7 @@ export function Featured() {
       <div className="container flex flex-col items-center gap-6 max-md:px-3">
         <Badge variant={"secondary"}>✦ What we are great at</Badge>
         <TitlePullUp />
-        {/* <h2 className="mb-12 text-center font-medium">
-        We design, build and elevate <br />
-        your <span className="text-secondary">online presence</span>
-        </h2> */}
+
         <BentoGrid>
           {features.map((feature, idx) => (
             <BentoCard key={idx} {...feature} />

@@ -109,12 +109,6 @@ const Feature = ({
           className="h-16 object-contain"
         />
       </div>
-      {/* <div className="relative z-10 mb-2 px-5 text-center text-sm font-semibold">
-        <div className="absolute inset-y-0 left-0 h-6 w-1 origin-center rounded-br-full rounded-tr-full bg-neutral-300 transition-all duration-200 group-hover/feature:bg-primary" />
-        <span className="inline-block text-neutral-800 transition duration-200 group-hover/feature:scale-105">
-          {title}
-        </span>
-      </div> */}
     </div>
   );
 };

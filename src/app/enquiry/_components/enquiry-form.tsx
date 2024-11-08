@@ -146,7 +146,7 @@ export default function EnquiryForm({ data }: { data: ServiceMetadata[] }) {
           name="service"
           render={({ field }) => (
             <FormItem className="">
-              <FormLabel>Company</FormLabel>
+              <FormLabel>I need to know more about</FormLabel>
 
               <Popover open={open} onOpenChange={setOpen}>
                 <PopoverTrigger asChild>
@@ -161,7 +161,7 @@ export default function EnquiryForm({ data }: { data: ServiceMetadata[] }) {
                     >
                       {field.value
                         ? data.find((cat) => cat.title === field.value)?.title
-                        : "Select Category"}
+                        : "Digital Marketing"}
                       <IconCaretUpDownFilled className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                     </Button>
                   </FormControl>
