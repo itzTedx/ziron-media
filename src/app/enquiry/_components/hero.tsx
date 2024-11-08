@@ -1,11 +1,16 @@
+import dynamic from "next/dynamic";
+
 import { IconPlus } from "@tabler/icons-react";
 
 import confetti from "@/components/assets/confetti.json";
 import engagement from "@/components/assets/engagement.json";
-import AnimationLottie from "@/components/lottie-animation";
 import { getServices } from "@/server/actions/get-service-by-mdx";
 
 import EnquiryForm from "./enquiry-form";
+
+const AnimationLottie = dynamic(() => import("@/components/lottie-animation"), {
+  ssr: false,
+});
 
 export const Hero = async () => {
   const services = await getServices();
