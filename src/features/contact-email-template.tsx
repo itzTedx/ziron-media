@@ -16,11 +16,11 @@ import {
   Text,
 } from "@react-email/components";
 
-import { zEnquirySchema } from "@/types/enquiry-schema";
+import { zContactSchema } from "@/types/contact-schema";
 
 const baseUrl = process.env.BASE_URL || "";
 
-export function EnquiryTemplate({ data }: { data: zEnquirySchema }) {
+export default function ContactTemplate({ data }: { data: zContactSchema }) {
   const previewText = `New Enquiry from ${data.name}`;
   return (
     <Html>
@@ -135,5 +135,3 @@ export function EnquiryTemplate({ data }: { data: zEnquirySchema }) {
     </Html>
   );
 }
-
-export default EnquiryTemplate;
