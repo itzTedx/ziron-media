@@ -9,15 +9,15 @@ export const AboutUs = () => {
     <section className="container gap-6 py-9 md:grid md:grid-cols-5 md:py-20">
       <div className="relative col-span-2">
         <div className="relative aspect-square overflow-hidden rounded-xl">
-          <div className="group absolute bottom-3 left-3 z-10 flex max-w-9 items-center rounded-full border bg-background/30 p-2 text-background backdrop-blur-md">
-            <Icons.ai className="size-4" />
-            {/* <span
-              className="m-0 hidden px-1 text-xs font-medium group-hover:block"
-              aria-hidden
-            >
+          <button className="group/button absolute bottom-3 left-3 z-10 inline-flex size-7 items-center justify-center overflow-hidden rounded-full bg-background/30 font-medium text-white backdrop-blur-md transition-all duration-300 hover:w-40">
+            <p className="inline-flex whitespace-nowrap text-xs opacity-0 transition-all duration-200 group-hover/button:-translate-x-2.5 group-hover/button:opacity-100">
               AI Generated Image
-            </span> */}
-          </div>
+            </p>
+            <div className="absolute right-1.5">
+              <Icons.ai className="size-4" />
+            </div>
+          </button>
+
           <Image
             src="/images/new-gen-creators.jpg"
             objectFit="cover"

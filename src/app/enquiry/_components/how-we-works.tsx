@@ -10,6 +10,7 @@ export const HowWeWorks = () => {
         Your Dedicated Digital Partner
       </h3>
       <p>Here&apos;s how we tailor our approach to ensure your success.</p>
+
       <div className="grid grid-cols-1 gap-6 pt-9 md:grid-cols-3">
         <div className="flex flex-col justify-between rounded-xl bg-gray-950 text-gray-50">
           <div className="p-6 md:p-12">
