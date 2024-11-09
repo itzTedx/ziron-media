@@ -20,7 +20,7 @@ export const AboutUs = () => {
 
           <Image
             src="/images/new-gen-creators.jpg"
-            objectFit="cover"
+            className="object-cover"
             fill
             alt="Three young professionals in a modern workspace discussing analytics, with digital screens and lush greenery around them."
           />

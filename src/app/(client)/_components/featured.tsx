@@ -1,11 +1,11 @@
 import dynamic from "next/dynamic";
-import Image from "next/image";
 
 import { IconCircle } from "@tabler/icons-react";
 
 import { TitlePullUp } from "@/components/animations/word-pull-up";
 import { Blob } from "@/components/assets/blob";
 import { BentoCard, BentoGrid } from "@/components/bento/bento-grid";
+import { CobeDraggableAuto } from "@/components/cobe-globe";
 import { Badge } from "@/components/ui/badge";
 
 const ServicesMarquee = dynamic(
@@ -110,14 +110,17 @@ const features = [
     href: "/what-we-do/digital-marketing",
     cta: "Learn more",
     background: (
-      <Image
-        src="/images/globe.jpg"
-        width={272}
-        height={210}
-        aria-hidden={true}
-        alt="all arround the world"
-        className="absolute right-0 top-3 scale-110 [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)]"
-      />
+      // <Image
+      //   src="/images/globe.jpg"
+      //   width={272}
+      //   height={210}
+      //   aria-hidden={true}
+      //   alt="all arround the world"
+      //   className="absolute right-0 top-3 scale-110 [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)]"
+      // />
+      <div className="absolute h-full w-full">
+        <CobeDraggableAuto />
+      </div>
 
       // <GridGlobe />
     ),
