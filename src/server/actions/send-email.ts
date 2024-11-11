@@ -3,6 +3,7 @@
 import { createSafeActionClient } from "next-safe-action";
 import { Resend } from "resend";
 
+import ContactTemplate from "@/features/contact-email-template";
 import { contactSchema, zContactSchema } from "@/types/contact-schema";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -23,7 +24,7 @@ async function sendEnquiryToEmail(values: zContactSchema) {
     replyTo: email,
     to: "ashikh@zironmedia.com",
     subject: `Enquiry from ${name}`,
-    text: message,
+    react: ContactTemplate({ data: values }),
   });
 
   if (error) {
