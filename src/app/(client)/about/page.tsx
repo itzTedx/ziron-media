@@ -28,9 +28,9 @@ export default function AboutPage() {
       </section>
       <section className="container">
         <div className="p-9">
-          <h3 className="mb-6 text-center">
+          {/* <h3 className="mb-6 text-center">
             Building Together with these Brands
-          </h3>
+          </h3> */}
           <Clients />
         </div>
       </section>

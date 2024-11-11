@@ -11,7 +11,7 @@ export const Clients = () => {
     <section className="container max-w-6xl py-20">
       <Card className="flex flex-col justify-between gap-5 overflow-hidden bg-background p-0 md:flex-row">
         <div className="p-4 md:p-12">
-          <h3 className="leading-[1]">
+          <h3 className="leading-[1.2]">
             Building success together with these brands
           </h3>
           <p className="text-pretty py-4">
@@ -19,7 +19,7 @@ export const Clients = () => {
           </p>
           <MagneticButton className="flex w-fit">
             <Link
-              href="/what-we-do"
+              href="/case-studies"
               className="rounded-full focus-within:outline-none focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2"
             >
               <div className="group relative z-30 w-fit cursor-pointer overflow-hidden rounded-full border border-primary bg-background p-3 text-center font-semibold uppercase text-primary">
@@ -67,12 +67,16 @@ const brands = [
     title: "Phenom",
   },
   {
-    logo: "/logos/mine-hive.png",
-    title: "Mine Hive",
-  },
-  {
     logo: "/logos/saj-legal.png",
     title: "Saj Legals",
+  },
+  {
+    logo: "/logos/mc-logo.svg",
+    title: "MC Bauchemie",
+  },
+  {
+    logo: "/logos/mine-hive.png",
+    title: "Mine Hive",
   },
 ];
 

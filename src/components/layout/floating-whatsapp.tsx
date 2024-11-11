@@ -113,8 +113,8 @@ export default function FloatingWhatsapp() {
           onClick={handleClick}
           className="overflow-hidden rounded-full shadow-lg"
         >
-          <div className="flex size-14 items-center justify-center bg-secondary">
-            <Icons.chat className="size-9 stroke-1 text-background" />
+          <div className="flex size-14 items-center justify-center bg-primary">
+            <Icons.whatsapp className="size-7" />
           </div>
         </PopoverTrigger>
         <PopoverContent
