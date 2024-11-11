@@ -49,19 +49,13 @@ export default function ContactTemplate({ data }: { data: zContactSchema }) {
               />
             </Section>
             <Heading className="mx-0 my-[20px] p-0 text-center text-[24px] font-normal text-black">
-              New Enquiry from {data.name} for {data.service}
+              New Enquiry from {data.name}
             </Heading>
 
             <Section className="mb-[12px] mt-[12px]">
               <Text>Name: {data.name}</Text>
               <Text>
                 Email: <Link href={`mailto:${data.email}`}>{data.email}</Link>
-              </Text>
-              <Text>
-                Phone: <Link href={`tel:${data.phone}`}>{data.phone}</Link>
-              </Text>
-              <Text>
-                Service: <strong>{data.service}</strong>
               </Text>
             </Section>
 
