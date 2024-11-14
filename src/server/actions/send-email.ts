@@ -17,7 +17,7 @@ export const sendEmail = action
   });
 
 async function sendEnquiryToEmail(values: zContactSchema) {
-  const { name, email, message } = values;
+  const { name, email } = values;
 
   const { data, error } = await resend.emails.send({
     from: "Enquiry <enquiry@zironmedia.com>",

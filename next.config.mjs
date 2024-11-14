@@ -8,6 +8,12 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
 
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
+
   images: {
     remotePatterns: [
       {
@@ -27,12 +33,6 @@ const nextConfig = {
         hostname: "utfs.io",
       },
     ],
-  },
-
-  logging: {
-    fetches: {
-      fullUrl: true,
-    },
   },
 };
 
