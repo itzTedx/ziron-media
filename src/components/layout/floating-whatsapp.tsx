@@ -33,7 +33,11 @@ const examples = [
   "How long will it take to see results?",
 ];
 
-export default function FloatingWhatsapp() {
+export default function FloatingWhatsapp({
+  className,
+}: {
+  className?: string;
+}) {
   const [showMessage, setShowMessage] = useState(false);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [message, setMessage] = useState("");
@@ -100,7 +104,10 @@ export default function FloatingWhatsapp() {
 
   return (
     <div
-      className={cn("fixed right-3 z-[99999999] transition-all")}
+      className={cn(
+        "z-[99999999] transition-all md:fixed md:right-3",
+        className
+      )}
       style={{
         bottom:
           typeof window !== "undefined" && viewportHeight < window.innerHeight
@@ -111,10 +118,10 @@ export default function FloatingWhatsapp() {
       <Popover>
         <PopoverTrigger
           onClick={handleClick}
-          className="overflow-hidden rounded-full shadow-lg"
+          className="overflow-hidden rounded-full border shadow-lg"
         >
-          <div className="flex size-14 items-center justify-center bg-primary">
-            <Icons.whatsapp className="size-7" />
+          <div className="flex size-16 items-center justify-center bg-background">
+            <Icons.whatsapp className="size-8" />
           </div>
         </PopoverTrigger>
         <PopoverContent

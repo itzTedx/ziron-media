@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
+import {
+  IconBriefcase,
+  IconBuildingSkyscraper,
+  IconPhone,
+  IconStar,
+} from "@tabler/icons-react";
 
 import BreakpointIndicator from "@/components/dev/breakpoint-indicator";
 import LenisProvider from "@/components/dev/lenis";
+import { FloatingDock } from "@/components/layout/floating-dock";
 import FloatingWhatsapp from "@/components/layout/floating-whatsapp";
 import Footer from "@/components/layout/footer";
 import Navbar from "@/components/layout/navbar";
@@ -87,7 +94,18 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Toaster richColors theme="light" />
-          <FloatingWhatsapp />
+          <div
+            className={cn(
+              "fixed z-[99999999999] inline-flex items-center justify-center gap-2 p-2",
+              "bottom-4 right-4",
+              "md:bottom-4 md:left-1/2 md:right-auto md:-translate-x-1/2",
+              "scale-90 transform-gpu transition duration-150 hover:scale-100"
+            )}
+          >
+            <FloatingWhatsapp className="md:hidden" />
+            <FloatingDock items={sectionLinks} />
+          </div>
+          <FloatingWhatsapp className="hidden md:block" />
           <BreakpointIndicator />
           <Footer />
         </div>
@@ -97,3 +115,31 @@ export default function RootLayout({
     </html>
   );
 }
+
+const sectionLinks = [
+  // {
+  //   title: "Home",
+  //   Icon: <IconHome />,
+  //   href: "/",
+  // },
+  {
+    title: "What we do",
+    Icon: <IconStar />,
+    href: "/what-we-do",
+  },
+  {
+    title: "About us",
+    Icon: <IconBuildingSkyscraper />,
+    href: "/about",
+  },
+  {
+    title: "Case Studies",
+    Icon: <IconBriefcase />,
+    href: "/case-studies",
+  },
+  {
+    title: "Contact",
+    Icon: <IconPhone />,
+    href: "/contact",
+  },
+];
