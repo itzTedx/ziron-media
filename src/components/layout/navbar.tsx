@@ -50,15 +50,6 @@ export default function Navbar() {
             <div className="absolute mx-auto h-1 w-1/2 bg-gradient-to-r from-transparent via-primary/50 to-transparent blur-lg" />
           </div>
         </nav>
-
-        {/* Mobile navigation */}
-        {/* <div className="relative flex items-center justify-between md:hidden">
-          <Link href="/">
-            <Logo />
-          </Link>
-          <MobileDrawer />
-          <span className="absolute -inset-x-9 -top-6 -z-10 h-20 w-[120vw] bg-gradient-to-b from-background via-background/70 to-transparent" />
-        </div> */}
       </header>
     </section>
   );
