@@ -1,8 +1,9 @@
-import { SVGProps } from "react";
+import { JSX, SVGProps } from "react";
 
-export function Logo() {
+export function Logo(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
+      {...props}
       width="146"
       height="24"
       viewBox="0 0 146 24"

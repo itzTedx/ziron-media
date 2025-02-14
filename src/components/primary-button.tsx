@@ -1,8 +1,4 @@
-"use client";
-
 import Link from "next/link";
-
-import { sendGAEvent } from "@next/third-parties/google";
 
 import { cn } from "@/lib/utils";
 import "@/styles/ui.css";
@@ -19,16 +15,15 @@ export default function Button({ href, className, label }: CtaButtonProps) {
   return (
     <Link
       href={href}
-      onClick={() => sendGAEvent({ event: "contactButtonClicked", value: 1 })}
       className={cn(
-        "group relative isolation-auto z-10 flex items-center justify-center gap-2 overflow-hidden rounded-full border-2 bg-foreground px-4 py-1.5 text-gray-50 backdrop-blur-md before:absolute before:-left-full before:-z-10 before:aspect-square before:w-full before:rounded-full before:bg-secondary before:transition-all before:duration-700 focus-within:outline-none focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 hover:text-gray-50 before:hover:left-0 before:hover:w-full before:hover:scale-150 before:hover:duration-700",
+        "group relative isolation-auto z-10 flex items-center justify-center gap-2 overflow-hidden rounded-full border-2 bg-foreground py-1.5 pl-4 pr-1.5 text-gray-50 backdrop-blur-md before:absolute before:-left-full before:-z-10 before:aspect-square before:w-full before:rounded-full before:bg-secondary before:transition-all before:duration-700 focus-within:outline-none focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 hover:text-gray-50 before:hover:left-0 before:hover:w-full before:hover:scale-150 before:hover:duration-700 md:px-4 md:py-1.5",
         className
       )}
     >
       <RevealText>{label.replace(/ /g, "\xa0")}</RevealText>
       <svg
         viewBox="0 0 16 19"
-        className="size-8 rotate-45 justify-end rounded-full border border-gray-700 bg-gray-50 p-2 text-gray-50 duration-300 ease-linear group-hover:rotate-90 group-hover:border-none group-hover:bg-gray-50"
+        className="size-7 rotate-45 justify-end rounded-full border border-gray-700 bg-gray-50 p-2 text-gray-50 duration-300 ease-linear group-hover:rotate-90 group-hover:border-none group-hover:bg-gray-50 md:size-8"
       >
         <path
           className="fill-gray-800 group-hover:fill-gray-800"

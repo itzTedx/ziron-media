@@ -22,7 +22,7 @@ export function NavLinks() {
   const services = NAV_LINKS.filter((item) => item.services);
   const otherLinks = NAV_LINKS.filter((item) => !item.services);
   return (
-    <NavigationMenu className="z-50">
+    <NavigationMenu className="z-50 hidden md:flex">
       <NavigationMenuList>
         {services.map((service, i) => (
           <NavigationMenuItem key={`Services_${i}`}>
