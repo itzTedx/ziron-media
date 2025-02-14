@@ -78,16 +78,15 @@ export default function RootLayout({
           "antialiased"
         )}
       >
-        <div vaul-drawer-wrapper="" className="bg-gray-950">
-          <LenisProvider />
-          <Navbar />
-          {children}
-          <Footer />
+        <LenisProvider />
+        <Navbar />
+        {children}
+        <Footer />
 
-          <FloatingActions />
-          <BreakpointIndicator />
-          <Toaster richColors theme="light" />
-        </div>
+        <FloatingActions />
+        <BreakpointIndicator />
+        <Toaster richColors theme="light" />
+
         <GoogleAnalytics gaId="G-80W1TG3C5V" />
       </body>
     </html>
