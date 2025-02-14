@@ -5,6 +5,12 @@ import { usePathname } from "next/navigation";
 import { type ReactNode, useEffect, useRef, useState } from "react";
 
 import {
+  IconBriefcase,
+  IconBuildingSkyscraper,
+  IconPhone,
+  IconStar,
+} from "@tabler/icons-react";
+import {
   AnimatePresence,
   type MotionValue,
   motion,
@@ -17,38 +23,39 @@ import { ListCollapseIcon } from "lucide-react";
 import { useOnClickOutside } from "@/hooks/use-outside-click";
 import { cn } from "@/lib/utils";
 
-export const FloatingDock = ({
-  items,
-  // desktopClassName,
-  mobileClassName,
-}: {
-  items: {
-    title: string;
-    Icon: ReactNode;
-    href: string;
-  }[];
-  desktopClassName?: string;
-  mobileClassName?: string;
-}) => {
+const sectionLinks = [
+  {
+    title: "What we do",
+    Icon: <IconStar />,
+    href: "/what-we-do",
+  },
+  {
+    title: "About us",
+    Icon: <IconBuildingSkyscraper />,
+    href: "/about",
+  },
+  {
+    title: "Case Studies",
+    Icon: <IconBriefcase />,
+    href: "/case-studies",
+  },
+  {
+    title: "Contact",
+    Icon: <IconPhone />,
+    href: "/contact",
+  },
+] as const;
+
+export const FloatingDock = ({ className }: { className?: string }) => {
   return (
     <>
       {/* <FloatingDockDesktop items={items} className={desktopClassName} /> */}
-      <FloatingDockMobile items={items} className={mobileClassName} />
+      <FloatingDockMobile className={className} />
     </>
   );
 };
 
-const FloatingDockMobile = ({
-  items,
-  className,
-}: {
-  items: {
-    title: string;
-    Icon: ReactNode;
-    href: string;
-  }[];
-  className?: string;
-}) => {
+const FloatingDockMobile = ({ className }: { className?: string }) => {
   const ref = useRef<HTMLDivElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleClickOutside = (event: MouseEvent | TouchEvent | FocusEvent) => {
@@ -74,7 +81,7 @@ const FloatingDockMobile = ({
             layoutId="nav"
             className="absolute inset-x-0 bottom-full z-[999999] mb-2 flex flex-col items-end gap-2"
           >
-            {items.map((item, idx) => (
+            {sectionLinks.map((item, idx) => (
               <motion.div
                 key={item.title}
                 initial={{ opacity: 0, y: 10 }}
@@ -89,7 +96,7 @@ const FloatingDockMobile = ({
                     delay: idx * 0.05,
                   },
                 }}
-                transition={{ delay: (items.length - 1 - idx) * 0.05 }}
+                transition={{ delay: (sectionLinks.length - 1 - idx) * 0.05 }}
               >
                 <Link
                   href={item.href}

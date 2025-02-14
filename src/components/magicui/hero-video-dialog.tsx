@@ -91,6 +91,7 @@ export default function HeroVideoDialog({
               ref={videoRef}
               slot="media"
               src={videoPlaceholder}
+              loop
               playsInline
               title={thumbnailAlt}
               crossOrigin="anonymous"

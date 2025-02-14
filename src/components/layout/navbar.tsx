@@ -7,7 +7,6 @@ import { cn } from "@/lib/utils";
 
 import { Logo } from "../logo";
 import Button from "../primary-button";
-import MobileDrawer from "./mobile-drawer";
 import { NavLinks } from "./nav-links";
 
 export default function Navbar() {
@@ -53,13 +52,13 @@ export default function Navbar() {
         </nav>
 
         {/* Mobile navigation */}
-        <div className="relative flex items-center justify-between md:hidden">
+        {/* <div className="relative flex items-center justify-between md:hidden">
           <Link href="/">
             <Logo />
           </Link>
           <MobileDrawer />
           <span className="absolute -inset-x-9 -top-6 -z-10 h-20 w-[120vw] bg-gradient-to-b from-background via-background/70 to-transparent" />
-        </div>
+        </div> */}
       </header>
     </section>
   );
