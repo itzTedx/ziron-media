@@ -8,16 +8,16 @@ import { Services } from "./_components/services";
 import { HowWeWorks } from "./_components/spotlight";
 
 export default function EnquiryPage() {
-  return (
-    <main>
-      <Hero />
-      <Clients />
-      <AboutUs />
-      <Services />
-      <Works />
+	return (
+		<main>
+			<Hero />
+			<Clients />
+			<AboutUs />
+			<Services />
+			<Works />
 
-      <HowWeWorks />
-      <Cta />
-    </main>
-  );
+			<HowWeWorks />
+			<Cta />
+		</main>
+	);
 }

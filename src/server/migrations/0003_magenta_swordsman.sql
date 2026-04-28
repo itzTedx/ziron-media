@@ -1,1 +1,0 @@
-ALTER TABLE "tags" ADD COLUMN "createdAt" timestamp DEFAULT now();

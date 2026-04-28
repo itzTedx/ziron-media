@@ -10,26 +10,26 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const action = createSafeActionClient();
 
 export const sendEnquiry = action
-  .schema(enquirySchema)
-  .action(async ({ parsedInput }) => {
-    await sendEnquiryToEmail(parsedInput);
-    return { success: parsedInput };
-  });
+	.schema(enquirySchema)
+	.action(async ({ parsedInput }) => {
+		await sendEnquiryToEmail(parsedInput);
+		return { success: parsedInput };
+	});
 
 async function sendEnquiryToEmail(values: zEnquirySchema) {
-  const { name, email } = values;
+	const { name, email } = values;
 
-  const { data, error } = await resend.emails.send({
-    from: "Enquiry <enquiry@zironmedia.com>",
-    replyTo: email,
-    to: "ashikh@zironmedia.com",
-    subject: `Enquiry from ${name} - Ad Campaign`,
-    react: EnquiryTemplate({ data: values }),
-  });
+	const { data, error } = await resend.emails.send({
+		from: "Enquiry <enquiry@zironmedia.com>",
+		replyTo: email,
+		to: "ashikh@zironmedia.com",
+		subject: `Enquiry from ${name} - Ad Campaign`,
+		react: EnquiryTemplate({ data: values }),
+	});
 
-  if (error) {
-    console.log(error);
-  }
+	if (error) {
+		console.log(error);
+	}
 
-  return data;
+	return data;
 }

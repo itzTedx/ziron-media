@@ -7,14 +7,14 @@ import MDXContent from "@/components/mdx-content";
 const root = path.join(process.cwd(), "src", "content", "legal");
 
 export default function PrivacyPolicy() {
-  const filePath = path.join(root, `privacy-policy.mdx`);
-  const fileContent = fs.readFileSync(filePath, { encoding: "utf8" });
-  const { content } = matter(fileContent);
-  return (
-    <section className="wrapper">
-      <main className="container prose relative z-10 max-w-7xl md:prose-lg">
-        <MDXContent source={content} />
-      </main>
-    </section>
-  );
+	const filePath = path.join(root, "privacy-policy.mdx");
+	const fileContent = fs.readFileSync(filePath, { encoding: "utf8" });
+	const { content } = matter(fileContent);
+	return (
+		<section className="wrapper">
+			<main className="prose md:prose-lg container relative z-10 max-w-7xl">
+				<MDXContent source={content} />
+			</main>
+		</section>
+	);
 }

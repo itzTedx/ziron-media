@@ -1,0 +1,36 @@
+"use client";
+
+import { OpenPanelComponent } from "@openpanel/nextjs";
+
+import { getOpenPanelScriptSrc } from "@/lib/site-tracking";
+
+export default function OpenPanelProvider({
+	children,
+}: {
+	children: React.ReactNode;
+}) {
+	const apiUrl = process.env.NEXT_PUBLIC_OPENPANEL_API_URL ?? "";
+	const clientId = process.env.NEXT_PUBLIC_OPENPANEL_CLIENT_ID ?? "";
+
+	// Avoid rendering analytics when not configured (e.g. local env without keys)
+	const isConfigured = apiUrl !== "" && clientId !== "";
+
+	return (
+		<>
+			{isConfigured ? (
+				<OpenPanelComponent
+					apiUrl={apiUrl}
+					clientId={clientId}
+					globalProperties={{
+						environment: process.env.NODE_ENV,
+					}}
+					scriptUrl={getOpenPanelScriptSrc()}
+					trackAttributes={true}
+					trackOutgoingLinks={true}
+					trackScreenViews={true}
+				/>
+			) : null}
+			{children}
+		</>
+	);
+}

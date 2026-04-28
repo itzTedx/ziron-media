@@ -1,21 +1,41 @@
 {
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": "always"
-  },
-  "files.associations": {
-    "*.css": "tailwindcss"
-  },
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "cSpell.words": [
-    "Bento",
-    "Cobe",
-    "tabler",
-    "tiktok",
-    "uploadthing",
-    "valverde",
-    "webm",
-    "webp",
-    "Ziron"
-  ]
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.organizeImports.biome": "explicit",
+		"source.fixAll.biome": "explicit"
+	},
+	"editor.defaultFormatter": "biomejs.biome",
+	"files.associations": {
+		"*.css": "tailwindcss"
+	},
+	"tailwindCSS.experimental.configFile": "src/styles/globals.css",
+	"tailwindCSS.experimental.classRegex": [
+		["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+		["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+	],
+
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"cSpell.words": [
+		"Bento",
+		"bprogress",
+		"Carto",
+		"Embla",
+		"gsap",
+		"maplibre",
+		"oklch",
+		"OPENPANEL",
+		"squircle",
+		"styledata",
+		"travelled",
+		"umami",
+		"useCallback",
+		"valverde",
+		"vaul",
+		"Wordmark",
+		"ziron",
+		"zironpro"
+	],
+	"typescript.tsdk": "node_modules\\typescript\\lib"
 }
