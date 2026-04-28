@@ -1,8 +1,9 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
+
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
 
 import { IconCircle } from "@tabler/icons-react";
 import { Play } from "lucide-react";
@@ -15,6 +16,7 @@ import {
 	DialogTitle,
 	DialogTrigger,
 } from "@/components/ui/dialog";
+
 import { cn } from "@/lib/utils";
 
 import { Blob } from "../assets/blob";
@@ -61,24 +63,24 @@ export default function HeroVideoDialog({
 			<Dialog>
 				<DialogTrigger className="group relative z-10 cursor-pointer rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
 					<div
+						className="relative w-full overflow-hidden rounded-2xl"
 						onMouseEnter={() => setIsVideoPlaying(true)}
 						onMouseLeave={() => setIsVideoPlaying(false)}
-						className="relative w-full overflow-hidden rounded-2xl"
 					>
 						<div className="">
 							<Image
-								src={thumbnailSrc}
 								alt={thumbnailAlt!}
-								title={thumbnailAlt!}
-								width={1280}
-								height={640}
-								priority
-								placeholder={blurData ? "blur" : "empty"}
 								blurDataURL={blurData ? blurData : undefined}
-								quality={80}
 								className={cn(
 									"w-full shadow-lg transition-all duration-200 ease-in-out group-hover:brightness-[0.8]"
 								)}
+								height={640}
+								placeholder={blurData ? "blur" : "empty"}
+								priority
+								quality={80}
+								src={thumbnailSrc}
+								title={thumbnailAlt!}
+								width={1280}
 							/>
 						</div>
 
@@ -87,28 +89,30 @@ export default function HeroVideoDialog({
 								"absolute top-1/2 z-10 w-full -translate-y-1/2 transition-opacity delay-200 duration-200 ease-in-out group-hover:brightness-[0.9]",
 								isVideoPlaying ? "opacity-100" : "opacity-0"
 							)}
+							crossOrigin="anonymous"
+							loop
 							muted
+							playsInline
 							ref={videoRef}
 							slot="media"
 							src={videoPlaceholder}
-							loop
-							playsInline
 							title={thumbnailAlt}
-							crossOrigin="anonymous"
 						>
 							<track
 								className="hidden"
 								kind="captions"
+								label="English"
 								src={subtitle} // Replace with the actual path to your captions file
 								srcLang="en"
-								label="English"
 							/>
 						</video>
 						<div className="absolute inset-0 z-20 flex scale-[0.9] items-center justify-center rounded-2xl transition-all duration-200 ease-out group-hover:scale-100">
 							<div className="relative flex size-24 items-center justify-center rounded-full bg-background/10 backdrop-blur-md">
 								<span className="absolute size-28 items-center justify-center rounded-full bg-background/10 backdrop-blur-md" />
 								<div
-									className={`relative flex size-20 scale-100 items-center justify-center rounded-full bg-background shadow-md transition-all duration-200 ease-out group-hover:scale-[1.2]`}
+									className={
+										"relative flex size-20 scale-100 items-center justify-center rounded-full bg-background shadow-md transition-all duration-200 ease-out group-hover:scale-[1.2]"
+									}
 								>
 									<Play
 										className="size-8 scale-100 fill-primary text-primary transition-transform duration-200 ease-out group-hover:scale-105"
@@ -121,7 +125,7 @@ export default function HeroVideoDialog({
 							</div>
 						</div>
 					</div>
-					<Blob className="pointer-events-none absolute left-0 top-1/2 -z-10 -translate-y-1/2 scale-75 select-none md:scale-125" />
+					<Blob className="pointer-events-none absolute top-1/2 left-0 -z-10 -translate-y-1/2 scale-75 select-none md:scale-125" />
 				</DialogTrigger>
 				<DialogContent className="max-w-7xl overflow-hidden p-0 shadow-primary-md md:border-primary">
 					<DialogHeader className="sr-only p-0">
@@ -132,24 +136,24 @@ export default function HeroVideoDialog({
 					<MediaThemeSutro className="w-full">
 						<video
 							autoPlay
-							slot="media"
-							// src={videoSrc}
-							playsInline
 							// title={thumbnailAlt}
 							crossOrigin="anonymous"
+							// src={videoSrc}
+							playsInline
+							slot="media"
 						>
 							<source
+								media="all and (max-width: 480px)"
 								src={videoPlaceholder}
 								type="video/webm"
-								media="all and (max-width: 480px)"
 							/>
 							<source src={videoSrc} type="video/webm" />
 							<track
 								// className="hidden"
 								kind="captions"
+								label="English" // Label for the track
 								src={subtitle} // Replace with the actual path to your captions file
 								srcLang="en" // Specify the language of the captions
-								label="English" // Label for the track
 							/>
 						</video>
 					</MediaThemeSutro>
